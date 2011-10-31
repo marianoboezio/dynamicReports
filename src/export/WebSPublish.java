@@ -46,7 +46,7 @@ public class WebSPublish extends HttpServlet {
         server.setHandler(context);
         context.addServlet(new ServletHolder(new WebSPublish()),"/*");*/
 		System.out.println("http://blooming-sunset-3320.herokuapp.com:"+Integer.valueOf(System.getenv("PORT"))+"/WS/WebS");
-		Endpoint.publish("http://blooming-sunset-3320.herokuapp.com:"+Integer.valueOf(System.getenv("PORT"))+"/WS/WebS",new XmlExportWS());
+		Endpoint.publish("http://blooming-sunset-3320.herokuapp.com:"+Integer.valueOf(System.getenv("PORT"))+"/",new XmlExportWS());
         //server.start();
         //server.join(); 
 		
