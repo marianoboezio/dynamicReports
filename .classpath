@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="lib" path="repo/common-javaflow/common-javaflow/20060411/common-javaflow-20060411.jar"/>
+	<classpathentry kind="lib" path="repo/commons-beanutils/commons-beanutils/1.8.0/commons-beanutils-1.8.0.jar"/>
+	<classpathentry kind="lib" path="repo/commons-collections/commons-collections/2.1.1/commons-collections-2.1.1.jar"/>
+	<classpathentry kind="lib" path="repo/commons-digester/commons-digester/1.7/commons-digester-1.7.jar"/>
+	<classpathentry kind="lib" path="repo/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4.jar"/>
+	<classpathentry kind="lib" path="repo/jasperreports/jasperreports/4.1.2/jasperreports-4.1.2.jar"/>
+	<classpathentry kind="lib" path="repo/xalan/xalan/2.7.1/xalan.jar"/>
+	<classpathentry kind="lib" path="repo/poi/poi/3.6/poi-3.6.jar"/>
+	<classpathentry kind="lib" path="repo/groovy-all/groovy-all/1.7.5/groovy-all-1.7.5.jar"/>
+	<classpathentry kind="lib" path="repo/iText/iText/2.1.7/iText-2.1.7.jar"/>
+	<classpathentry kind="lib" path="repo/servlet/servlet/2.5/servlet-2.5.jar"/>
+	<classpathentry kind="lib" path="C:/jetty-hightide-8.0.1.v20110908/lib/jetty-server-8.0.1.v20110908.jar"/>
+	<classpathentry kind="lib" path="C:/jetty-hightide-8.0.1.v20110908/lib/jetty-servlet-8.0.1.v20110908.jar"/>
+	<classpathentry kind="lib" path="C:/jetty-hightide-8.0.1.v20110908/lib/jetty-util-8.0.1.v20110908.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
