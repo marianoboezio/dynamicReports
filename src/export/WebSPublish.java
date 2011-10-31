@@ -21,7 +21,7 @@ public class WebSPublish extends HttpServlet {
     }*/
 	   
 	public static void main(String[] args) throws Exception {
-		Server server = new Server(Integer.valueOf(System.getenv("PORT")));
+		//Server server = new Server(Integer.valueOf(System.getenv("PORT")));
 		
 		/*HandlerCollection handlerCollection = new HandlerCollection();
 	    server.setHandler(handlerCollection);
@@ -30,14 +30,14 @@ public class WebSPublish extends HttpServlet {
 	    
 	    JettyHttpServerProvider httpServerProv = new JettyHttpServerProvider().setServer(server);*/
 	    
-		Endpoint endpoint = Endpoint.create(new XmlExportWS());
+		//Endpoint endpoint = Endpoint.create(new XmlExportWS());
 		/* ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
         context.setContextPath("/");
         server.setHandler(context);
         context.addServlet(new ServletHolder(new WebSPublish()),"/*");*/
-		endpoint.publish("http://blooming-sunset-3320.herokuapp.com:"+Integer.valueOf(System.getenv("PORT"))+"/WS/WebS",new XmlExportWS());
-        server.start();
-        server.join(); 
+		Endpoint.publish("http://blooming-sunset-3320.herokuapp.com:"+Integer.valueOf(System.getenv("PORT"))+"/WS/WebS",new XmlExportWS());
+        //server.start();
+        //server.join(); 
 		
 	}
 }
