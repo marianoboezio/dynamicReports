@@ -1,1 +1,1 @@
-web: sh target/bin/webapp -p $PORT
+web: sh target/bin/webapp

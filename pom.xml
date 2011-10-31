@@ -69,6 +69,11 @@
             <artifactId>jetty-servlet</artifactId>
             <version>7.4.5.v20110725</version>
 		</dependency>
+		<dependency>
+			<groupid>org.mortbay.jetty</groupid>
+			<artifactid>jetty-jaxws2spi</artifactid>
+			<version>7.0.1.v20091125</version>
+		</dependency>
     </dependencies>	
     <name>WS-server</name>
     <build>	

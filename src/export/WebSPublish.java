@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.server.handler.ContextHandlerCollection;
 import org.eclipse.jetty.server.handler.HandlerCollection;
 
 
@@ -21,21 +22,30 @@ public class WebSPublish extends HttpServlet {
     }*/
 	   
 	public static void main(String[] args) throws Exception {
-		//Server server = new Server(Integer.valueOf(System.getenv("PORT")));
+		System.setProperty("com.sun.net.httpserver.HttpServerProvider",
+		        "org.eclipse.jetty.jaxws2spi.JettyHttpServerProvider");
 		
-		/*HandlerCollection handlerCollection = new HandlerCollection();
+		Server server = new Server(Integer.valueOf(System.getenv("PORT")));
+		
+		/*JettyHttpServerProvider().setServer(server); 
+		
+		HandlerCollection serverHandlers = new ContextHandlerCollection();
+		server.setHandler(serverHandlers);
+		
+		server.
+		
+		HandlerCollection handlerCollection = new HandlerCollection();
 	    server.setHandler(handlerCollection);
 	    
 	    String context = "/web/ws";
 	    
-	    JettyHttpServerProvider httpServerProv = new JettyHttpServerProvider().setServer(server);*/
-	    
-		//Endpoint endpoint = Endpoint.create(new XmlExportWS());
-		/* ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
+	    JettyHttpServerProvider httpServerProv = new JettyHttpServerProvider().setServer(server);
+	    Endpoint endpoint = Endpoint.create(new XmlExportWS());
+		ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
         context.setContextPath("/");
         server.setHandler(context);
         context.addServlet(new ServletHolder(new WebSPublish()),"/*");*/
-		Endpoint.publish("http://50.19.237.51:"+Integer.valueOf(System.getenv("PORT"))+"/WS/WebS",new XmlExportWS());
+		Endpoint.publish("http://blooming-sunset-3320.herokuapp.com:"+Integer.valueOf(System.getenv("PORT"))+"/WS/WebS",new XmlExportWS());
         //server.start();
         //server.join(); 
 		
