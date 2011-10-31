@@ -5,7 +5,7 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.servlet.*;
+import org.eclipse.jetty.server.handler.HandlerCollection;
 
 
 public class WebSPublish extends HttpServlet {
@@ -22,11 +22,20 @@ public class WebSPublish extends HttpServlet {
 	   
 	public static void main(String[] args) throws Exception {
 		Server server = new Server(Integer.valueOf(System.getenv("PORT")));
+		
+		/*HandlerCollection handlerCollection = new HandlerCollection();
+	    server.setHandler(handlerCollection);
+	    
+	    String context = "/web/ws";
+	    
+	    JettyHttpServerProvider httpServerProv = new JettyHttpServerProvider().setServer(server);*/
+	    
+		Endpoint endpoint = Endpoint.create(new XmlExportWS());
 		/* ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
         context.setContextPath("/");
         server.setHandler(context);
         context.addServlet(new ServletHolder(new WebSPublish()),"/*");*/
-		Endpoint.publish("http://sharp-light-3461.herokuapp.com:"+Integer.valueOf(System.getenv("PORT"))+"/WS/WebS",new XmlExportWS());
+		endpoint.publish("http://blooming-sunset-3320.herokuapp.com:"+Integer.valueOf(System.getenv("PORT"))+"/WS/WebS",new XmlExportWS());
         server.start();
         server.join(); 
 		
