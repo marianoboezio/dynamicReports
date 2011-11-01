@@ -26,9 +26,9 @@ public class WebSPublish extends HttpServlet {
 		
 		try {			
 			DataHandler dh = tmp.XmlToXls (xml);
-			resp.getWriter().println(dh);
+			//resp.getWriter().println(dh);
 			//dh.writeTo(resp.getOutputStream());			
-			resp.getWriter().println(dh.getInputStream());
+			//resp.getWriter().println(dh.getInputStream());
 			
 			InputStream in = null;
 			byte out[] = null;
