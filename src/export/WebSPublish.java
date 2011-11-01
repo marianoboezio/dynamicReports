@@ -17,8 +17,8 @@ public class WebSPublish extends HttpServlet {
 	
 	@Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {    	
-		Endpoint.publish("http://blooming-sunset-3320.herokuapp.com:"+Integer.valueOf(System.getenv("PORT"))+"/WS/WebS",new XmlExportWS());
+            throws ServletException, IOException {   
+		Endpoint.publish(Integer.valueOf(System.getenv("PORT"))+"/WebS",new XmlExportWS());
     }
 	   
 	public static void main(String[] args) throws Exception {
