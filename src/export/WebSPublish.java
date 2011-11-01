@@ -18,7 +18,7 @@ public class WebSPublish extends HttpServlet {
 	@Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {   
-		Endpoint.publish(Integer.valueOf(System.getenv("PORT"))+"/WebS",new XmlExportWS());
+		Endpoint.publish("/WebS:" + Integer.valueOf(System.getenv("PORT")),new XmlExportWS());
     }
 	   
 	public static void main(String[] args) throws Exception {
