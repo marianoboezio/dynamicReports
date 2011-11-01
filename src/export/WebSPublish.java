@@ -30,7 +30,7 @@ public class WebSPublish extends HttpServlet {
 			resp.getWriter().println("antes del dh");
 			DataHandler dh = tmp.XmlToXls (xml);
 			resp.getWriter().println("desues del dh");
-			resp.getWriter().println(tmp.XmlToXls(xml));
+			resp.getWriter().println(tmp.XmlToXls(xml).getContent().toString());
 			
 			//resp.getWriter().println(dh);
 			//dh.writeTo(resp.getOutputStream());			
