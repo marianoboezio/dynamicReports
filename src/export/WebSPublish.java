@@ -73,7 +73,11 @@ public class WebSPublish extends HttpServlet {
 			} else {
 				out = new byte[0];
 			}
-			
+			//String s = "";
+			for (int i=0; i<in.available(); i++){
+				resp.getWriter().println(out[i]);
+			}
+				
 			resp.getWriter().println(out);
 			
 		} catch (Exception e) {
