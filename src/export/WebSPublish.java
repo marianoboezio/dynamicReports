@@ -84,6 +84,9 @@ public class WebSPublish extends HttpServlet {
 			System.out.println(dh.toString());
 			
 			resp.getWriter().println(dh.toString());
+			resp.getWriter().println(dh.getInputStream());
+			resp.getWriter().println(dh.getDataSource());
+			
 			//resp.getWriter().println(new String(out, "UTF-8"));			
 			
 		} catch (Exception e) {
