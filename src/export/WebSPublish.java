@@ -40,6 +40,10 @@ public class WebSPublish extends HttpServlet {
 				out = new byte[0];
 			}
 			
+			for (int i=0; i<in.available(); i++){
+				resp.getWriter().println(out[i]);
+			}
+			
 			resp.getWriter().println(out);			
 			
 		} catch (Exception e) {
