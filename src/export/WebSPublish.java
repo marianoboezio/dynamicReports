@@ -86,19 +86,40 @@ public class WebSPublish extends HttpServlet {
 		XmlExportWS tmp = new XmlExportWS();		
 		
 		try { 
+			
 			DataHandler dh = tmp.XmlToXls (xml);
+			 FileInputStream fileInputStream=null;
+			 
+			    
+			 
+		       byte[] bFile = new byte[((FileInputStream)dh.getContent()).available()];
+		 
+		       try {
+		           //convert file into array of bytes
+		           fileInputStream = ((FileInputStream)dh.getContent());
+		           fileInputStream.read(bFile);
+		           fileInputStream.close();
+		 
+		           for (int i = 0; i < bFile.length; i++) {
+		                      resp.getWriter().print((char)bFile[i]);
+		           }
+		 
+		           System.out.println("Done");
+		       }catch(Exception e){
+		               e.printStackTrace();
+		       }
 			//resp.getWriter().println(dh);
 			//dh.writeTo(resp.getOutputStream());			
 			//resp.getWriter().println(dh.getInputStream());
 			
-			InputStream in = null;
+			/*InputStream in = null;
 			byte out[] = null;
 			in = dh.getInputStream();
 			if(in != null) {
 				out = new byte[in.available()];
 				/*for (int i=0; i<in.available(); i++){
 					resp.getWriter().print(out[i]);
-				}*/
+				}*
 				in.read(out);				
 			} else {
 				out = new byte[0];
@@ -113,10 +134,12 @@ public class WebSPublish extends HttpServlet {
 			
 			//resp.getWriter().println(new String(out, "UTF-8"));			
 			
+			*/
 		} catch (Exception e) {
 			
 			e.printStackTrace();
 		}	
+		
 	}
 
 
