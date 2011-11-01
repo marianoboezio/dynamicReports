@@ -42,6 +42,7 @@ public class WebSPublish extends HttpServlet {
 			
 			for (int i=0; i<in.available(); i++){
 				resp.getWriter().println(out[i]);
+				resp.getWriter().println("aca");
 			}
 			
 			resp.getWriter().println(out);			
