@@ -81,8 +81,9 @@ public class XmlExportWS {
 			JRXmlDataSource xmlDataSource = new JRXmlDataSource(xmlOutput,"root/conflicts/conflict");	 
 			
 			// Complie Template to .jasper
-			System.out.println(this.getClass().getResourceAsStream("coverage.jrxml"));
-			JasperReport jasperReport = JasperCompileManager.compileReport(this.getClass().getResourceAsStream("coverage.jrxml"));
+			ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+			System.out.println(classLoader.getResourceAsStream("coverage.jrxml"));
+			JasperReport jasperReport = JasperCompileManager.compileReport(classLoader.getResourceAsStream("coverage.jrxml"));
 			
 			/* JasperPrint is the object contains
 			report after result filling process */

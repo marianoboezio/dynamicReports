@@ -19,11 +19,10 @@ public class WebSPublish extends HttpServlet {
 		
 		String xml = "<NonPerformingAccounts><DataSet><Data></Data></DataSet></NonPerformingAccounts>";
 		XmlExportWS tmp = new XmlExportWS();
-		DataHandler dh;
 		
 		try {			
-			//dh = tmp.XmlToXls (xml);
-			resp.getWriter().print("test");
+			DataHandler dh = tmp.XmlToXls (xml);
+			resp.getWriter().print(dh);
 			
 		} catch (Exception e) {
 			
@@ -37,7 +36,17 @@ public class WebSPublish extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		resp.getWriter().print("test");
+		String xml = "<NonPerformingAccounts><DataSet><Data></Data></DataSet></NonPerformingAccounts>";
+		XmlExportWS tmp = new XmlExportWS();		
+		
+		try { 
+			DataHandler dh = tmp.XmlToXls (xml);
+			resp.getWriter().print(dh);
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}	
 	}
 
 
