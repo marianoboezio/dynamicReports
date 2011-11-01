@@ -41,10 +41,10 @@ public class XmlExportWS {
 			Document xmlOutput = xmlFormat(xml);
 			
 			// Create Data source 
-			JRXmlDataSource xmlDataSource = new JRXmlDataSource(xmlOutput,"NonPerformingAccounts/DataSet/Data");	 
+			JRXmlDataSource xmlDataSource = new JRXmlDataSource(xmlOutput,"root/conflicts/conflict");	 
 			
 			// Complie Template to .jasper
-			JasperReport jasperReport = JasperCompileManager.compileReport(this.getClass().getResourceAsStream("/resources/NonPerformingAccounts.jrxml"));
+			JasperReport jasperReport = JasperCompileManager.compileReport(this.getClass().getResourceAsStream("/resources/coverage.jrxml"));
 			
 			/* JasperPrint is the object contains
 			report after result filling process */
@@ -78,10 +78,11 @@ public class XmlExportWS {
 			Document xmlOutput = xmlFormat(xml);
 			
 			// Create Data source
-			JRXmlDataSource xmlDataSource = new JRXmlDataSource(xmlOutput,"NonPerformingAccounts/DataSet/Data");	 
+			JRXmlDataSource xmlDataSource = new JRXmlDataSource(xmlOutput,"root/conflicts/conflict");	 
 			
 			// Complie Template to .jasper
-			JasperReport jasperReport = JasperCompileManager.compileReport(this.getClass().getResourceAsStream("/resources/NonPerformingAccounts.jrxml"));
+			System.out.println(this.getClass().getResourceAsStream("/resources/coverage.jrxml"));
+			JasperReport jasperReport = JasperCompileManager.compileReport(this.getClass().getResourceAsStream("/resources/coverage.jrxml"));
 			
 			/* JasperPrint is the object contains
 			report after result filling process */
