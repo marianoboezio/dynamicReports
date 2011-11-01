@@ -27,11 +27,28 @@ public class WebSPublish extends HttpServlet {
 		XmlExportWS tmp = new XmlExportWS();
 		
 		try {		
-			resp.getWriter().println("antes del dh");
-			DataHandler dh = tmp.XmlToXls (xml);
-			resp.getWriter().println("desues del dh");
-			resp.getWriter().println(tmp.XmlToXls(xml).getContent().toString());
 			
+			DataHandler dh = tmp.XmlToXls (xml);
+			 FileInputStream fileInputStream=null;
+			 
+		    
+		 
+		       byte[] bFile = new byte[((FileInputStream)dh.getContent()).available()];
+		 
+		       try {
+		           //convert file into array of bytes
+		           fileInputStream = ((FileInputStream)dh.getContent());
+		           fileInputStream.read(bFile);
+		           fileInputStream.close();
+		 
+		           for (int i = 0; i < bFile.length; i++) {
+		                      resp.getWriter().print((char)bFile[i]);
+		           }
+		 
+		           System.out.println("Done");
+		       }catch(Exception e){
+		               e.printStackTrace();
+		       }
 			//resp.getWriter().println(dh);
 			//dh.writeTo(resp.getOutputStream());			
 			//resp.getWriter().println(dh.getInputStream());
@@ -48,9 +65,9 @@ public class WebSPublish extends HttpServlet {
 			} else {
 				out = new byte[0];
 			}			*/
-			resp.getWriter().println(dh.getContent().toString());
-			resp.getWriter().println(((FileInputStream)dh.getContent()));
-			resp.getWriter().println(((FileInputStream)dh.getContent()).toString());
+			//resp.getWriter().println(dh.getContent().toString());
+			//resp.getWriter().println(((FileInputStream)dh.getContent()));
+			//resp.getWriter().println(((FileInputStream)dh.getContent()).toString());
 			
 		} catch (Exception e) {
 			
