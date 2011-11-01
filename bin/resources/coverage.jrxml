@@ -37,7 +37,7 @@
 		<band height="78" splitType="Stretch">
 			<image>
 				<reportElement x="0" y="24" width="174" height="35"/>
-				<imageExpression><![CDATA["C:\\Users\\Marina\\Downloads\\codestreet_logo.jpg"]]></imageExpression>
+				<imageExpression><![CDATA["codestreet_logo.jpg"]]></imageExpression>
 			</image>
 		</band>
 	</title>
