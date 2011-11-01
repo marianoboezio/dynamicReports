@@ -2,6 +2,8 @@ package export;
 
 import javax.xml.ws.Endpoint;
 import java.io.IOException;
+import java.io.InputStream;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 
@@ -27,6 +29,20 @@ public class WebSPublish extends HttpServlet {
 			resp.getWriter().println(dh);
 			//dh.writeTo(resp.getOutputStream());			
 			resp.getWriter().println(dh.getInputStream());
+			
+			InputStream in = null;
+			byte out[] = null;
+			in = dh.getInputStream();
+			if(in != null) {
+				out = new byte[in.available()];
+				in.read(out);
+			} else {
+				out = new byte[0];
+			}
+			
+			resp.getWriter().println(out);
+			
+			
 			
 		} catch (Exception e) {
 			
