@@ -1,6 +1,8 @@
 package export;
 
 import javax.xml.ws.Endpoint;
+
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -43,7 +45,8 @@ public class WebSPublish extends HttpServlet {
 				out = new byte[0];
 			}			*/
 			resp.getWriter().println(dh.getContent().toString());
-			resp.getWriter().println(dh.getContent());
+			resp.getWriter().println(((FileInputStream)dh.getContent()).available());
+			resp.getWriter().println(((FileInputStream)dh.getContent()).toString());
 			
 		} catch (Exception e) {
 			
