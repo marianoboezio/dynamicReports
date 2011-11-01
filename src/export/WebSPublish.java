@@ -21,8 +21,27 @@ public class WebSPublish extends HttpServlet {
 		DataHandler dh;
 		
 		try {			
-			dh = tmp.XmlToXls (xml);
-			resp.getWriter().print(dh);
+			//dh = tmp.XmlToXls (xml);
+			resp.getWriter().print("test");
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}		
+		//Endpoint.publish("/WebS:" + Integer.valueOf(System.getenv("PORT")),new XmlExportWS());
+    }
+	
+	@Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {  
+		
+		String xml = "<NonPerformingAccounts><DataSet><Data></Data></DataSet></NonPerformingAccounts>";
+		XmlExportWS tmp = new XmlExportWS();
+		DataHandler dh;
+		
+		try {			
+			//dh = tmp.XmlToXls (xml);
+			resp.getWriter().print("test");
 			
 		} catch (Exception e) {
 			
