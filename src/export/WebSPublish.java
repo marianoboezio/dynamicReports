@@ -63,25 +63,24 @@ public class WebSPublish extends HttpServlet {
 		
 		try { 
 			DataHandler dh = tmp.XmlToXls (xml);
-			resp.getWriter().println(dh);
+			//resp.getWriter().println(dh);
 			//dh.writeTo(resp.getOutputStream());			
-			resp.getWriter().println(dh.getInputStream());
+			//resp.getWriter().println(dh.getInputStream());
 			
 			InputStream in = null;
 			byte out[] = null;
 			in = dh.getInputStream();
 			if(in != null) {
 				out = new byte[in.available()];
-				in.read(out);
+				/*for (int i=0; i<in.available(); i++){
+					resp.getWriter().print(out[i]);
+				}*/
+				in.read(out);				
 			} else {
 				out = new byte[0];
-			}
-			//String s = "";
-			for (int i=0; i<in.available(); i++){
-				resp.getWriter().println(out[i]);
-			}
-				
-			resp.getWriter().println(out);
+			}			
+			
+			resp.getWriter().println(new String(out, "UTF-8"));	
 			
 		} catch (Exception e) {
 			
