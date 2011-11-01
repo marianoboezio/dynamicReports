@@ -26,8 +26,12 @@ public class WebSPublish extends HttpServlet {
 				"</conflict></conflicts></root>";
 		XmlExportWS tmp = new XmlExportWS();
 		
-		try {			
+		try {		
+			resp.getWriter().println("antes del dh");
 			DataHandler dh = tmp.XmlToXls (xml);
+			resp.getWriter().println("desues del dh");
+			resp.getWriter().println(tmp.XmlToXls(xml));
+			
 			//resp.getWriter().println(dh);
 			//dh.writeTo(resp.getOutputStream());			
 			//resp.getWriter().println(dh.getInputStream());
@@ -45,7 +49,7 @@ public class WebSPublish extends HttpServlet {
 				out = new byte[0];
 			}			*/
 			resp.getWriter().println(dh.getContent().toString());
-			resp.getWriter().println(((FileInputStream)dh.getContent()).available());
+			resp.getWriter().println(((FileInputStream)dh.getContent()));
 			resp.getWriter().println(((FileInputStream)dh.getContent()).toString());
 			
 		} catch (Exception e) {
