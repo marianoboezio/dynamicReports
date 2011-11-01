@@ -29,12 +29,12 @@ import javax.xml.ws.soap.MTOM;
 import javax.activation.DataHandler;
 import javax.activation.FileDataSource;
 
-@MTOM
-@WebService(endpointInterface = "export.WebS")
+//@MTOM
+//@WebService(endpointInterface = "export.WebS")
 public class XmlExportWS {
 		
-	@WebMethod
-	public DataHandler XmlToPdf(@WebParam(name = "xml") String xml) throws FileNotFoundException, JRException {	
+	//@WebMethod
+	public DataHandler XmlToPdf(/*@WebParam(name = "xml")*/ String xml) throws FileNotFoundException, JRException {	
 			
 		try {		
 			
@@ -71,8 +71,8 @@ public class XmlExportWS {
 		
 	};
 	
-	@WebMethod
-	public DataHandler XmlToXls (@WebParam(name = "xml") String xml) throws FileNotFoundException, JRException {  
+	//@WebMethod
+	public DataHandler XmlToXls (String xml) throws FileNotFoundException, JRException {  
 		
 		try {			
 			Document xmlOutput = xmlFormat(xml);
