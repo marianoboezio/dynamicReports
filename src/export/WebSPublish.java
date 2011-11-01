@@ -4,6 +4,7 @@ import javax.xml.ws.Endpoint;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
+
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
@@ -31,19 +32,16 @@ public class WebSPublish extends HttpServlet {
 		//Endpoint.publish("/WebS:" + Integer.valueOf(System.getenv("PORT")),new XmlExportWS());
     }
 	
-	@Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {  
-			
-		try {			
-			resp.getWriter().print("test");
-			
-		} catch (Exception e) {			
-			e.printStackTrace();
-			
-		}	
-    }
+	
 	   
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		resp.getWriter().print("test");
+	}
+
+
+
 	public static void main(String[] args) throws Exception {
 		
 		Server server = new Server(Integer.valueOf(System.getenv("PORT")));		
