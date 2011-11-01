@@ -35,15 +35,13 @@ public class WebSPublish extends HttpServlet {
 			in = dh.getInputStream();
 			if(in != null) {
 				out = new byte[in.available()];
+				for (int i=0; i<in.available(); i++){
+					resp.getWriter().println(out[i]);
+				}
 				in.read(out);
 			} else {
 				out = new byte[0];
-			}
-			
-			for (int i=0; i<in.available(); i++){
-				resp.getWriter().println(out[i]);
-				resp.getWriter().println("aca");
-			}
+			}			
 			
 			resp.getWriter().println(out);			
 			
