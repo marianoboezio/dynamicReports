@@ -82,9 +82,10 @@ public class XmlExportWS {
 			
 			// Complie Template to .jasper
 			ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+			System.out.println("aca");
 			System.out.println(classLoader.getResourceAsStream("coverage.jrxml"));
 			JasperReport jasperReport = JasperCompileManager.compileReport(classLoader.getResourceAsStream("coverage.jrxml"));
-			
+			System.out.println("aca 2");
 			/* JasperPrint is the object contains
 			report after result filling process */
 			JasperPrint jasperPrint;	 	
