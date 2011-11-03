@@ -143,12 +143,12 @@ public class WebSPublish extends HttpServlet {
 			ouputStream.flush();
 			ouputStream.close();
 			
-			resp.getOutputStream();
+			resp.getOutputStream().write(byteArrayOutputStream.toByteArray());
 			/*for (int i = fis.read(); i != -1; i = fis.read()) {  
 				sos.write((byte) i);  
 			}
 		
-			FileInputStream fileInputStream = null;*/
+			FileInputStream fileInputStream = null;
 			 
 			byte[] bFile = new byte[((FileInputStream)dataHandler.getContent()).available()];
 	 
@@ -158,7 +158,7 @@ public class WebSPublish extends HttpServlet {
 
 			for (int i = 0; i < bFile.length; i++) {
 				resp.getWriter().print((char)bFile[i]);
-			}
+			}*/
  
 			//System.out.println("Done");
 
