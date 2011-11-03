@@ -134,10 +134,10 @@ public class WebSPublish extends HttpServlet {
 			exporterXls.setParameter(JRExporterParameter.OUTPUT_STREAM,  resp.getOutputStream());//byteArrayOutputStream);
 			exporterXls.exportReport();
 			
-			resp.setContentType("application/vnd.ms-excel");
+			resp.setContentType("application/pdf");
 			//resp.setContentLength(byteArrayOutputStream.toByteArray().length);
 			resp.setHeader("Content-disposition",
-					"attachment;filename=report.xls");
+					"attachment;filename=report.pdf");
 			
 			resp.getOutputStream().flush();
 			resp.getOutputStream().close();
