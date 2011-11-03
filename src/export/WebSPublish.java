@@ -131,19 +131,21 @@ public class WebSPublish extends HttpServlet {
 			// exports to xls file
 			JRXlsExporter exporterXls = new JRXlsExporter ();
 			exporterXls.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
-			exporterXls.setParameter(JRExporterParameter.OUTPUT_STREAM,  byteArrayOutputStream);
+			exporterXls.setParameter(JRExporterParameter.OUTPUT_STREAM,  resp.getOutputStream());//byteArrayOutputStream);
 			exporterXls.exportReport();
 			
 			resp.setContentType("application/vnd.ms-excel");
 			resp.setContentLength(byteArrayOutputStream.toByteArray().length);
 			resp.setHeader("Content-disposition",
 					"attachment;filename=report.xls");
-						
-			ouputStream.write(byteArrayOutputStream.toByteArray());
-			ouputStream.flush();
-			ouputStream.close();
 			
-			resp.getOutputStream().write(byteArrayOutputStream.toByteArray());
+			resp.getOutputStream().flush();
+			resp.getOutputStream().close();
+			/*ouputStream.write(byteArrayOutputStream.toByteArray());
+			ouputStream.flush();
+			ouputStream.close();*/
+			
+			//resp.getOutputStream()//.write(byteArrayOutputStream.toByteArray());
 			/*for (int i = fis.read(); i != -1; i = fis.read()) {  
 				sos.write((byte) i);  
 			}
@@ -158,9 +160,9 @@ public class WebSPublish extends HttpServlet {
 
 			for (int i = 0; i < bFile.length; i++) {
 				resp.getWriter().print((char)bFile[i]);
-			}*/
+			}
  
-			//System.out.println("Done");
+			System.out.println("Done");*/
 
 		} catch (Exception e) {
 			
