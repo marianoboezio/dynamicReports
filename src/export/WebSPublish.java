@@ -131,7 +131,7 @@ public class WebSPublish extends HttpServlet {
 			// exports to xls file
 			JRXlsExporter exporterXls = new JRXlsExporter ();
 			exporterXls.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
-			exporterXls.setParameter(JRExporterParameter.OUTPUT_STREAM, byteArrayOutputStream);
+			exporterXls.setParameter(JRExporterParameter.OUTPUT_STREAM,  resp.getOutputStream());//byteArrayOutputStream);
 			exporterXls.exportReport();
 			
 			resp.setContentType("application/vnd.ms-excel");
@@ -139,10 +139,10 @@ public class WebSPublish extends HttpServlet {
 			resp.setHeader("Content-disposition",
 					"attachment; filename=\report17.xls\"");
 						
-			ServletOutputStream out;
+			/*ServletOutputStream out;
 			out = resp.getOutputStream();
 			out.write(byteArrayOutputStream.toByteArray());
-			/*ouputStream.write(byteArrayOutputStream.toByteArray());
+			ouputStream.write(byteArrayOutputStream.toByteArray());
 			ouputStream.flush();
 			ouputStream.close();
 			
