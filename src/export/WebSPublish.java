@@ -122,10 +122,10 @@ public class WebSPublish extends HttpServlet {
 			// filling report with data from data source
 			jasperPrint = JasperFillManager.fillReport(jasperReport,null,xmlDataSource);
 			
-			File temp = File.createTempFile("report", "");
+			File temp = File.createTempFile("report.xls", "");
 			DataHandler dataHandler = new DataHandler(new FileDataSource(temp));
 			
-			OutputStream ouputStream= new FileOutputStream(File.createTempFile("report", ""));
+			OutputStream ouputStream= new FileOutputStream(File.createTempFile("report.xls", ""));
 			ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
 			
 			// exports to xls file
@@ -134,7 +134,7 @@ public class WebSPublish extends HttpServlet {
 			exporterXls.setParameter(JRExporterParameter.OUTPUT_STREAM,  byteArrayOutputStream);
 			exporterXls.exportReport();
 			
-			resp.setContentType("application/octet-stream");
+			resp.setContentType("application/vnd.ms-excel");
 			//resp.setContentLength(byteArrayOutputStream.toByteArray().length);
 			resp.setHeader("Content-disposition",
 					"attachment;filename=report.xls");
