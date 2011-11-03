@@ -1,6 +1,7 @@
 package export;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
 //import java.io.OutputStream;
@@ -109,7 +110,7 @@ public class XmlExportWS {
             e.printStackTrace();
             return null;
 		}
-	};	
+	}	
 
 	public Document xmlFormat(String input) {
 	    try { 
@@ -121,6 +122,6 @@ public class XmlExportWS {
 	    } catch (Exception e) {
 	        throw new RuntimeException(e); 
 	    }
-	};	
-	
+	}	
+
 }

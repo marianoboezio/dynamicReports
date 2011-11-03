@@ -4,10 +4,13 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.ws.Endpoint;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.StringReader;
 
 import javax.servlet.ServletException;
@@ -118,26 +121,38 @@ public class WebSPublish extends HttpServlet {
 			// filling report with data from data source
 			jasperPrint = JasperFillManager.fillReport(jasperReport,null,xmlDataSource);
 			
-			File temp = File.createTempFile("report", "");
-			DataHandler dataHandler = new DataHandler(new FileDataSource(temp));
+			//File temp = File.createTempFile("report", "");
+			//DataHandler dataHandler = new DataHandler(new FileDataSource(temp));
+			
+			OutputStream ouputStream= new FileOutputStream(File.createTempFile("report", ""));
+			ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
 			
 			// exports to xls file
 			JRXlsExporter exporterXls = new JRXlsExporter ();
 			exporterXls.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
-			exporterXls.setParameter(JRExporterParameter.OUTPUT_STREAM,dataHandler.getOutputStream());
-			exporterXls.exportReport();	
+			exporterXls.setParameter(JRExporterParameter.OUTPUT_STREAM, resp.getOutputStream());//byteArrayOutputStream);
+			exporterXls.exportReport();
+			
+			/*ouputStream.write(byteArrayOutputStream.toByteArray());
+			ouputStream.flush();
+			ouputStream.close();
+			
+			resp.getOutputStream();
+			for (int i = fis.read(); i != -1; i = fis.read()) {  
+				sos.write((byte) i);  
+			}*/
 		
 			//FileInputStream fileInputStream = null;
 			 
-			byte[] bFile = new byte[((FileInputStream)dataHandler.getContent()).available()];
-	 
-			//convert file into array of bytes
-			((FileInputStream) dataHandler.getContent()).read(bFile);
-			((FileInputStream) dataHandler.getContent()).close();
+//			byte[] bFile = new byte[((FileInputStream)dataHandler.getContent()).available()];
+//	 
+//			//convert file into array of bytes
+//			((FileInputStream) dataHandler.getContent()).read(bFile);
+//			((FileInputStream) dataHandler.getContent()).close();
  
-			for (int i = 0; i < bFile.length; i++) {
-				resp.getWriter().print((char)bFile[i]);
-			}
+//			for (int i = 0; i < bFile.length; i++) {
+//				resp.getWriter().print((char)bFile[i]);
+//			}
  
 			//System.out.println("Done");
 
