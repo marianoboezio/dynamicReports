@@ -64,6 +64,9 @@ public class WebSPublish extends HttpServlet {
 		           for (int i = 0; i < bFile.length; i++) {
 		                      resp.getWriter().print((char)bFile[i]);
 		           }
+		           resp.setContentType("application/vnd.ms-excel");
+				   resp.setHeader("Content-Disposition",
+							 "attachment; filename=report.xls");
 		 
 		           System.out.println("Done");
 		       }catch(Exception e){
@@ -128,24 +131,27 @@ public class WebSPublish extends HttpServlet {
 			OutputStream ouputStream= new FileOutputStream(File.createTempFile("report.xls", ""));
 			ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
 			
+			resp.setContentType("application/vnd.ms-excel");
+			resp.setHeader("Content-Disposition",
+					 "attachment; filename=report.xls");
+			
 			// exports to xls file
 			JRXlsExporter exporterXls = new JRXlsExporter ();
 			exporterXls.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
 			exporterXls.setParameter(JRExporterParameter.OUTPUT_STREAM,  resp.getOutputStream());//byteArrayOutputStream);
-			exporterXls.exportReport();
+			exporterXls.exportReport();			
 			
-			resp.setContentType("application/xls");
-			//resp.setContentLength(byteArrayOutputStream.toByteArray().length);
-			resp.setHeader("Content-disposition",
-					"attachment;filename=report.xls");
+			//resp.setContentLength(byteArrayOutputStream.toByteArray().length);			
 			
 			resp.getOutputStream().flush();
-			resp.getOutputStream().close();
+			resp.getOutputStream().close();			
+			
+			resp.getOutputStream().write(byteArrayOutputStream.toByteArray());
+			
 			/*ouputStream.write(byteArrayOutputStream.toByteArray());
 			ouputStream.flush();
 			ouputStream.close();*/
 			
-			//resp.getOutputStream()//.write(byteArrayOutputStream.toByteArray());
 			/*for (int i = fis.read(); i != -1; i = fis.read()) {  
 				sos.write((byte) i);  
 			}
