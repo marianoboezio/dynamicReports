@@ -118,26 +118,27 @@ public class WebSPublish extends HttpServlet {
 		// filling report with data from data source
 		jasperPrint = JasperFillManager.fillReport(jasperReport,null,xmlDataSource);
 		
-		File temp = File.createTempFile("report.xls", "");
-		DataHandler dataHandler = new DataHandler(new FileDataSource(temp));
+		//File temp = File.createTempFile("report.xls", "");
+		//DataHandler dataHandler = new DataHandler(new FileDataSource(temp));
 		
-		OutputStream ouputStream= new FileOutputStream(File.createTempFile("report.xls", ""));
-		ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+		//OutputStream ouputStream= new FileOutputStream(File.createTempFile("report.xls", ""));
+		//ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
 		
 		resp.setContentType("application/vnd.ms-excel");
 		resp.setHeader("Content-Disposition",
 				 "attachment; filename=report.xls");
 		
+		ServletOutputStream out = resp.getOutputStream();
 		// exports to xls file
 		JRXlsExporter exporterXls = new JRXlsExporter ();
 		exporterXls.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
-		exporterXls.setParameter(JRExporterParameter.OUTPUT_STREAM,  byteArrayOutputStream);
+		exporterXls.setParameter(JRExporterParameter.OUTPUT_STREAM,  out);//byteArrayOutputStream);
 		exporterXls.exportReport();
 		
-		resp.getOutputStream().write(byteArrayOutputStream.toByteArray());
+		//resp.getOutputStream().write(byteArrayOutputStream.toByteArray());
 		
-		resp.getOutputStream().flush();
-		resp.getOutputStream().close();
+		//resp.getOutputStream().flush();
+		//resp.getOutputStream().close();
 			
 		} catch (Exception e) {
 			
