@@ -131,8 +131,10 @@ public class WebSPublish extends HttpServlet {
 		// exports to xls file
 		JRXlsExporter exporterXls = new JRXlsExporter ();
 		exporterXls.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
-		exporterXls.setParameter(JRExporterParameter.OUTPUT_STREAM,  resp.getOutputStream());//byteArrayOutputStream);
+		exporterXls.setParameter(JRExporterParameter.OUTPUT_STREAM,  byteArrayOutputStream);
 		exporterXls.exportReport();
+		
+		resp.getOutputStream().write(byteArrayOutputStream.toByteArray());
 		
 		resp.getOutputStream().flush();
 		resp.getOutputStream().close();
@@ -183,15 +185,15 @@ public class WebSPublish extends HttpServlet {
 			// exports to xls file
 			JRXlsExporter exporterXls = new JRXlsExporter ();
 			exporterXls.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
-			exporterXls.setParameter(JRExporterParameter.OUTPUT_STREAM,  resp.getOutputStream());//byteArrayOutputStream);
+			exporterXls.setParameter(JRExporterParameter.OUTPUT_STREAM,  byteArrayOutputStream);
 			exporterXls.exportReport();			
 			
 			//resp.setContentLength(byteArrayOutputStream.toByteArray().length);			
-			
+			resp.getOutputStream().write(byteArrayOutputStream.toByteArray());
 			resp.getOutputStream().flush();
 			resp.getOutputStream().close();			
 			
-			resp.getOutputStream().write(byteArrayOutputStream.toByteArray());
+			
 			
 			/*ouputStream.write(byteArrayOutputStream.toByteArray());
 			ouputStream.flush();
