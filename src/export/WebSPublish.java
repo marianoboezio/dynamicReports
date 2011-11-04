@@ -97,7 +97,7 @@ public class WebSPublish extends HttpServlet {
 	String xml = "<root><User>Travis Brooks 85.19 % Coverage Conflict</User><conflicts><conflict><acount> Ag Workers Ins Grp </acount><ccoverage> Y </ccoverage>" +
 				"<eemployee> O Hennesey, Edward </eemployee><productt> US-HG </productt><productionytd> $197025.91 </productionytd><prospectiveEmpR></prospectiveEmpR><exitingEmpR></exitingEmpR>"+			
 				"</conflict></conflicts></root>";
-	XmlExportWS tmp = new XmlExportWS();		
+	//XmlExportWS tmp = new XmlExportWS();		
 	
 	try { 
 		
@@ -108,7 +108,6 @@ public class WebSPublish extends HttpServlet {
 		
 		// Complie Template to .jasper
 		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-		System.out.println(classLoader.getResourceAsStream("coverage.jrxml"));
 		JasperReport jasperReport = JasperCompileManager.compileReport(classLoader.getResourceAsStream("coverage.jrxml"));
 
 		/* JasperPrint is the object contains
@@ -140,9 +139,9 @@ public class WebSPublish extends HttpServlet {
 		//resp.getOutputStream().flush();
 		//resp.getOutputStream().close();
 			
-		} catch (Exception e) {
-			
+		} catch (Exception e) {			
 			e.printStackTrace();
+			
 		}		
     }
 	
