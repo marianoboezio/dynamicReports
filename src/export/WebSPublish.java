@@ -41,34 +41,37 @@ public class WebSPublish extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {  
 		
-		String xml = "<root><User>Travis Brooks 85.19 % Coverage Conflict</User><conflicts><conflict><acount> Ag Workers Ins Grp </acount><ccoverage> Y </ccoverage>" +
+		/*String xml = "<root><User>Travis Brooks 85.19 % Coverage Conflict</User><conflicts><conflict><acount> Ag Workers Ins Grp </acount><ccoverage> Y </ccoverage>" +
 				"<eemployee> O Hennesey, Edward </eemployee><productt> US-HG </productt><productionytd> $197025.91 </productionytd><prospectiveEmpR></prospectiveEmpR><exitingEmpR></exitingEmpR>"+			
 				"</conflict></conflicts></root>";
 		XmlExportWS tmp = new XmlExportWS();
 		
 		try {		
 			
-			DataHandler dh = tmp.XmlToXls (xml);
-			 FileInputStream fileInputStream=null;
+			 DataHandler dh = tmp.XmlToXls (xml);
+			 //FileInputStream fileInputStream = null;
 			 
 		    
 		 
-		       byte[] bFile = new byte[((FileInputStream)dh.getContent()).available()];
+		       //byte[] bFile = new byte[((FileInputStream)dh.getContent()).available()];
 		 
 		       try {
 		           //convert file into array of bytes
-		           fileInputStream = ((FileInputStream)dh.getContent());
-		           fileInputStream.read(bFile);
-		           fileInputStream.close();
+		           //fileInputStream = ((FileInputStream)dh.getContent());
+		           //fileInputStream.read(bFile);
+		           //fileInputStream.close();
 		 
-		           for (int i = 0; i < bFile.length; i++) {
-		                      resp.getWriter().print((char)bFile[i]);
-		           }
+		           //for (int i = 0; i < bFile.length; i++) {
+		             //         resp.getWriter().print((char)bFile[i]);
+		           //}
 		           resp.setContentType("application/vnd.ms-excel");
 				   resp.setHeader("Content-Disposition",
 							 "attachment; filename=report.xls");
-		 
+				   
+				   OutputStream ouputStream = dh.getOutputStream();
+				   resp.getOutputStream().write(b);
 		           System.out.println("Done");
+		           
 		       }catch(Exception e){
 		               e.printStackTrace();
 		       }
@@ -90,7 +93,46 @@ public class WebSPublish extends HttpServlet {
 			}			*/
 			//resp.getWriter().println(dh.getContent().toString());
 			//resp.getWriter().println(((FileInputStream)dh.getContent()));
-			//resp.getWriter().println(((FileInputStream)dh.getContent()).toString());
+			//resp.getWriter().println(((FileInputStream)dh.getContent()).toString());*/
+	String xml = "<root><User>Travis Brooks 85.19 % Coverage Conflict</User><conflicts><conflict><acount> Ag Workers Ins Grp </acount><ccoverage> Y </ccoverage>" +
+				"<eemployee> O Hennesey, Edward </eemployee><productt> US-HG </productt><productionytd> $197025.91 </productionytd><prospectiveEmpR></prospectiveEmpR><exitingEmpR></exitingEmpR>"+			
+				"</conflict></conflicts></root>";
+	XmlExportWS tmp = new XmlExportWS();		
+	
+	try { 
+		
+		Document xmlOutput = xmlFormat(xml);
+		
+		// Create Data source
+		JRXmlDataSource xmlDataSource = new JRXmlDataSource(xmlOutput, "root/conflicts/conflict");	 
+		
+		// Complie Template to .jasper
+		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+		System.out.println(classLoader.getResourceAsStream("coverage.jrxml"));
+		JasperReport jasperReport = JasperCompileManager.compileReport(classLoader.getResourceAsStream("coverage.jrxml"));
+
+		/* JasperPrint is the object contains
+		report after result filling process */
+		JasperPrint jasperPrint;	 	
+		
+		// filling report with data from data source
+		jasperPrint = JasperFillManager.fillReport(jasperReport,null,xmlDataSource);
+		
+		File temp = File.createTempFile("report.xls", "");
+		DataHandler dataHandler = new DataHandler(new FileDataSource(temp));
+		
+		OutputStream ouputStream= new FileOutputStream(File.createTempFile("report.xls", ""));
+		ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+		
+		resp.setContentType("application/vnd.ms-excel");
+		resp.setHeader("Content-Disposition",
+				 "attachment; filename=report.xls");
+		
+		// exports to xls file
+		JRXlsExporter exporterXls = new JRXlsExporter ();
+		exporterXls.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
+		exporterXls.setParameter(JRExporterParameter.OUTPUT_STREAM,  resp.getOutputStream());//byteArrayOutputStream);
+		exporterXls.exportReport();
 			
 		} catch (Exception e) {
 			
