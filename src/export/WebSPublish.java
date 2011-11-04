@@ -133,6 +133,9 @@ public class WebSPublish extends HttpServlet {
 		exporterXls.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
 		exporterXls.setParameter(JRExporterParameter.OUTPUT_STREAM,  resp.getOutputStream());//byteArrayOutputStream);
 		exporterXls.exportReport();
+		
+		resp.getOutputStream().flush();
+		resp.getOutputStream().close();
 			
 		} catch (Exception e) {
 			
