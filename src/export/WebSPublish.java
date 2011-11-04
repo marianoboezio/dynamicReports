@@ -126,8 +126,8 @@ public class WebSPublish extends HttpServlet {
 		resp.setContentType("application/vnd.ms-excel");
 		resp.setHeader("Content-Disposition",
 				 "attachment; filename=report.xls");
-		resp.setHeader("Cache-Control","no-cache"); 
-		resp.setHeader("Pragma","no-cache"); 
+		//resp.setHeader("Cache-Control","no-cache"); 
+		//resp.setHeader("Pragma","no-cache"); 
 		resp.setDateHeader ("Expires", 0);
 		
 		ServletOutputStream out = resp.getOutputStream();
