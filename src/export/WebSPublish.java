@@ -125,7 +125,7 @@ public class WebSPublish extends HttpServlet {
 		
 		resp.setContentType("application/vnd.ms-excel");
 		resp.setHeader("Content-Disposition",
-				 "attachment; filename=report.xls");
+				 "inline; filename=report.xls");
 		
 		ServletOutputStream out = resp.getOutputStream();
 		// exports to xls file
