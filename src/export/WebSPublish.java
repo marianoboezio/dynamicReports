@@ -43,6 +43,8 @@ public class WebSPublish extends HttpServlet {
 	try { 		
 		String xml = req.getParameter("xml");
 		
+		System.out.println(xml);
+		
 		Document xmlOutput = xmlFormat(xml);
 		
 		// Create Data source
