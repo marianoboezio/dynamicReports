@@ -95,8 +95,8 @@ public class WebSPublish extends HttpServlet {
 			//resp.getWriter().println(((FileInputStream)dh.getContent()));
 			//resp.getWriter().println(((FileInputStream)dh.getContent()).toString());*/
 	String xml = "<root><User>Travis Brooks 85.19 % Coverage Conflict</User><conflicts><conflict><acount> Ag Workers Ins Grp </acount><ccoverage> Y </ccoverage>" +
-				"<eemployee> O Hennesey, Edward </eemployee><productt> US-HG </productt><productionytd> $197025.91 </productionytd><prospectiveEmpR></prospectiveEmpR><exitingEmpR></exitingEmpR>"+			
-				"</conflict></conflicts></root>";
+				 "<eemployee> O Hennesey, Edward </eemployee><productt> US-HG </productt><productionytd> $197025.91 </productionytd><prospectiveEmpR></prospectiveEmpR><exitingEmpR></exitingEmpR>"+			
+				 "</conflict></conflicts></root>";
 	//XmlExportWS tmp = new XmlExportWS();		
 	
 	try { 
@@ -142,7 +142,7 @@ public class WebSPublish extends HttpServlet {
 		//resp.getOutputStream().flush();
 		//resp.getOutputStream().close();
 		
-		JasperViewer.viewReport(jasperPrint, false);
+		JasperViewer.viewReport(jasperPrint);
 			
 		} catch (Exception e) {			
 			e.printStackTrace();
