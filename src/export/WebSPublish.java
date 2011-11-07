@@ -24,6 +24,7 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.data.JRXmlDataSource;
 import net.sf.jasperreports.engine.export.JRXlsExporter;
+import net.sf.jasperreports.view.JasperViewer;
 
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
@@ -33,7 +34,6 @@ import org.xml.sax.InputSource;
 
 import javax.activation.DataHandler;
 import javax.activation.FileDataSource;
-
 
 public class WebSPublish extends HttpServlet {
 	
@@ -121,7 +121,7 @@ public class WebSPublish extends HttpServlet {
 		//DataHandler dataHandler = new DataHandler(new FileDataSource(temp));
 		
 		//OutputStream ouputStream= new FileOutputStream(File.createTempFile("report.xls", ""));
-		//ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+		ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
 		
 		resp.setContentType("application/vnd.ms-excel");
 		resp.setHeader("Content-Disposition",
@@ -134,13 +134,15 @@ public class WebSPublish extends HttpServlet {
 		// exports to xls file
 		JRXlsExporter exporterXls = new JRXlsExporter ();
 		exporterXls.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
-		exporterXls.setParameter(JRExporterParameter.OUTPUT_STREAM,  out);//byteArrayOutputStream);
+		exporterXls.setParameter(JRExporterParameter.OUTPUT_STREAM, out);
 		exporterXls.exportReport();
 		
 		//resp.getOutputStream().write(byteArrayOutputStream.toByteArray());
 		
 		//resp.getOutputStream().flush();
 		//resp.getOutputStream().close();
+		
+		JasperViewer.viewReport(jasperPrint, false);
 			
 		} catch (Exception e) {			
 			e.printStackTrace();
