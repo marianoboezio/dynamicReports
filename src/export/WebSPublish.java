@@ -160,7 +160,7 @@ public class WebSPublish extends HttpServlet {
 		Server server = new Server(Integer.valueOf(System.getenv("PORT")));		
 		
 		ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
-        context.setContextPath("/toxls");
+        context.setContextPath("/");
         server.setHandler(context);
         
         context.addServlet(new ServletHolder(new WebSPublish()),"/toxls");
