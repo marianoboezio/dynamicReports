@@ -44,7 +44,7 @@ public class WebSPublish extends HttpServlet {
 		String xml = req.getParameter("xml");
 		
 		System.out.println();System.out.println();
-		System.out.println(req.getParameterNames());
+		System.out.println(req.getParameterNames().toString());
 		System.out.println(req.toString());
 		System.out.println();System.out.println();
 		
