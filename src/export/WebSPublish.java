@@ -47,7 +47,7 @@ public class WebSPublish extends HttpServlet {
 		System.out.println();System.out.println();
 		
 		for (Enumeration e = req.getParameterNames() ; e.hasMoreElements();)
-		       System.out.println(e.nextElement());	
+		       System.out.println(e.nextElement().hashCode());	
 		
 		System.out.println(req.getParameterNames().toString());
 		System.out.println(req.toString());
