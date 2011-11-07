@@ -163,7 +163,7 @@ public class WebSPublish extends HttpServlet {
         context.setContextPath("/");
         server.setHandler(context);
         
-        context.addServlet(new ServletHolder(new WebSPublish()),"/*");
+        context.addServlet(new ServletHolder(new WebSPublish()),"/toxls");
 
         server.start();
         server.join(); 
