@@ -39,9 +39,7 @@ public class WebSPublish extends HttpServlet {
 		
 	String xml = "<root><User>Travis Brooks 85.19 % Coverage Conflict</User><conflicts><conflict><acount> Ag Workers Ins Grp </acount><ccoverage> Y </ccoverage>" +
 				 "<eemployee> O Hennesey, Edward </eemployee><productt> US-HG </productt><productionytd> $197025.91 </productionytd><prospectiveEmpR></prospectiveEmpR><exitingEmpR></exitingEmpR>"+			
-				 "</conflict></conflicts></root>";
-	//XmlExportWS tmp = new XmlExportWS();		
-	
+				 "</conflict></conflicts></root>";	
 	try { 
 		
 		Document xmlOutput = xmlFormat(xml);
@@ -68,12 +66,11 @@ public class WebSPublish extends HttpServlet {
 		
 		resp.setContentType("application/vnd.ms-excel");
 		resp.setHeader("Content-Disposition",
-				 "attachment; filename=report.xls");
-		//resp.setHeader("Cache-Control","no-cache"); 
-		//resp.setHeader("Pragma","no-cache"); 
+				 "attachment; filename=report.xls"); 
 		resp.setDateHeader ("Expires", 0);
 		
 		ServletOutputStream out = resp.getOutputStream();
+		
 		// exports to xls file
 		JRXlsExporter exporterXls = new JRXlsExporter ();
 		exporterXls.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
