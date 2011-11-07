@@ -37,10 +37,11 @@ public class WebSPublish extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException { 		
 		
-	String xml = "<root><User>Travis Brooks 85.19 % Coverage Conflict</User><conflicts><conflict><acount> Ag Workers Ins Grp </acount><ccoverage> Y </ccoverage>" +
+	/*String xml = "<root><User>Travis Brooks 85.19 % Coverage Conflict</User><conflicts><conflict><acount> Ag Workers Ins Grp </acount><ccoverage> Y </ccoverage>" +
 				 "<eemployee> O Hennesey, Edward </eemployee><productt> US-HG </productt><productionytd> $197025.91 </productionytd><prospectiveEmpR></prospectiveEmpR><exitingEmpR></exitingEmpR>"+			
-				 "</conflict></conflicts></root>";	
-	try { 
+				 "</conflict></conflicts></root>";*/	
+	try { 		
+		String xml = req.getParameter("xml");
 		
 		Document xmlOutput = xmlFormat(xml);
 		
@@ -57,12 +58,6 @@ public class WebSPublish extends HttpServlet {
 		
 		// filling report with data from data source
 		jasperPrint = JasperFillManager.fillReport(jasperReport,null,xmlDataSource);
-		
-		//File temp = File.createTempFile("report.xls", "");
-		//DataHandler dataHandler = new DataHandler(new FileDataSource(temp));
-		
-		//OutputStream ouputStream= new FileOutputStream(File.createTempFile("report.xls", ""));
-		ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
 		
 		resp.setContentType("application/vnd.ms-excel");
 		resp.setHeader("Content-Disposition",
@@ -91,8 +86,7 @@ public class WebSPublish extends HttpServlet {
 					"</conflict></conflicts></root>";
 		XmlExportWS tmp = new XmlExportWS();		
 		
-		try { 
-			
+		try { 			
 			Document xmlOutput = xmlFormat(xml);
 			
 			// Create Data source
