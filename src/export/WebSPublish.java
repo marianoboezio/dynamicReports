@@ -2,14 +2,11 @@ package export;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.ws.Endpoint;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.StringReader;
 
@@ -24,7 +21,6 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.data.JRXmlDataSource;
 import net.sf.jasperreports.engine.export.JRXlsExporter;
-import net.sf.jasperreports.view.JasperViewer;
 
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
@@ -39,61 +35,8 @@ public class WebSPublish extends HttpServlet {
 	
 	@Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {  
+            throws ServletException, IOException { 		
 		
-		/*String xml = "<root><User>Travis Brooks 85.19 % Coverage Conflict</User><conflicts><conflict><acount> Ag Workers Ins Grp </acount><ccoverage> Y </ccoverage>" +
-				"<eemployee> O Hennesey, Edward </eemployee><productt> US-HG </productt><productionytd> $197025.91 </productionytd><prospectiveEmpR></prospectiveEmpR><exitingEmpR></exitingEmpR>"+			
-				"</conflict></conflicts></root>";
-		XmlExportWS tmp = new XmlExportWS();
-		
-		try {		
-			
-			 DataHandler dh = tmp.XmlToXls (xml);
-			 //FileInputStream fileInputStream = null;
-			 
-		    
-		 
-		       //byte[] bFile = new byte[((FileInputStream)dh.getContent()).available()];
-		 
-		       try {
-		           //convert file into array of bytes
-		           //fileInputStream = ((FileInputStream)dh.getContent());
-		           //fileInputStream.read(bFile);
-		           //fileInputStream.close();
-		 
-		           //for (int i = 0; i < bFile.length; i++) {
-		             //         resp.getWriter().print((char)bFile[i]);
-		           //}
-		           resp.setContentType("application/vnd.ms-excel");
-				   resp.setHeader("Content-Disposition",
-							 "attachment; filename=report.xls");
-				   
-				   OutputStream ouputStream = dh.getOutputStream();
-				   resp.getOutputStream().write(b);
-		           System.out.println("Done");
-		           
-		       }catch(Exception e){
-		               e.printStackTrace();
-		       }
-			//resp.getWriter().println(dh);
-			//dh.writeTo(resp.getOutputStream());			
-			//resp.getWriter().println(dh.getInputStream());
-			
-			/*InputStream in = null;
-			byte out[] = null;
-			in = dh.getInputStream();
-			if(in != null) {
-				out = new byte[in.available()];
-				/*for (int i=0; i<in.available(); i++){
-					resp.getWriter().print(out[i]);
-				}
-				in.read(out);				
-			} else {
-				out = new byte[0];
-			}			*/
-			//resp.getWriter().println(dh.getContent().toString());
-			//resp.getWriter().println(((FileInputStream)dh.getContent()));
-			//resp.getWriter().println(((FileInputStream)dh.getContent()).toString());*/
 	String xml = "<root><User>Travis Brooks 85.19 % Coverage Conflict</User><conflicts><conflict><acount> Ag Workers Ins Grp </acount><ccoverage> Y </ccoverage>" +
 				 "<eemployee> O Hennesey, Edward </eemployee><productt> US-HG </productt><productionytd> $197025.91 </productionytd><prospectiveEmpR></prospectiveEmpR><exitingEmpR></exitingEmpR>"+			
 				 "</conflict></conflicts></root>";
@@ -136,13 +79,6 @@ public class WebSPublish extends HttpServlet {
 		exporterXls.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
 		exporterXls.setParameter(JRExporterParameter.OUTPUT_STREAM, out);
 		exporterXls.exportReport();
-		
-		//resp.getOutputStream().write(byteArrayOutputStream.toByteArray());
-		
-		//resp.getOutputStream().flush();
-		//resp.getOutputStream().close();
-		
-		JasperViewer.viewReport(jasperPrint);
 			
 		} catch (Exception e) {			
 			e.printStackTrace();
@@ -193,34 +129,9 @@ public class WebSPublish extends HttpServlet {
 			exporterXls.setParameter(JRExporterParameter.OUTPUT_STREAM,  byteArrayOutputStream);
 			exporterXls.exportReport();			
 			
-			//resp.setContentLength(byteArrayOutputStream.toByteArray().length);			
 			resp.getOutputStream().write(byteArrayOutputStream.toByteArray());
 			resp.getOutputStream().flush();
-			resp.getOutputStream().close();			
-			
-			
-			
-			/*ouputStream.write(byteArrayOutputStream.toByteArray());
-			ouputStream.flush();
-			ouputStream.close();*/
-			
-			/*for (int i = fis.read(); i != -1; i = fis.read()) {  
-				sos.write((byte) i);  
-			}
-		
-			FileInputStream fileInputStream = null;
-			 
-			byte[] bFile = new byte[((FileInputStream)dataHandler.getContent()).available()];
-	 
-			//convert file into array of bytes
-			((FileInputStream) dataHandler.getContent()).read(bFile);
-			((FileInputStream) dataHandler.getContent()).close();
-
-			for (int i = 0; i < bFile.length; i++) {
-				resp.getWriter().print((char)bFile[i]);
-			}
- 
-			System.out.println("Done");*/
+			resp.getOutputStream().close();				
 
 		} catch (Exception e) {
 			
@@ -240,75 +151,6 @@ public class WebSPublish extends HttpServlet {
 	        throw new RuntimeException(e); 
 	    }
 	}
-	
-	
-	 /*  
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
-		String xml = "<root><User>Travis Brooks 85.19 % Coverage Conflict</User><conflicts><conflict><acount> Ag Workers Ins Grp </acount><ccoverage> Y </ccoverage>" +
-					"<eemployee> O Hennesey, Edward </eemployee><productt> US-HG </productt><productionytd> $197025.91 </productionytd><prospectiveEmpR></prospectiveEmpR><exitingEmpR></exitingEmpR>"+			
-					"</conflict></conflicts></root>";
-		XmlExportWS tmp = new XmlExportWS();		
-		
-		try { 
-			
-			DataHandler dh = tmp.XmlToXls (xml);
-			 FileInputStream fileInputStream=null;
-			 
-			    
-			 
-		       byte[] bFile = new byte[((FileInputStream)dh.getContent()).available()];
-		 
-		       try {
-		           //convert file into array of bytes
-		           fileInputStream = ((FileInputStream)dh.getContent());
-		           fileInputStream.read(bFile);
-		           fileInputStream.close();
-		 
-		           for (int i = 0; i < bFile.length; i++) {
-		                      resp.getWriter().print((char)bFile[i]);
-		           }
-		 
-		           System.out.println("Done");
-		       }catch(Exception e){
-		               e.printStackTrace();
-		       }
-			//resp.getWriter().println(dh);
-			//dh.writeTo(resp.getOutputStream());			
-			//resp.getWriter().println(dh.getInputStream());
-			
-			/*InputStream in = null;
-			byte out[] = null;
-			in = dh.getInputStream();
-			if(in != null) {
-				out = new byte[in.available()];
-				/*for (int i=0; i<in.available(); i++){
-					resp.getWriter().print(out[i]);
-				}*
-				in.read(out);				
-			} else {
-				out = new byte[0];
-			}			
-			
-			dh.writeTo(resp.getOutputStream());
-			System.out.println(dh.toString());
-			
-			resp.getWriter().println(dh.toString());
-			resp.getWriter().println(dh.getInputStream());
-			resp.getWriter().println(dh.getDataSource());
-			
-			//resp.getWriter().println(new String(out, "UTF-8"));			
-			
-			*
-		} catch (Exception e) {
-			
-			e.printStackTrace();
-		}	
-		
-	}*/
-
-
 
 	public static void main(String[] args) throws Exception {
 		
