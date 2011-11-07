@@ -89,7 +89,7 @@ public class WebSPublish extends HttpServlet {
 		XmlExportWS tmp = new XmlExportWS();		
 		
 		try { 			
-			Document xmlOutput = xmlFormat("PARAMETER HERE ---------------> "xml);
+			Document xmlOutput = xmlFormat("PARAMETER HERE ---------------> " + xml);
 			
 			// Create Data source
 			JRXmlDataSource xmlDataSource = new JRXmlDataSource(xmlOutput, "root/conflicts/conflict");	 
