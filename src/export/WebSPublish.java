@@ -43,6 +43,10 @@ public class WebSPublish extends HttpServlet {
 	try { 		
 		String xml = req.getParameter("xml");
 		
+		System.out.println();System.out.println();
+		System.out.println(req);
+		System.out.println();System.out.println();
+		
 		System.out.println("PARAMETER HERE ---------------> " + xml);
 		
 		Document xmlOutput = xmlFormat(xml);
