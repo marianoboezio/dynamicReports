@@ -50,7 +50,6 @@ public class WebSPublish extends HttpServlet {
 		       System.out.println(e.nextElement());	
 		}
 		
-		//System.out.println(req.getParameterNames().toString());
 		System.out.println(req.toString());
 		System.out.println();System.out.println();
 		
@@ -164,7 +163,7 @@ public class WebSPublish extends HttpServlet {
         context.setContextPath("/");
         server.setHandler(context);
         
-        context.addServlet(new ServletHolder(new WebSPublish()),"/toxls");
+        context.addServlet(new ServletHolder(new WebSPublish()),"/*");
 
         server.start();
         server.join(); 
