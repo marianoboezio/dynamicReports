@@ -9,6 +9,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.StringReader;
+import java.util.Enumeration;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
@@ -44,6 +45,10 @@ public class WebSPublish extends HttpServlet {
 		String xml = req.getParameter("xml");
 		
 		System.out.println();System.out.println();
+		
+		while (req.getParameterNames().hasMoreElements()) {
+			System.out.println(req.getParameterNames().nextElement().toString());
+		}		
 		System.out.println(req.getParameterNames().toString());
 		System.out.println(req.toString());
 		System.out.println();System.out.println();
