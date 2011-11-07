@@ -43,7 +43,7 @@ public class WebSPublish extends HttpServlet {
 	try { 		
 		String xml = req.getParameter("xml");
 		
-		System.out.println(xml);
+		System.out.println("PARAMETER HERE ---------------> " + xml);
 		
 		Document xmlOutput = xmlFormat(xml);
 		
@@ -89,7 +89,7 @@ public class WebSPublish extends HttpServlet {
 		XmlExportWS tmp = new XmlExportWS();		
 		
 		try { 			
-			Document xmlOutput = xmlFormat("PARAMETER HERE ---------------> " + xml);
+			Document xmlOutput = xmlFormat(xml);
 			
 			// Create Data source
 			JRXmlDataSource xmlDataSource = new JRXmlDataSource(xmlOutput, "root/conflicts/conflict");	 
