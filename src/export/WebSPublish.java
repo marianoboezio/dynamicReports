@@ -31,6 +31,7 @@ import org.xml.sax.InputSource;
 
 import javax.activation.DataHandler;
 import javax.activation.FileDataSource;
+import export.Base64;
 
 public class WebSPublish extends HttpServlet {
 	
@@ -44,15 +45,10 @@ public class WebSPublish extends HttpServlet {
 	try { 		
 		String xml = req.getParameter("xml");
 		
-		
-		System.out.println("\n\n\n");
-		
 		for (Enumeration e = req.getParameterNames() ; e.hasMoreElements();) {
-		       System.out.println(e.nextElement());	
-		}
-		
-		System.out.println("\n\n\n" + req.getRequestURL() + "\n" + req.toString() + "\n\n\n");
-		
+		       System.out.println("\n" + e.nextElement());	
+		}		
+		System.out.println("\n\n\n" + req.getRequestURL() + "\n" + req.toString() + "\n\n\n");		
 		System.out.println("PARAMETER HERE ---------------> " + xml);
 		
 		Document xmlOutput = xmlFormat(xml);
@@ -64,6 +60,7 @@ public class WebSPublish extends HttpServlet {
 		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
 		JasperReport jasperReport = JasperCompileManager.compileReport(classLoader.getResourceAsStream("coverage.jrxml"));
 
+		ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
 		/* JasperPrint is the object contains
 		report after result filling process */
 		JasperPrint jasperPrint;	 	
@@ -76,14 +73,16 @@ public class WebSPublish extends HttpServlet {
 				 "attachment; filename=report.xls"); 
 		resp.setDateHeader ("Expires", 0);
 		
-		ServletOutputStream out = resp.getOutputStream();
+		//ServletOutputStream out = resp.getOutputStream();
 		
 		// exports to xls file
 		JRXlsExporter exporterXls = new JRXlsExporter ();
 		exporterXls.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
-		exporterXls.setParameter(JRExporterParameter.OUTPUT_STREAM, out);
-		exporterXls.exportReport();
-			
+		exporterXls.setParameter(JRExporterParameter.OUTPUT_STREAM, byteArrayOutputStream);//out);
+		exporterXls.exportReport();		
+		
+		resp.getOutputStream().write(Base64.encodeBytes(byteArrayOutputStream.toByteArray()).getBytes());
+		
 		} catch (Exception e) {			
 			e.printStackTrace();			
 		}		
