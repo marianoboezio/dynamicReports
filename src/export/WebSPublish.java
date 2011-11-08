@@ -99,6 +99,12 @@ public class WebSPublish extends HttpServlet {
 		try {
 			String xml = req.getParameter("xml");
 			Document xmlOutput = xmlFormat(xml);
+
+			for (Enumeration e = req.getParameterNames() ; e.hasMoreElements();) {
+			       System.out.println("\n" + e.nextElement());	
+			}		
+			System.out.println("\n\n\n" + req.getRequestURL() + "\n" + req.toString() + "\n\n\n");		
+			System.out.println("PARAMETER HERE ---------------> " + xml);
 			
 			// Create Data source
 			JRXmlDataSource xmlDataSource = new JRXmlDataSource(xmlOutput, "root/conflicts/conflict");	 
