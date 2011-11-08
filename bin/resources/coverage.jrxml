@@ -155,7 +155,7 @@
 		<band height="20" splitType="Stretch">
 			<rectangle>
 				<reportElement x="0" y="0" width="802" height="20" backcolor="#FF9999">
-					<printWhenExpression><![CDATA[$F{ccoverage}.contains("Y")]]></printWhenExpression>
+					<printWhenExpression><![CDATA[$F{ccoverage}.contains( "Y" )]]></printWhenExpression>
 				</reportElement>
 				<graphicElement>
 					<pen lineWidth="0.0"/>
