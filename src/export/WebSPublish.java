@@ -44,11 +44,13 @@ public class WebSPublish extends HttpServlet {
 	try { 		
 		String xml = req.getParameter("xml");
 		
+		
 		System.out.println();System.out.println();
 		
 		for (Enumeration e = req.getParameterNames() ; e.hasMoreElements();) {
 		       System.out.println(e.nextElement());	
 		}
+		System.out.println(req.getRequestURL());
 		
 		System.out.println(req.toString());
 		System.out.println();System.out.println();
@@ -85,8 +87,7 @@ public class WebSPublish extends HttpServlet {
 		exporterXls.exportReport();
 			
 		} catch (Exception e) {			
-			e.printStackTrace();
-			
+			e.printStackTrace();			
 		}		
     }
 	
