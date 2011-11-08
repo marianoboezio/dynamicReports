@@ -45,15 +45,13 @@ public class WebSPublish extends HttpServlet {
 		String xml = req.getParameter("xml");
 		
 		
-		System.out.println();System.out.println();
+		System.out.println("\n\n\n");
 		
 		for (Enumeration e = req.getParameterNames() ; e.hasMoreElements();) {
 		       System.out.println(e.nextElement());	
 		}
-		System.out.println(req.getRequestURL());
 		
-		System.out.println(req.toString());
-		System.out.println();System.out.println();
+		System.out.println("\n\n\n" + req.getRequestURL() + "\n" + req.toString() + "\n\n\n");
 		
 		System.out.println("PARAMETER HERE ---------------> " + xml);
 		
