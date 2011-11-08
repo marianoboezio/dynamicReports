@@ -91,12 +91,13 @@ public class WebSPublish extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		String xml = "<root><User>Travis Brooks 85.19 % Coverage Conflict</User><conflicts><conflict><acount> Ag Workers Ins Grp </acount><ccoverage> Y </ccoverage>" +
+		/*String xml = "<root><User>Travis Brooks 85.19 % Coverage Conflict</User><conflicts><conflict><acount> Ag Workers Ins Grp </acount><ccoverage> Y </ccoverage>" +
 					"<eemployee> O Hennesey, Edward </eemployee><productt> US-HG </productt><productionytd> $197025.91 </productionytd><prospectiveEmpR></prospectiveEmpR><exitingEmpR></exitingEmpR>"+			
-					"</conflict></conflicts></root>";
+					"</conflict></conflicts></root>";*/
 		XmlExportWS tmp = new XmlExportWS();		
 		
-		try { 			
+		try {
+			String xml = req.getParameter("xml");
 			Document xmlOutput = xmlFormat(xml);
 			
 			// Create Data source
@@ -130,9 +131,7 @@ public class WebSPublish extends HttpServlet {
 			exporterXls.setParameter(JRExporterParameter.OUTPUT_STREAM,  byteArrayOutputStream);
 			exporterXls.exportReport();			
 			
-			resp.getOutputStream().write(byteArrayOutputStream.toByteArray());
-			resp.getOutputStream().flush();
-			resp.getOutputStream().close();				
+			resp.getOutputStream().write(Base64.encodeBytes(byteArrayOutputStream.toByteArray()).getBytes());			
 
 		} catch (Exception e) {
 			
