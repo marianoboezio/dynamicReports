@@ -30,9 +30,6 @@
 	<field name="exitingEmpR" class="java.lang.String">
 		<fieldDescription><![CDATA[exitingEmpR]]></fieldDescription>
 	</field>
-	<background>
-		<band splitType="Stretch"/>
-	</background>
 	<title>
 		<band height="78" splitType="Stretch">
 			<image>
@@ -250,13 +247,4 @@
 			</textField>
 		</band>
 	</detail>
-	<columnFooter>
-		<band height="45" splitType="Stretch"/>
-	</columnFooter>
-	<pageFooter>
-		<band height="54" splitType="Stretch"/>
-	</pageFooter>
-	<summary>
-		<band height="42" splitType="Stretch"/>
-	</summary>
 </jasperReport>
