@@ -68,7 +68,17 @@
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-servlet</artifactId>
             <version>7.4.5.v20110725</version>
-		</dependency>		
+		</dependency>
+		<dependency>
+            <groupId>wsc</groupId>
+            <artifactId>wsc</artifactId>
+            <version>22</version>
+		</dependency>
+		<dependency>
+            <groupId>partner</groupId>
+            <artifactId>partner</artifactId>
+            <version>18</version>
+		</dependency>
     </dependencies>	
     <name>WS-server</name>
     <build>	

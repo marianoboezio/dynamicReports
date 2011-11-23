@@ -1,0 +1,664 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="NonPerformingAccounts" language="groovy" pageWidth="1190" pageHeight="842" orientation="Landscape" columnWidth="1162" leftMargin="14" rightMargin="14" topMargin="14" bottomMargin="14" isIgnorePagination="true">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\nico\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString language="xPath">
+		<![CDATA[NonPerformingAccounts/DataSet/Data]]>
+	</queryString>
+	<field name="Acount" class="java.lang.String">
+		<fieldDescription><![CDATA[Acount]]></fieldDescription>
+	</field>
+	<field name="Salesperson" class="java.lang.String">
+		<fieldDescription><![CDATA[Salesperson]]></fieldDescription>
+	</field>
+	<field name="NonperformingProducts" class="java.lang.String">
+		<fieldDescription><![CDATA[NonperformingProducts]]></fieldDescription>
+	</field>
+	<field name="CoveredSince" class="java.lang.String">
+		<fieldDescription><![CDATA[CoveredSince]]></fieldDescription>
+	</field>
+	<field name="Rating" class="java.lang.String">
+		<fieldDescription><![CDATA[Rating]]></fieldDescription>
+	</field>
+	<field name="PProductos" class="java.lang.String">
+		<fieldDescription><![CDATA[PProductos]]></fieldDescription>
+	</field>
+	<field name="User" class="java.lang.String">
+		<fieldDescription><![CDATA[/NonPerformingAccounts/User]]></fieldDescription>
+	</field>
+	<field name="US-D" class="java.lang.String">
+		<fieldDescription><![CDATA[US-D]]></fieldDescription>
+	</field>
+	<field name="US-HY" class="java.lang.String">
+		<fieldDescription><![CDATA[US-HY]]></fieldDescription>
+	</field>
+	<field name="EUR-HY" class="java.lang.String">
+		<fieldDescription><![CDATA[EUR-HY]]></fieldDescription>
+	</field>
+	<field name="EUR-D" class="java.lang.String">
+		<fieldDescription><![CDATA[EUR-D]]></fieldDescription>
+	</field>
+	<field name="EUR-LOAN" class="java.lang.String">
+		<fieldDescription><![CDATA[EUR-LOAN]]></fieldDescription>
+	</field>
+	<field name="US-SPG" class="java.lang.String">
+		<fieldDescription><![CDATA[US-SPG]]></fieldDescription>
+	</field>
+	<field name="Asia-HG" class="java.lang.String">
+		<fieldDescription><![CDATA[Asia-HG]]></fieldDescription>
+	</field>
+	<field name="US-LOAN" class="java.lang.String">
+		<fieldDescription><![CDATA[US-LOAN]]></fieldDescription>
+	</field>
+	<field name="Asia" class="java.lang.String">
+		<fieldDescription><![CDATA[Asia]]></fieldDescription>
+	</field>
+	<field name="Asia2" class="java.lang.String">
+		<fieldDescription><![CDATA[Asia2]]></fieldDescription>
+	</field>
+	<field name="CSUS-HY" class="java.lang.String">
+		<fieldDescription><![CDATA[CSUS-HY]]></fieldDescription>
+	</field>
+	<field name="CSUS-D" class="java.lang.String">
+		<fieldDescription><![CDATA[CSUS-D]]></fieldDescription>
+	</field>
+	<field name="YTDUS-HY" class="java.lang.String">
+		<fieldDescription><![CDATA[YTDUS-HY]]></fieldDescription>
+	</field>
+	<field name="CSEUR-HY" class="java.lang.String">
+		<fieldDescription><![CDATA[CSEUR-HY]]></fieldDescription>
+	</field>
+	<field name="YTDEUR-HY" class="java.lang.String">
+		<fieldDescription><![CDATA[YTDEUR-HY]]></fieldDescription>
+	</field>
+	<field name="CSEUR-D" class="java.lang.String">
+		<fieldDescription><![CDATA[CSEUR-D]]></fieldDescription>
+	</field>
+	<field name="YTDEUR-D" class="java.lang.String">
+		<fieldDescription><![CDATA[YTDEUR-D]]></fieldDescription>
+	</field>
+	<field name="CSEUR-LOAN" class="java.lang.String">
+		<fieldDescription><![CDATA[CSEUR-LOAN]]></fieldDescription>
+	</field>
+	<field name="YTDEUR-LOAN" class="java.lang.String">
+		<fieldDescription><![CDATA[YTDEUR-LOAN]]></fieldDescription>
+	</field>
+	<field name="CSAsia-HG" class="java.lang.String">
+		<fieldDescription><![CDATA[CSAsia-HG]]></fieldDescription>
+	</field>
+	<field name="YTDAsia-HG" class="java.lang.String">
+		<fieldDescription><![CDATA[YTDAsia-HG]]></fieldDescription>
+	</field>
+	<field name="CSAsia" class="java.lang.String">
+		<fieldDescription><![CDATA[CSAsia]]></fieldDescription>
+	</field>
+	<field name="YTDAsia" class="java.lang.String">
+		<fieldDescription><![CDATA[YTDAsia]]></fieldDescription>
+	</field>
+	<field name="CSAsia2" class="java.lang.String">
+		<fieldDescription><![CDATA[CSAsia2]]></fieldDescription>
+	</field>
+	<field name="YTDAsia2" class="java.lang.String">
+		<fieldDescription><![CDATA[YTDAsia2]]></fieldDescription>
+	</field>
+	<field name="YTDUS-D" class="java.lang.String">
+		<fieldDescription><![CDATA[YTDUS-D]]></fieldDescription>
+	</field>
+	<field name="CSUS-SPG" class="java.lang.String">
+		<fieldDescription><![CDATA[CSUS-SPG]]></fieldDescription>
+	</field>
+	<field name="YTDUS-SPG" class="java.lang.String">
+		<fieldDescription><![CDATA[YTDUS-SPG]]></fieldDescription>
+	</field>
+	<field name="CSUS-LOAN" class="java.lang.String">
+		<fieldDescription><![CDATA[CSUS-LOAN]]></fieldDescription>
+	</field>
+	<field name="YTDUS-LOAN" class="java.lang.String">
+		<fieldDescription><![CDATA[YTDUS-LOAN]]></fieldDescription>
+	</field>
+	<variable name="variable1" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="47" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="174" height="35"/>
+				<imageExpression><![CDATA["C:\\Users\\nico\\codestreet_logo.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<textField>
+				<reportElement x="8" y="0" width="166" height="35"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{User}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="43" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="249" height="43"/>
+				<box>
+					<pen lineWidth="1.5"/>
+					<topPen lineWidth="1.5"/>
+					<leftPen lineWidth="1.5"/>
+					<bottomPen lineWidth="1.5"/>
+					<rightPen lineWidth="1.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Acount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="249" y="0" width="212" height="43"/>
+				<box>
+					<pen lineWidth="1.5"/>
+					<topPen lineWidth="1.5"/>
+					<leftPen lineWidth="1.5"/>
+					<bottomPen lineWidth="1.5"/>
+					<rightPen lineWidth="1.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Salesperson]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="461" y="0" width="296" height="43"/>
+				<box>
+					<pen lineWidth="1.5"/>
+					<topPen lineWidth="1.5"/>
+					<leftPen lineWidth="1.5"/>
+					<bottomPen lineWidth="1.5"/>
+					<rightPen lineWidth="1.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Product Type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="855" y="0" width="104" height="43"/>
+				<box>
+					<pen lineWidth="1.5"/>
+					<topPen lineWidth="1.5"/>
+					<leftPen lineWidth="1.5"/>
+					<bottomPen lineWidth="1.5"/>
+					<rightPen lineWidth="1.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Covered Since]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="959" y="0" width="203" height="43"/>
+				<box>
+					<pen lineWidth="1.5"/>
+					<topPen lineWidth="1.5"/>
+					<leftPen lineWidth="1.5"/>
+					<bottomPen lineWidth="1.5"/>
+					<rightPen lineWidth="1.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Performing Products]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="757" y="0" width="98" height="43"/>
+				<box>
+					<pen lineWidth="1.5"/>
+					<topPen lineWidth="1.5"/>
+					<leftPen lineWidth="1.5"/>
+					<bottomPen lineWidth="1.5"/>
+					<rightPen lineWidth="1.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Salesperson Rating]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="256">
+			<textField isBlankWhenNull="true">
+				<reportElement x="249" y="0" width="212" height="31"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Salesperson}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="249" height="31"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Acount}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="461" y="0" width="296" height="31"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NonperformingProducts}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="855" y="0" width="104" height="31"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CoveredSince}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="959" y="0" width="203" height="31"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PProductos}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="757" y="0" width="98" height="31"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Rating}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="249" y="53" width="230" height="20" isRemoveLineWhenBlank="true"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{US-D}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="249" y="73" width="230" height="20" isRemoveLineWhenBlank="true"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{US-HY}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="249" y="93" width="230" height="20" isRemoveLineWhenBlank="true"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{EUR-HY}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="249" y="113" width="230" height="20" isRemoveLineWhenBlank="true"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{EUR-D}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="249" y="133" width="230" height="20" isRemoveLineWhenBlank="true"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{EUR-LOAN}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="249" y="153" width="230" height="20" isRemoveLineWhenBlank="true"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{US-SPG}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="249" y="173" width="230" height="20" isRemoveLineWhenBlank="true"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{Asia-HG}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="249" y="193" width="230" height="20" isRemoveLineWhenBlank="true"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{US-LOAN}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="249" y="31" width="230" height="22" isRemoveLineWhenBlank="true"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Product]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="479" y="31" width="278" height="22"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Covered Since]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="757" y="31" width="202" height="22"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[YTD]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="249" y="213" width="230" height="20" isRemoveLineWhenBlank="true"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{Asia}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="249" y="233" width="230" height="20" isRemoveLineWhenBlank="true"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{Asia2}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="479" y="93" width="278" height="20" isRemoveLineWhenBlank="true"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{CSEUR-HY}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="479" y="113" width="278" height="20" isRemoveLineWhenBlank="true"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{CSEUR-D}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="479" y="133" width="278" height="20" isRemoveLineWhenBlank="true"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{CSEUR-LOAN}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="479" y="173" width="278" height="20" isRemoveLineWhenBlank="true"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{CSAsia-HG}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="479" y="213" width="278" height="20" isRemoveLineWhenBlank="true"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{CSAsia}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="479" y="233" width="278" height="20" isRemoveLineWhenBlank="true"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{CSAsia2}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="757" y="73" width="202" height="20" isRemoveLineWhenBlank="true"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{YTDUS-HY}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="757" y="93" width="202" height="20" isRemoveLineWhenBlank="true"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{YTDEUR-HY}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="757" y="113" width="202" height="20" isRemoveLineWhenBlank="true"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{YTDEUR-D}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="757" y="133" width="202" height="20" isRemoveLineWhenBlank="true"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{YTDEUR-LOAN}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="757" y="173" width="202" height="20" isRemoveLineWhenBlank="true"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{YTDAsia-HG}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="757" y="213" width="202" height="20" isRemoveLineWhenBlank="true"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{YTDAsia}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="757" y="233" width="202" height="20" isRemoveLineWhenBlank="true"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{YTDAsia2}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="757" y="53" width="202" height="20" isRemoveLineWhenBlank="true"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{YTDUS-D}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="479" y="153" width="278" height="20" isRemoveLineWhenBlank="true"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{CSUS-SPG}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="757" y="153" width="202" height="20" isRemoveLineWhenBlank="true"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{YTDUS-SPG}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="479" y="193" width="278" height="20" isRemoveLineWhenBlank="true"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{CSUS-LOAN}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="757" y="193" width="202" height="20" isRemoveLineWhenBlank="true"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{YTDUS-LOAN}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="479" y="53" width="278" height="20" isRemoveLineWhenBlank="true"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{CSUS-D}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="479" y="73" width="278" height="20" isRemoveLineWhenBlank="true"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{CSUS-HY}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

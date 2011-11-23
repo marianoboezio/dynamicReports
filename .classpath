@@ -13,8 +13,10 @@
 	<classpathentry kind="lib" path="repo/groovy-all/groovy-all/1.7.5/groovy-all-1.7.5.jar"/>
 	<classpathentry kind="lib" path="repo/iText/iText/2.1.7/iText-2.1.7.jar"/>
 	<classpathentry kind="lib" path="repo/servlet/servlet/2.5/servlet-2.5.jar"/>
-	<classpathentry kind="lib" path="C:/jetty-hightide-8.0.1.v20110908/lib/jetty-server-8.0.1.v20110908.jar"/>
-	<classpathentry kind="lib" path="C:/jetty-hightide-8.0.1.v20110908/lib/jetty-servlet-8.0.1.v20110908.jar"/>
-	<classpathentry kind="lib" path="C:/jetty-hightide-8.0.1.v20110908/lib/jetty-util-8.0.1.v20110908.jar"/>
+	<classpathentry kind="lib" path="repo/partner/partner/18/partner-18.jar"/>
+	<classpathentry kind="lib" path="repo/wsc/wsc/22/wsc-22.jar"/>
+	<classpathentry kind="lib" path="C:/jetty-distribution-8.0.1.v20110908/lib/jetty-server-8.0.1.v20110908.jar"/>
+	<classpathentry kind="lib" path="C:/jetty-distribution-8.0.1.v20110908/lib/jetty-servlet-8.0.1.v20110908.jar"/>
+	<classpathentry kind="lib" path="C:/jetty-distribution-8.0.1.v20110908/lib/jetty-util-8.0.1.v20110908.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
