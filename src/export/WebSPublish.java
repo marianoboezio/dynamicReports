@@ -171,7 +171,7 @@ public class WebSPublish extends HttpServlet {
 		exporterXls.setParameter(JRExporterParameter.OUTPUT_STREAM, byteArrayOutputStream); 
 		exporterXls.exportReport();		
 		
-		System.out.println(Base64.encodeBytes(byteArrayOutputStream.toByteArray()).getBytes());		
+		System.out.println(byteArrayOutputStream.toByteArray());		
 		//resp.getOutputStream().write(Base64.encodeBytes(byteArrayOutputStream.toByteArray()).getBytes());
 		resp.getOutputStream().write(byteArrayOutputStream.toByteArray());
 		System.out.println("######################## Finish ########################");
