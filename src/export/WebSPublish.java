@@ -55,11 +55,11 @@ public class WebSPublish extends HttpServlet {
 	    config.setPassword(PASSWORD);
 	    
 	    connection = Connector.newConnection(config);   
-	    QueryResult queryResults =  connection.query("Select o.Row_HTML__c, o.Object_Export_Excel__c From Object_Row__c o WHERE o.Object_Export_Excel__c = '" + reportID + "'");	
+	    QueryResult queryResults =  connection.query("SELECT o.Row_HTML__c, o.Object_Export_Excel__c FROM Object_Row__c o WHERE o.Object_Export_Excel__c = '" + reportID + "' ORDER BY o.name");	
 	    
 	    System.out.println("######################## START ########################");
 	    
-	    String xml = "<root>";
+	    String xml = "<root>";	
 	    for (SObject s : queryResults.getRecords()) { 
 	    	
 	    	System.out.println("######################## Looping ########################");
@@ -113,8 +113,8 @@ public class WebSPublish extends HttpServlet {
 			jasperPrint = JasperFillManager.fillReport(jasperReport,param,xmlDataSource);
 	    	
 	    } else if (type.equals("productionByBook")){
-	    	JRXmlDataSource xmlDataSource = new JRXmlDataSource(xmlOutput, "root/content");	
-			
+	    	JRXmlDataSource xmlDataSource = new JRXmlDataSource(xmlOutput, "root/ProductionReportBook/Row");	
+	    	System.out.println("###################Book########################");
 			// Complie Template to .jasper
 			ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
 			JasperReport jasperReport = JasperCompileManager.compileReport(classLoader.getResourceAsStream("productionByBook.jrxml"));
@@ -146,7 +146,17 @@ public class WebSPublish extends HttpServlet {
 			// filling report with data from data source
 			jasperPrint = JasperFillManager.fillReport(jasperReport,param,xmlDataSource);
 	    	
-	    }		
+	    } else if (type.equals("coverage")){
+	    	JRXmlDataSource xmlDataSource = new JRXmlDataSource(xmlOutput, "root/conflicts/conflict");	
+			
+			// Complie Template to .jasper
+			ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+			JasperReport jasperReport = JasperCompileManager.compileReport(classLoader.getResourceAsStream("coverage.jrxml"));
+						
+			// filling report with data from data source
+			jasperPrint = JasperFillManager.fillReport(jasperReport,null,xmlDataSource);
+	    	
+	    }			
 		
 		//resp.setContentType("application/vnd.ms-excel");
 		resp.setHeader("content-type","application/vnd.ms-excel#report.xls");
@@ -161,9 +171,10 @@ public class WebSPublish extends HttpServlet {
 		exporterXls.setParameter(JRExporterParameter.OUTPUT_STREAM, byteArrayOutputStream); 
 		exporterXls.exportReport();		
 		
-		System.out.println(Base64.encodeBytes(byteArrayOutputStream.toByteArray()).getBytes());
+		System.out.println(Base64.encodeBytes(byteArrayOutputStream.toByteArray()).getBytes());		
+		//resp.getOutputStream().write(Base64.encodeBytes(byteArrayOutputStream.toByteArray()).getBytes());
+		resp.getOutputStream().write(byteArrayOutputStream.toByteArray());
 		System.out.println("######################## Finish ########################");
-		resp.getOutputStream().write(Base64.encodeBytes(byteArrayOutputStream.toByteArray()).getBytes());
 		
 		} catch (Exception e) {			
 			e.printStackTrace();			

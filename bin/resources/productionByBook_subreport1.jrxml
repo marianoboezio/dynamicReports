@@ -5,19 +5,19 @@
 	<property name="ireport.y" value="0"/>
 	<parameter name="SubReportParam2" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
 	<queryString language="xPath">
-		<![CDATA[root/content/book]]>
+		<![CDATA[root/ProductionReportBook/Row/Book]]>
 	</queryString>
 	<field name="name" class="java.lang.String">
-		<fieldDescription><![CDATA[name]]></fieldDescription>
+		<fieldDescription><![CDATA[Name]]></fieldDescription>
 	</field>
 	<field name="awtd" class="java.lang.String">
-		<fieldDescription><![CDATA[awtd]]></fieldDescription>
+		<fieldDescription><![CDATA[WTD]]></fieldDescription>
 	</field>
 	<field name="amtd" class="java.lang.String">
-		<fieldDescription><![CDATA[amtd]]></fieldDescription>
+		<fieldDescription><![CDATA[MTD]]></fieldDescription>
 	</field>
 	<field name="aytd" class="java.lang.String">
-		<fieldDescription><![CDATA[aytd]]></fieldDescription>
+		<fieldDescription><![CDATA[YTD]]></fieldDescription>
 	</field>
 	<background>
 		<band splitType="Stretch"/>
