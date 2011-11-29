@@ -96,7 +96,7 @@
 					<topPen lineWidth="1.0"/>
 					<bottomPen lineWidth="1.0"/>
 				</box>
-				<textElement textAlignment="Center"/>
+				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA[$F{YTD}]]></textFieldExpression>
 			</textField>
 		</band>
