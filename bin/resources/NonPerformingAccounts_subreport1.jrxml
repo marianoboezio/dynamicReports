@@ -66,8 +66,10 @@
 	</columnHeader>
 	<detail>
 		<band height="20" splitType="Stretch">
-			<textField>
-				<reportElement x="1" y="0" width="207" height="20"/>
+			<textField isBlankWhenNull="true">
+				<reportElement x="1" y="0" width="207" height="20" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{YTD} != 0]]></printWhenExpression>
+				</reportElement>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<bottomPen lineWidth="1.0"/>
@@ -75,8 +77,10 @@
 				<textElement/>
 				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="208" y="0" width="203" height="20"/>
+			<textField isBlankWhenNull="true">
+				<reportElement x="208" y="0" width="203" height="20" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{CS} != "-"]]></printWhenExpression>
+				</reportElement>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<bottomPen lineWidth="1.0"/>
@@ -84,8 +88,10 @@
 				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{CS}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="411" y="0" width="203" height="20"/>
+			<textField isBlankWhenNull="true">
+				<reportElement x="411" y="0" width="203" height="20" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{YTD} != 0]]></printWhenExpression>
+				</reportElement>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<bottomPen lineWidth="1.0"/>
