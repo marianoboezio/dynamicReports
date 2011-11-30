@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 
@@ -40,19 +42,42 @@ public class WebSPublish extends HttpServlet {
             throws ServletException, IOException { 		
 	
 	System.out.println(req.getParameter("user") + "\n\n " + req.getParameter("pass"));
-	String USERNAME = req.getParameter("user");
+	/*String USERNAME = req.getParameter("user");
 	String PASSWORD = req.getParameter("pass");
+	String type = req.getParameter("type");*/
+	
+	String EncrypetedUSERNAME = req.getParameter("user");
+	String EncryptedPASSWORDKEY = req.getParameter("pass");
+	String EncryptedTOKEN = req.getParameter("token");
 	String type = req.getParameter("type");
 	String reportID = req.getParameter("reportID");
+	
+	Integer length = Integer.valueOf(EncryptedPASSWORDKEY.substring(EncryptedPASSWORDKEY.length() - 2));
+	String key = EncryptedPASSWORDKEY.substring(length , EncryptedPASSWORDKEY.length() - 2);
+	String EncryptedPASSWORD = EncryptedPASSWORDKEY.substring(0 , length);
+	
 	PartnerConnection connection;
 	ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
 	
 	
 	try { 		
 			
+		SecretKeySpec secretkey = new SecretKeySpec(key.getBytes(), "AES");
+		Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding", "SunJCE");
+		cipher.init(Cipher.DECRYPT_MODE, secretkey);
+		
+		String PASSWORD = new String(cipher.doFinal(EncryptedPASSWORD.getBytes()));
+		String USERNAME = new String(cipher.doFinal(EncrypetedUSERNAME.getBytes()));
+		String TOKEN = new String(cipher.doFinal(EncryptedTOKEN.getBytes()));
+		
+		System.out.println("######################## CREDENTIALS ########################");
+		System.out.println("USERNAME" + USERNAME);
+		System.out.println("PASSWORD" + PASSWORD);
+		System.out.println("TOKEN" + TOKEN);
+		
 		ConnectorConfig config = new ConnectorConfig();
 	    config.setUsername(USERNAME);
-	    config.setPassword(PASSWORD);
+	    config.setPassword(PASSWORD + TOKEN);
 	    
 	    connection = Connector.newConnection(config);   
 	    QueryResult queryResults =  connection.query("SELECT o.Row_HTML__c, o.Object_Export_Excel__c FROM Object_Row__c o WHERE o.Object_Export_Excel__c = '" + reportID + "' ORDER BY o.name");	
