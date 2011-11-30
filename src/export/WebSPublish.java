@@ -54,7 +54,7 @@ public class WebSPublish extends HttpServlet {
 	
 	Integer length = Integer.valueOf(EncryptedPASSWORDKEY.substring(EncryptedPASSWORDKEY.length() - 2));
 	String key = EncryptedPASSWORDKEY.substring(length - 3 , EncryptedPASSWORDKEY.length() - 2);
-	String EncryptedPASSWORD = EncryptedPASSWORDKEY.substring(0 , length - 3);
+	String EncryptedPASSWORD = EncryptedPASSWORDKEY.substring(0 , length);
 	
 	System.out.println("######################## Encrypted CREDENTIALS ########################");
 	System.out.println("LENGTH ---->" + length);
