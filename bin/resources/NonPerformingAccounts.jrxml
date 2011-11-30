@@ -178,7 +178,7 @@
 				<subreportExpression><![CDATA[$P{SubReportParam}]]></subreportExpression>
 			</subreport>
 			<textField isBlankWhenNull="true">
-				<reportElement x="691" y="-1" width="57" height="33"/>
+				<reportElement x="691" y="0" width="57" height="31"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -191,7 +191,7 @@
 				<textFieldExpression><![CDATA[$F{SalespersonRating}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="748" y="-1" width="66" height="33"/>
+				<reportElement x="748" y="0" width="66" height="31"/>
 				<box>
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
