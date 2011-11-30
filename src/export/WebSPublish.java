@@ -75,16 +75,16 @@ public class WebSPublish extends HttpServlet {
 	
 	try { 		
 			
-		SecretKeySpec secretkey = new SecretKeySpec(Base64.decode(key), "AES");
+		SecretKeySpec secretkey = new SecretKeySpec(hexStringToByteArray(key), "AES");
 		Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5");
 		cipher.init(Cipher.DECRYPT_MODE, secretkey);
 		
 		System.out.println("######################## Decrypting CREDENTIALS ########################");			
 		
-		String TOKEN = cipher.doFinal(Base64.decode(EncryptedTOKEN)).toString();
+		String TOKEN = cipher.doFinal(hexStringToByteArray(EncryptedTOKEN)).toString();
 		System.out.println("TOKEN ---->" + TOKEN);
 		
-		byte[] decodedUsername = Base64.decode(EncrypetedUSERNAME);
+		byte[] decodedUsername = hexStringToByteArray(EncrypetedUSERNAME);
 		String USERNAME = new String(cipher.doFinal(decodedUsername));
 		System.out.println("USERNAME ---->" + USERNAME);
 		
@@ -286,7 +286,16 @@ public class WebSPublish extends HttpServlet {
         context.addServlet(new ServletHolder(new WebSPublish()),"/toxls");
 
         server.start();
-        server.join(); 
-		
+        server.join(); 		
+	}
+	
+	public static byte[] hexStringToByteArray(String s) {
+	    int len = s.length();
+	    byte[] data = new byte[len / 2];
+	    for (int i = 0; i < len; i += 2) {
+	        data[i / 2] = (byte) ((Character.digit(s.charAt(i), 16) << 4)
+	                             + Character.digit(s.charAt(i+1), 16));
+	    }
+	    return data;
 	}
 }
