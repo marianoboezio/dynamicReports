@@ -73,13 +73,13 @@ public class WebSPublish extends HttpServlet {
 		Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding", "SunJCE");
 		cipher.init(Cipher.DECRYPT_MODE, secretkey);
 		
-		System.out.println("######################## Decrypting CREDENTIALS ########################");
-		String PASSWORD = new String(cipher.doFinal(EncryptedPASSWORD.getBytes()));
-		System.out.println("PASSWORD ---->" + PASSWORD);
+		System.out.println("######################## Decrypting CREDENTIALS ########################");		
 		String USERNAME = new String(cipher.doFinal(EncrypetedUSERNAME.getBytes()));
 		System.out.println("USERNAME ---->" + USERNAME);
 		String TOKEN = new String(cipher.doFinal(EncryptedTOKEN.getBytes()));
 		System.out.println("TOKEN ---->" + TOKEN);
+		String PASSWORD = new String(cipher.doFinal(EncryptedPASSWORD.getBytes()));
+		System.out.println("PASSWORD ---->" + PASSWORD);
 				
 		ConnectorConfig config = new ConnectorConfig();
 	    config.setUsername(USERNAME);
