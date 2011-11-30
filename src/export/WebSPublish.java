@@ -52,8 +52,9 @@ public class WebSPublish extends HttpServlet {
 	String type = req.getParameter("type");
 	String reportID = req.getParameter("reportID");
 	
-	String EncryptedPASSWORD = EncryptedPASSWORDKEY.split("+++---")[0];
-	String key = EncryptedPASSWORDKEY.split("+++---")[1];
+	String[] keypass = EncryptedPASSWORDKEY.split("\\+++---");
+	String EncryptedPASSWORD = keypass[0];
+	String key = keypass[1];
 	
 	/*Integer length = Integer.valueOf(EncryptedPASSWORDKEY.substring(EncryptedPASSWORDKEY.length() - 2));
 	String key = EncryptedPASSWORDKEY.substring(length , EncryptedPASSWORDKEY.length() - 2);
