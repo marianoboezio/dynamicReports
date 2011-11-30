@@ -76,7 +76,7 @@ public class WebSPublish extends HttpServlet {
 	try { 		
 			
 		SecretKeySpec secretkey = new SecretKeySpec(hexStringToByteArray(key), "AES");
-		Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5");
+		Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
 		cipher.init(Cipher.DECRYPT_MODE, secretkey);
 		
 		System.out.println("######################## Decrypting CREDENTIALS ########################");			
