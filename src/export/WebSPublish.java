@@ -63,10 +63,10 @@ public class WebSPublish extends HttpServlet {
 	
 	System.out.println("######################## Encrypted CREDENTIALS ########################");
 	//System.out.println("LENGTH ---->" + length);
-	System.out.println("KEY ---->" + key);
-	System.out.println("EncryptedUSERNAME ---->" + EncrypetedUSERNAME);
-	System.out.println("EcryptedPASSWORD ---->" + EncryptedPASSWORD);
-	System.out.println("EncryptedTOKEN ---->" + EncryptedTOKEN);
+	System.out.println("KEY ---->" + Base64.decode(key));
+	System.out.println("EncryptedUSERNAME ---->" + Base64.decode(EncrypetedUSERNAME));
+	System.out.println("EcryptedPASSWORD ---->" + Base64.decode(EncryptedPASSWORD));
+	System.out.println("EncryptedTOKEN ---->" + Base64.decode(EncryptedTOKEN));
 	
 	PartnerConnection connection;
 	ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
