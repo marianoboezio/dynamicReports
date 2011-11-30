@@ -53,13 +53,13 @@ public class WebSPublish extends HttpServlet {
 	String type = req.getParameter("type");
 	String reportID = req.getParameter("reportID");
 	
-	String[] keypass = EncryptedPASSWORDKEY.split("\\+++---");
+	/*String[] keypass = EncryptedPASSWORDKEY.split("\\+++---");
 	String EncryptedPASSWORD = keypass[0];
-	String key = keypass[1];
+	String key = keypass[1];*/
 	
-	/*Integer length = Integer.valueOf(EncryptedPASSWORDKEY.substring(EncryptedPASSWORDKEY.length() - 2));
+	Integer length = Integer.valueOf(EncryptedPASSWORDKEY.substring(EncryptedPASSWORDKEY.length() - 2));
 	String key = EncryptedPASSWORDKEY.substring(length , EncryptedPASSWORDKEY.length() - 2);
-	String EncryptedPASSWORD = EncryptedPASSWORDKEY.substring(0 , length);*/
+	String EncryptedPASSWORD = EncryptedPASSWORDKEY.substring(0 , length);
 	
 	System.out.println("######################## Encrypted CREDENTIALS ########################");
 	//System.out.println("LENGTH ---->" + length);
