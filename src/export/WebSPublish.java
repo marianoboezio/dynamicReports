@@ -78,9 +78,12 @@ public class WebSPublish extends HttpServlet {
 		Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding", "SunJCE");
 		cipher.init(Cipher.DECRYPT_MODE, secretkey);
 		
-		System.out.println("######################## Decrypting CREDENTIALS ########################");		
-		String USERNAME = new String(cipher.doFinal(Base64.decode(EncrypetedUSERNAME)));
+		System.out.println("######################## Decrypting CREDENTIALS ########################");	
+		
+		byte[] decodedUsername = Base64.decode(EncrypetedUSERNAME);
+		String USERNAME = new String(cipher.doFinal(decodedUsername));
 		System.out.println("USERNAME ---->" + USERNAME);
+		
 		String TOKEN = new String(cipher.doFinal(Base64.decode(EncryptedTOKEN)));
 		System.out.println("TOKEN ---->" + TOKEN);
 		String PASSWORD = new String(cipher.doFinal(Base64.decode(EncryptedPASSWORD)));
