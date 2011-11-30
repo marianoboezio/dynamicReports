@@ -64,10 +64,10 @@ public class WebSPublish extends HttpServlet {
 	
 	System.out.println("######################## Encrypted CREDENTIALS ########################");
 	//System.out.println("LENGTH ---->" + length);
-	System.out.println("KEY ---->" + Base64.decode(key).toString());
-	System.out.println("EncryptedUSERNAME ---->" + Base64.decode(EncrypetedUSERNAME).toString());
-	System.out.println("EcryptedPASSWORD ---->" + Base64.decode(EncryptedPASSWORD).toString());
-	System.out.println("EncryptedTOKEN ---->" + Base64.decode(EncryptedTOKEN).toString());
+	System.out.println("KEY ---->" + key);
+	System.out.println("EncryptedUSERNAME ---->" + EncrypetedUSERNAME);
+	System.out.println("EcryptedPASSWORD ---->" + EncryptedPASSWORD);
+	System.out.println("EncryptedTOKEN ---->" + EncryptedTOKEN);
 	
 	PartnerConnection connection;
 	ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -81,7 +81,7 @@ public class WebSPublish extends HttpServlet {
 		
 		System.out.println("######################## Decrypting CREDENTIALS ########################");			
 		
-		String TOKEN = new String(cipher.doFinal(Base64.decode(EncryptedTOKEN)));
+		String TOKEN = cipher.doFinal(Base64.decode(EncryptedTOKEN)).toString();
 		System.out.println("TOKEN ---->" + TOKEN);
 		
 		byte[] decodedUsername = Base64.decode(EncrypetedUSERNAME);
