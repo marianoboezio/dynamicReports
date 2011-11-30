@@ -52,20 +52,16 @@ public class WebSPublish extends HttpServlet {
 	String type = req.getParameter("type");
 	String reportID = req.getParameter("reportID");
 	
-	System.out.println("######################## Encrypted CREDENTIALS ########################");
-	System.out.println("EncryptedUSERNAME --->" + EncrypetedUSERNAME);
-	System.out.println("EcryptedPASSWORD --->" + EncryptedPASSWORDKEY);
-	System.out.println("EncryptedTOKEN --->" + EncryptedTOKEN);
-	
 	Integer length = Integer.valueOf(EncryptedPASSWORDKEY.substring(EncryptedPASSWORDKEY.length() - 2));
 	String key = EncryptedPASSWORDKEY.substring(length , EncryptedPASSWORDKEY.length() - 2);
 	String EncryptedPASSWORD = EncryptedPASSWORDKEY.substring(0 , length);
 	
 	System.out.println("######################## Encrypted CREDENTIALS ########################");
-	System.out.println("LENGTH" + length);
-	System.out.println("EncryptedUSERNAME " + EncrypetedUSERNAME);
-	System.out.println("EcryptedPASSWORD " + EncryptedPASSWORD);
-	System.out.println("EncryptedTOKEN " + EncryptedTOKEN);
+	System.out.println("LENGTH ---->" + length);
+	System.out.println("KEY ---->" + key);
+	System.out.println("EncryptedUSERNAME ---->" + EncrypetedUSERNAME);
+	System.out.println("EcryptedPASSWORD ---->" + EncryptedPASSWORD);
+	System.out.println("EncryptedTOKEN ---->" + EncryptedTOKEN);
 	
 	PartnerConnection connection;
 	ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -82,9 +78,9 @@ public class WebSPublish extends HttpServlet {
 		String TOKEN = new String(cipher.doFinal(EncryptedTOKEN.getBytes()));
 		
 		System.out.println("######################## CREDENTIALS ########################");
-		System.out.println("USERNAME " + USERNAME);
-		System.out.println("PASSWORD " + PASSWORD);
-		System.out.println("TOKEN " + TOKEN);
+		System.out.println("USERNAME ---->" + USERNAME);
+		System.out.println("PASSWORD ---->" + PASSWORD);
+		System.out.println("TOKEN ---->" + TOKEN);
 		
 		ConnectorConfig config = new ConnectorConfig();
 	    config.setUsername(USERNAME);
