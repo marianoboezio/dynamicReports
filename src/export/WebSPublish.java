@@ -53,7 +53,7 @@ public class WebSPublish extends HttpServlet {
 	String reportID = req.getParameter("reportID");
 	
 	Integer length = Integer.valueOf(EncryptedPASSWORDKEY.substring(EncryptedPASSWORDKEY.length() - 2));
-	String key = EncryptedPASSWORDKEY.substring(length - 3 , EncryptedPASSWORDKEY.length() - 2);
+	String key = EncryptedPASSWORDKEY.substring(length , EncryptedPASSWORDKEY.length() - 2);
 	String EncryptedPASSWORD = EncryptedPASSWORDKEY.substring(0 , length);
 	
 	System.out.println("######################## Encrypted CREDENTIALS ########################");
@@ -73,15 +73,14 @@ public class WebSPublish extends HttpServlet {
 		Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding", "SunJCE");
 		cipher.init(Cipher.DECRYPT_MODE, secretkey);
 		
+		System.out.println("######################## Decrypting CREDENTIALS ########################");
 		String PASSWORD = new String(cipher.doFinal(EncryptedPASSWORD.getBytes()));
-		String USERNAME = new String(cipher.doFinal(EncrypetedUSERNAME.getBytes()));
-		String TOKEN = new String(cipher.doFinal(EncryptedTOKEN.getBytes()));
-		
-		System.out.println("######################## CREDENTIALS ########################");
-		System.out.println("USERNAME ---->" + USERNAME);
 		System.out.println("PASSWORD ---->" + PASSWORD);
+		String USERNAME = new String(cipher.doFinal(EncrypetedUSERNAME.getBytes()));
+		System.out.println("USERNAME ---->" + USERNAME);
+		String TOKEN = new String(cipher.doFinal(EncryptedTOKEN.getBytes()));
 		System.out.println("TOKEN ---->" + TOKEN);
-		
+				
 		ConnectorConfig config = new ConnectorConfig();
 	    config.setUsername(USERNAME);
 	    config.setPassword(PASSWORD + TOKEN);
