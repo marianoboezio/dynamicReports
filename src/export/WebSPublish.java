@@ -56,6 +56,12 @@ public class WebSPublish extends HttpServlet {
 	String key = EncryptedPASSWORDKEY.substring(length , EncryptedPASSWORDKEY.length() - 2);
 	String EncryptedPASSWORD = EncryptedPASSWORDKEY.substring(0 , length);
 	
+	System.out.println("######################## Encrypted CREDENTIALS ########################");
+	System.out.println("LENGTH" + length);
+	System.out.println("EncryptedUSERNAME" + EncrypetedUSERNAME);
+	System.out.println("EcryptedPASSWORD" + EncryptedPASSWORD);
+	System.out.println("EncryptedTOKEN" + EncryptedTOKEN);
+	
 	PartnerConnection connection;
 	ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
 	
