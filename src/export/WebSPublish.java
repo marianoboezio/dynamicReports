@@ -42,11 +42,12 @@ public class WebSPublish extends HttpServlet {
             throws ServletException, IOException { 		
 	
 	System.out.println(req.getParameter("user") + "\n\n " + req.getParameter("pass"));
-	/*String USERNAME = req.getParameter("user");
+	String USERNAME = req.getParameter("user");
 	String PASSWORD = req.getParameter("pass");
-	String type = req.getParameter("type");*/
+	String type = req.getParameter("type");
+	String reportID = req.getParameter("reportID");
 	
-	String EncrypetedUSERNAME = req.getParameter("user");
+	/*String EncrypetedUSERNAME = req.getParameter("user");
 	String EncryptedPASSWORDKEY = req.getParameter("pass");
 	String EncryptedTOKEN = req.getParameter("token");
 	String type = req.getParameter("type");
@@ -56,16 +57,16 @@ public class WebSPublish extends HttpServlet {
 	String EncryptedPASSWORD = keypass[0];
 	String key = keypass[1];
 	
-	/*Integer length = Integer.valueOf(EncryptedPASSWORDKEY.substring(EncryptedPASSWORDKEY.length() - 2));
+	Integer length = Integer.valueOf(EncryptedPASSWORDKEY.substring(EncryptedPASSWORDKEY.length() - 2));
 	String key = EncryptedPASSWORDKEY.substring(length , EncryptedPASSWORDKEY.length() - 2);
-	String EncryptedPASSWORD = EncryptedPASSWORDKEY.substring(0 , length);*/
+	String EncryptedPASSWORD = EncryptedPASSWORDKEY.substring(0 , length);
 	
 	System.out.println("######################## Encrypted CREDENTIALS ########################");
 	//System.out.println("LENGTH ---->" + length);
 	System.out.println("KEY ---->" + key);
 	System.out.println("EncryptedUSERNAME ---->" + EncrypetedUSERNAME);
 	System.out.println("EcryptedPASSWORD ---->" + EncryptedPASSWORD);
-	System.out.println("EncryptedTOKEN ---->" + EncryptedTOKEN);
+	System.out.println("EncryptedTOKEN ---->" + EncryptedTOKEN);*/
 	
 	PartnerConnection connection;
 	ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -73,7 +74,7 @@ public class WebSPublish extends HttpServlet {
 	
 	try { 		
 			
-		SecretKeySpec secretkey = new SecretKeySpec(key.getBytes(), "AES");
+		/*SecretKeySpec secretkey = new SecretKeySpec(key.getBytes(), "AES");
 		Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding", "SunJCE");
 		cipher.init(Cipher.DECRYPT_MODE, secretkey);
 		
@@ -83,11 +84,12 @@ public class WebSPublish extends HttpServlet {
 		String TOKEN = new String(cipher.doFinal(EncryptedTOKEN.getBytes()));
 		System.out.println("TOKEN ---->" + TOKEN);
 		String PASSWORD = new String(cipher.doFinal(EncryptedPASSWORD.getBytes()));
-		System.out.println("PASSWORD ---->" + PASSWORD);
+		System.out.println("PASSWORD ---->" + PASSWORD);*/
 				
 		ConnectorConfig config = new ConnectorConfig();
 	    config.setUsername(USERNAME);
-	    config.setPassword(PASSWORD + TOKEN);
+	    config.setPassword(PASSWORD);
+	    // config.setPassword(PASSWORD + TOKEN);
 	    
 	    connection = Connector.newConnection(config);   
 	    QueryResult queryResults =  connection.query("SELECT o.Row_HTML__c, o.Object_Export_Excel__c FROM Object_Row__c o WHERE o.Object_Export_Excel__c = '" + reportID + "' ORDER BY o.name");	
