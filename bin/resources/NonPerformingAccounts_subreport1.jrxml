@@ -20,9 +20,7 @@
 		<groupHeader>
 			<band height="22">
 				<staticText>
-					<reportElement x="0" y="0" width="180" height="22">
-						<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="End"/>
-					</reportElement>
+					<reportElement isPrintRepeatedValues="false" x="0" y="0" width="180" height="22"/>
 					<box>
 						<pen lineWidth="1.0"/>
 						<topPen lineWidth="1.0"/>
@@ -69,7 +67,6 @@
 			<band height="20">
 				<textField isBlankWhenNull="true">
 					<reportElement x="0" y="0" width="180" height="20" isRemoveLineWhenBlank="true">
-						<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="Body"/>
 						<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
 					</reportElement>
 					<box>
