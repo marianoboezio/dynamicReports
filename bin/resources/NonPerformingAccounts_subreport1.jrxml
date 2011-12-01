@@ -20,8 +20,8 @@
 		<groupHeader>
 			<band height="22">
 				<staticText>
-					<reportElement isPrintRepeatedValues="false" x="0" y="0" width="180" height="22" isRemoveLineWhenBlank="true">
-						<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="Body"/>
+					<reportElement x="0" y="0" width="180" height="22">
+						<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="End"/>
 					</reportElement>
 					<box>
 						<pen lineWidth="1.0"/>
@@ -36,7 +36,7 @@
 					<text><![CDATA[Product]]></text>
 				</staticText>
 				<staticText>
-					<reportElement isPrintRepeatedValues="false" x="180" y="0" width="182" height="22"/>
+					<reportElement x="180" y="0" width="182" height="22"/>
 					<box>
 						<pen lineWidth="1.0"/>
 						<topPen lineWidth="1.0"/>
@@ -50,7 +50,7 @@
 					<text><![CDATA[Covered Since]]></text>
 				</staticText>
 				<staticText>
-					<reportElement isPrintRepeatedValues="false" x="362" y="0" width="200" height="22"/>
+					<reportElement x="362" y="0" width="200" height="22"/>
 					<box>
 						<pen lineWidth="1.0"/>
 						<topPen lineWidth="1.0"/>
@@ -69,7 +69,7 @@
 			<band height="20">
 				<textField isBlankWhenNull="true">
 					<reportElement x="0" y="0" width="180" height="20" isRemoveLineWhenBlank="true">
-						<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="End"/>
+						<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="Body"/>
 						<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
 					</reportElement>
 					<box>
