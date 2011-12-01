@@ -71,7 +71,7 @@
 				<textFieldExpression><![CDATA[$F{YTD}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="454" y="0" width="101" height="20" isRemoveLineWhenBlank="true"/>
+				<reportElement x="454" y="0" width="101" height="20"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<bottomPen lineWidth="1.0"/>
