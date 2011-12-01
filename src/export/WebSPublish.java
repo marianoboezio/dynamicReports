@@ -171,7 +171,7 @@ public class WebSPublish extends HttpServlet {
 			jasperPrint = JasperFillManager.fillReport(jasperReport,param,xmlDataSource);
 	    	
 	    } else if (type.equals("productionByProduct")){
-	    	JRXmlDataSource xmlDataSource = new JRXmlDataSource(xmlOutput, "root/ProductionReportProduct/Row");	
+	    	JRXmlDataSource xmlDataSource = new JRXmlDataSource(xmlOutput, "root/ProductionReportProductType/Row");	
 			
 			// Complie Template to .jasper
 			ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
