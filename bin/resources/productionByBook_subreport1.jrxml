@@ -24,8 +24,8 @@
 			<textField>
 				<reportElement x="0" y="0" width="245" height="20"/>
 				<box>
-					<topPen lineWidth="0.0"/>
-					<bottomPen lineWidth="0.0"/>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
 				</box>
 				<textElement/>
 				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
@@ -33,8 +33,8 @@
 			<textField>
 				<reportElement x="245" y="0" width="100" height="20"/>
 				<box>
-					<topPen lineWidth="0.0"/>
-					<bottomPen lineWidth="0.0"/>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
 				</box>
 				<textElement/>
 				<textFieldExpression><![CDATA[$F{awtd}]]></textFieldExpression>
@@ -42,8 +42,8 @@
 			<textField>
 				<reportElement x="345" y="0" width="100" height="20"/>
 				<box>
-					<topPen lineWidth="0.0"/>
-					<bottomPen lineWidth="0.0"/>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
 				</box>
 				<textElement/>
 				<textFieldExpression><![CDATA[$F{amtd}]]></textFieldExpression>
@@ -51,8 +51,8 @@
 			<textField>
 				<reportElement x="445" y="0" width="100" height="20"/>
 				<box>
-					<topPen lineWidth="0.0"/>
-					<bottomPen lineWidth="0.0"/>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
 				</box>
 				<textElement/>
 				<textFieldExpression><![CDATA[$F{aytd}]]></textFieldExpression>
