@@ -3,65 +3,74 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-    <parameter name="SubReportParam2" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
+	<parameter name="SubReportParam2" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
 	<queryString language="xPath">
 		<![CDATA[root/content/account]]>
 	</queryString>
-	<field name="name" class="java.lang.String">
-		<fieldDescription><![CDATA[name]]></fieldDescription>
+	<field name="Name" class="java.lang.String">
+		<fieldDescription><![CDATA[Name]]></fieldDescription>
 	</field>
-	<field name="awtd" class="java.lang.String">
-		<fieldDescription><![CDATA[awtd]]></fieldDescription>
+	<field name="WTD" class="java.lang.String">
+		<fieldDescription><![CDATA[WTD]]></fieldDescription>
 	</field>
-	<field name="amtd" class="java.lang.String">
-		<fieldDescription><![CDATA[amtd]]></fieldDescription>
+	<field name="MTD" class="java.lang.String">
+		<fieldDescription><![CDATA[MTD]]></fieldDescription>
 	</field>
-	<field name="aytd" class="java.lang.String">
-		<fieldDescription><![CDATA[aytd]]></fieldDescription>
+	<field name="YTD" class="java.lang.String">
+		<fieldDescription><![CDATA[YTD]]></fieldDescription>
 	</field>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<detail>
 		<band height="40" splitType="Stretch">
-			<textField>
-				<reportElement x="10" y="0" width="245" height="20"/>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="245" height="20" isRemoveLineWhenBlank="true"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<bottomPen lineWidth="1.0"/>
 				</box>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Name}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="255" y="0" width="100" height="20"/>
+			<textField isBlankWhenNull="true">
+				<reportElement x="245" y="0" width="100" height="20" isRemoveLineWhenBlank="true"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<bottomPen lineWidth="1.0"/>
 				</box>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{awtd}]]></textFieldExpression>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{WTD}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="355" y="0" width="100" height="20"/>
+			<textField isBlankWhenNull="true">
+				<reportElement x="345" y="0" width="100" height="20" isRemoveLineWhenBlank="true"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<bottomPen lineWidth="1.0"/>
 				</box>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{amtd}]]></textFieldExpression>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{MTD}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="455" y="0" width="100" height="20"/>
+			<textField isBlankWhenNull="true">
+				<reportElement x="445" y="0" width="100" height="20" isRemoveLineWhenBlank="true"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<bottomPen lineWidth="1.0"/>
 				</box>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{aytd}]]></textFieldExpression>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{YTD}]]></textFieldExpression>
 			</textField>
 			<subreport>
-				<reportElement x="20" y="20" width="535" height="20"/>
+				<reportElement x="10" y="20" width="535" height="20"/>
+				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("//Salesperson")]]></dataSourceExpression>
 				<subreportExpression><![CDATA[$P{SubReportParam2}]]></subreportExpression>
 			</subreport>
 		</band>
