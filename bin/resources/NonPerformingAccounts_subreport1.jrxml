@@ -15,6 +15,7 @@
 	<field name="YTD" class="java.lang.String">
 		<fieldDescription><![CDATA[YTD]]></fieldDescription>
 	</field>
+	<field name="field1" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -104,4 +105,15 @@
 			</textField>
 		</band>
 	</detail>
+	<columnFooter>
+		<band height="4">
+			<textField>
+				<reportElement x="1" y="3" width="100" height="0">
+					<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="End"/>
+				</reportElement>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{field1}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
 </jasperReport>
