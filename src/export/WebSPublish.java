@@ -137,7 +137,7 @@ public class WebSPublish extends HttpServlet {
 			// filling report with data from data source
 			jasperPrint = JasperFillManager.fillReport(jasperReport,param,xmlDataSource);
 	    } else if (type.equals("productionBySalesperson")){
-	    	JRXmlDataSource xmlDataSource = new JRXmlDataSource(xmlOutput, "root/content");	
+	    	JRXmlDataSource xmlDataSource = new JRXmlDataSource(xmlOutput, "root/ProductionReportSalesperson/Row");	
 			
 			// Complie Template to .jasper
 			ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
@@ -171,7 +171,7 @@ public class WebSPublish extends HttpServlet {
 			jasperPrint = JasperFillManager.fillReport(jasperReport,param,xmlDataSource);
 	    	
 	    } else if (type.equals("productionByProduct")){
-	    	JRXmlDataSource xmlDataSource = new JRXmlDataSource(xmlOutput, "root/content");	
+	    	JRXmlDataSource xmlDataSource = new JRXmlDataSource(xmlOutput, "root/ProductionReportProduct/Row");	
 			
 			// Complie Template to .jasper
 			ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
