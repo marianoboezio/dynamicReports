@@ -7,7 +7,6 @@
 	<classpathentry kind="lib" path="repo/commons-collections/commons-collections/2.1.1/commons-collections-2.1.1.jar"/>
 	<classpathentry kind="lib" path="repo/commons-digester/commons-digester/1.7/commons-digester-1.7.jar"/>
 	<classpathentry kind="lib" path="repo/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4.jar"/>
-	<classpathentry kind="lib" path="repo/jasperreports/jasperreports/4.1.2/jasperreports-4.1.2.jar"/>
 	<classpathentry kind="lib" path="repo/xalan/xalan/2.7.1/xalan.jar"/>
 	<classpathentry kind="lib" path="repo/poi/poi/3.6/poi-3.6.jar"/>
 	<classpathentry kind="lib" path="repo/groovy-all/groovy-all/1.7.5/groovy-all-1.7.5.jar"/>
@@ -18,5 +17,6 @@
 	<classpathentry kind="lib" path="C:/jetty-distribution-8.0.1.v20110908/lib/jetty-server-8.0.1.v20110908.jar"/>
 	<classpathentry kind="lib" path="C:/jetty-distribution-8.0.1.v20110908/lib/jetty-servlet-8.0.1.v20110908.jar"/>
 	<classpathentry kind="lib" path="C:/jetty-distribution-8.0.1.v20110908/lib/jetty-util-8.0.1.v20110908.jar"/>
+	<classpathentry kind="lib" path="repo/jasperreports/jasperreports/4.1.3/jasperreports-4.1.3.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
