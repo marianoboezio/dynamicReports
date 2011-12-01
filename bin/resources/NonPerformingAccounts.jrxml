@@ -173,6 +173,8 @@
 			<subreport>
 				<reportElement x="251" y="31" width="563" height="42" isRemoveLineWhenBlank="true">
 					<printWhenExpression><![CDATA[$F{PProducts} != null]]></printWhenExpression>
+                    <property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="Body"/>
+                    <property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="End"/>
 				</reportElement>
 				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("//Product")]]></dataSourceExpression>
 				<subreportExpression><![CDATA[$P{SubReportParam}]]></subreportExpression>
