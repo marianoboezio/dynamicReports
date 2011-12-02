@@ -19,12 +19,15 @@
 	<field name="YTD" class="java.lang.String">
 		<fieldDescription><![CDATA[YTD]]></fieldDescription>
 	</field>
-	<field name="field1" class="java.lang.String"/>
+	<field name="SalespersonName" class="java.lang.String">
+		<fieldDescription><![CDATA[Salesperson/Name]]></fieldDescription>
+	</field>
+	<field name="field2" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<detail>
-		<band height="40" splitType="Stretch">
+		<band height="60" splitType="Stretch">
 			<textField isBlankWhenNull="true">
 				<reportElement x="0" y="0" width="245" height="20" isRemoveLineWhenBlank="true"/>
 				<box>
@@ -74,6 +77,11 @@
 				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("//Salesperson")]]></dataSourceExpression>
 				<subreportExpression><![CDATA[$P{SubReportParam2}]]></subreportExpression>
 			</subreport>
+			<textField>
+				<reportElement x="10" y="40" width="151" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{SalespersonName}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 </jasperReport>
