@@ -4,7 +4,7 @@
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<queryString language="xPath">
-		<![CDATA[root/content/account/products]]>
+		<![CDATA[root/ProductionReportProductType/Row/products]]>
 	</queryString>
 	<field name="Name" class="java.lang.String">
 		<fieldDescription><![CDATA[Name]]></fieldDescription>
