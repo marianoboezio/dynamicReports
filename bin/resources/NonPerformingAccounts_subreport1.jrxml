@@ -15,96 +15,105 @@
 	<field name="YTD" class="java.lang.String">
 		<fieldDescription><![CDATA[YTD]]></fieldDescription>
 	</field>
-	<group name="Products">
-		<groupExpression><![CDATA[$F{name}]]></groupExpression>
-		<groupHeader>
-			<band height="22">
-				<staticText>
-					<reportElement isPrintRepeatedValues="false" x="0" y="0" width="180" height="22">
-						<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="Body"/>
-					</reportElement>
-					<box>
-						<pen lineWidth="1.0"/>
-						<topPen lineWidth="1.0"/>
-						<leftPen lineWidth="0.0"/>
-						<bottomPen lineWidth="1.0"/>
-						<rightPen lineWidth="0.0"/>
-					</box>
-					<textElement textAlignment="Center">
-						<font isBold="true"/>
-					</textElement>
-					<text><![CDATA[Product]]></text>
-				</staticText>
-				<staticText>
-					<reportElement isPrintRepeatedValues="false" x="180" y="0" width="182" height="22"/>
-					<box>
-						<pen lineWidth="1.0"/>
-						<topPen lineWidth="1.0"/>
-						<leftPen lineWidth="0.0"/>
-						<bottomPen lineWidth="1.0"/>
-						<rightPen lineWidth="0.0"/>
-					</box>
-					<textElement textAlignment="Center">
-						<font size="10" isBold="true" isStrikeThrough="false"/>
-					</textElement>
-					<text><![CDATA[Covered Since]]></text>
-				</staticText>
-				<staticText>
-					<reportElement isPrintRepeatedValues="false" x="362" y="0" width="200" height="22"/>
-					<box>
-						<pen lineWidth="1.0"/>
-						<topPen lineWidth="1.0"/>
-						<leftPen lineWidth="0.0"/>
-						<bottomPen lineWidth="1.0"/>
-						<rightPen lineWidth="0.0"/>
-					</box>
-					<textElement textAlignment="Center">
-						<font size="10" isBold="true" isStrikeThrough="false"/>
-					</textElement>
-					<text><![CDATA[YTD]]></text>
-				</staticText>
-			</band>
-		</groupHeader>
-		<groupFooter>
-			<band height="20">
-				<textField isBlankWhenNull="true">
-					<reportElement x="0" y="0" width="180" height="20" isRemoveLineWhenBlank="true">
-						<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="End"/>
-						<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
-					</reportElement>
-					<box>
-						<topPen lineWidth="1.0"/>
-						<bottomPen lineWidth="1.0"/>
-					</box>
-					<textElement/>
-					<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
-				</textField>
-				<textField isBlankWhenNull="true">
-					<reportElement x="180" y="0" width="182" height="20" isRemoveLineWhenBlank="true">
-						<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
-					</reportElement>
-					<box>
-						<topPen lineWidth="1.0"/>
-						<bottomPen lineWidth="1.0"/>
-					</box>
-					<textElement textAlignment="Center"/>
-					<textFieldExpression><![CDATA[$F{CS}]]></textFieldExpression>
-				</textField>
-				<textField isBlankWhenNull="true">
-					<reportElement x="362" y="0" width="200" height="20" isRemoveLineWhenBlank="true">
-						<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
-					</reportElement>
-					<box>
-						<topPen lineWidth="1.0"/>
-						<bottomPen lineWidth="1.0"/>
-					</box>
-					<textElement textAlignment="Right"/>
-					<textFieldExpression><![CDATA[$F{YTD}]]></textFieldExpression>
-				</textField>
-			</band>
-		</groupFooter>
-	</group>
+	<field name="field1" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="0" width="180" height="22" isRemoveLineWhenBlank="true">
+					<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="End"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Product]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="181" y="0" width="182" height="22"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Covered Since]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="363" y="0" width="200" height="22"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[YTD]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="1" y="0" width="180" height="20" isRemoveLineWhenBlank="true">
+					<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="Body"/>
+					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="181" y="0" width="182" height="20" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{CS}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="363" y="0" width="200" height="20" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{YTD}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="4">
+			<textField>
+				<reportElement x="1" y="0" width="100" height="0">
+					<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="End"/>
+				</reportElement>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{field1}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
 </jasperReport>
