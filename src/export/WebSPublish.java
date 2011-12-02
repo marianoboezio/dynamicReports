@@ -41,33 +41,34 @@ public class WebSPublish extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException { 		
 	
-	System.out.println(req.getParameter("user") + "\n\n " + req.getParameter("pass"));
+	/*System.out.println(req.getParameter("user") + "\n\n " + req.getParameter("pass"));
 	String USERNAME = req.getParameter("user");
 	String PASSWORD = req.getParameter("pass");
 	String type = req.getParameter("type");
-	String reportID = req.getParameter("reportID");
+	String reportID = req.getParameter("reportID");*/
 	
-	/*String EncrypetedUSERNAME = req.getParameter("user");
-	String EncryptedPASSWORDKEY = req.getParameter("pass");
-	String EncryptedTOKEN = req.getParameter("token");
+	String EncrypetedUSERNAME = req.getParameter("user");
+	String EncryptedPASSWORDTOKENKEY = req.getParameter("pass");	
 	String type = req.getParameter("type");
 	String reportID = req.getParameter("reportID");
 	
-	System.out.println("EncryptedUSERNAME ---->" + EncryptedPASSWORDKEY);
+	/*System.out.println("EncryptedUSERNAME ---->" + EncryptedPASSWORDKEY);
 	String[] keypass = EncryptedPASSWORDKEY.split("12345678");
 	String EncryptedPASSWORD = keypass[0];
-	String key = keypass[1];
+	String key = keypass[1];*/
 	
-	/*Integer length = Integer.valueOf(EncryptedPASSWORDKEY.substring(EncryptedPASSWORDKEY.length() - 2));
-	String key = EncryptedPASSWORDKEY.substring(length , EncryptedPASSWORDKEY.length() - 3);
-	String EncryptedPASSWORD = EncryptedPASSWORDKEY.substring(0 , length - 1);
+	Integer tokenlength = Integer.valueOf(EncryptedPASSWORDTOKENKEY.substring(EncryptedPASSWORDTOKENKEY.length() - 2));
+	Integer passlength = Integer.valueOf(EncryptedPASSWORDTOKENKEY.substring(EncryptedPASSWORDTOKENKEY.length() - 4,EncryptedPASSWORDTOKENKEY.length() - 2));
+	String key = EncryptedPASSWORDTOKENKEY.substring(passlength + tokenlength , EncryptedPASSWORDTOKENKEY.length() - 4);
+	String EncryptedPASSWORD = EncryptedPASSWORDTOKENKEY.substring(0 , passlength);
+	String EncryptedTOKEN = EncryptedPASSWORDTOKENKEY.substring(passlength , passlength + tokenlength);
 	
 	System.out.println("######################## Encrypted CREDENTIALS ########################");
 	//System.out.println("LENGTH ---->" + length);
 	System.out.println("KEY ---->" + key);
 	System.out.println("EncryptedUSERNAME ---->" + EncrypetedUSERNAME);
 	System.out.println("EcryptedPASSWORD ---->" + EncryptedPASSWORD);
-	System.out.println("EncryptedTOKEN ---->" + EncryptedTOKEN);*/
+	System.out.println("EncryptedTOKEN ---->" + EncryptedTOKEN);
 	
 	PartnerConnection connection;
 	ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -75,7 +76,7 @@ public class WebSPublish extends HttpServlet {
 	
 	try { 		
 			
-		/*SecretKeySpec secretkey = new SecretKeySpec(hexStringToByteArray(key), "AES");
+		SecretKeySpec secretkey = new SecretKeySpec(hexStringToByteArray(key), "AES");
 		Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
 		cipher.init(Cipher.DECRYPT_MODE, secretkey);
 		
@@ -89,7 +90,7 @@ public class WebSPublish extends HttpServlet {
 		System.out.println("USERNAME ---->" + USERNAME);
 		
 		String PASSWORD = new String(cipher.doFinal(Base64.decode(EncryptedPASSWORD)));
-		System.out.println("PASSWORD ---->" + PASSWORD);*/
+		System.out.println("PASSWORD ---->" + PASSWORD);
 				
 		ConnectorConfig config = new ConnectorConfig();
 	    config.setUsername(USERNAME);
