@@ -172,7 +172,7 @@
 			</textField>
 			<subreport>
 				<reportElement x="251" y="31" width="563" height="42" isRemoveLineWhenBlank="true">
-					<printWhenExpression><![CDATA[$F{PProducts} != null]]></printWhenExpression>                    
+					<printWhenExpression><![CDATA[$F{PProducts} != null]]></printWhenExpression>
 				</reportElement>
 				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("//Product")]]></dataSourceExpression>
 				<subreportExpression><![CDATA[$P{SubReportParam}]]></subreportExpression>

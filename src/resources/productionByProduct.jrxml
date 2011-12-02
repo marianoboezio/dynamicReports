@@ -4,7 +4,7 @@
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="SubReportParam" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
-    <parameter name="SubReportParam2" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
+	<parameter name="SubReportParam2" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
 	<queryString language="xPath">
 		<![CDATA[root/ProductionReportProductType/Row]]>
 	</queryString>
@@ -109,7 +109,7 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="60" splitType="Stretch">
+		<band height="40" splitType="Stretch">
 			<subreport>
 				<reportElement x="11" y="20" width="545" height="20" isRemoveLineWhenBlank="true"/>
 				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("//Product")]]></dataSourceExpression>
@@ -180,11 +180,6 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Salespersons}]]></textFieldExpression>
 			</textField>
-			<subreport>
-				<reportElement x="20" y="40" width="535" height="20" isRemoveLineWhenBlank="true"/>
-				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("//Product/Salesperson")]]></dataSourceExpression>
-				<subreportExpression><![CDATA[$P{SubReportParam2}]]></subreportExpression>
-			</subreport>
 		</band>
 	</detail>
 </jasperReport>
