@@ -76,16 +76,16 @@ public class WebSPublish extends HttpServlet {
 	
 	try { 		
 			
-		SecretKeySpec secretkey = new SecretKeySpec(hexStringToByteArray(key), "AES");
+		SecretKeySpec secretkey = new SecretKeySpec(Base64.decode(key), "AES");
 		Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
 		cipher.init(Cipher.DECRYPT_MODE, secretkey);
 		
 		System.out.println("######################## Decrypting CREDENTIALS ########################");			
 		
-		String TOKEN = cipher.doFinal(hexStringToByteArray(EncryptedTOKEN)).toString();
+		String TOKEN = cipher.doFinal(Base64.decode(EncryptedTOKEN)).toString();
 		System.out.println("TOKEN ---->" + TOKEN);
 		
-		byte[] decodedUsername = hexStringToByteArray(EncrypetedUSERNAME);
+		byte[] decodedUsername = Base64.decode(EncrypetedUSERNAME);
 		String USERNAME = new String(cipher.doFinal(decodedUsername));
 		System.out.println("USERNAME ---->" + USERNAME);
 		
