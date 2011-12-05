@@ -23,6 +23,9 @@
 	<field name="Salespersons" class="java.lang.String">
 		<fieldDescription><![CDATA[Salespersons]]></fieldDescription>
 	</field>
+	<group name="subreportsGroup">
+		<groupExpression><![CDATA[$F{Acount}]]></groupExpression>
+	</group>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -109,7 +112,7 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="60" splitType="Stretch">
+		<band height="40" splitType="Stretch">
 			<textField>
 				<reportElement x="170" y="0" width="90" height="20"/>
 				<box>
@@ -176,14 +179,16 @@
 				<textFieldExpression><![CDATA[$F{Salespersons}]]></textFieldExpression>
 			</textField>
 			<subreport>
-				<reportElement x="20" y="40" width="535" height="20" isRemoveLineWhenBlank="true"/>
-				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("//Product/Salesperson")]]></dataSourceExpression>
-				<subreportExpression><![CDATA[$P{SubReportParam2}]]></subreportExpression>
-			</subreport>
-			<subreport>
 				<reportElement x="11" y="20" width="545" height="20" isRemoveLineWhenBlank="true"/>
 				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("//Product")]]></dataSourceExpression>
 				<subreportExpression><![CDATA[$P{SubReportParam}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="20">
+			<subreport>
+				<reportElement x="20" y="0" width="535" height="20" isRemoveLineWhenBlank="true"/>
+				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("//Product/Salesperson")]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SubReportParam2}]]></subreportExpression>
 			</subreport>
 		</band>
 	</detail>
