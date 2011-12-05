@@ -47,17 +47,6 @@
 	<background>
 		<band splitType="Stretch"/>
 	</background>
-	<pageHeader>
-		<band height="1">
-			<textField>
-				<reportElement x="0" y="0" width="100" height="0">
-					<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="End"/>
-				</reportElement>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{field1}]]></textFieldExpression>
-			</textField>
-		</band>
-	</pageHeader>
 	<detail>
 		<band height="40" splitType="Stretch">
 			<textField isBlankWhenNull="true">
@@ -114,9 +103,7 @@
 					</datasetRun>
 					<jr:listContents height="20" width="482">
 						<textField>
-							<reportElement x="0" y="0" width="182" height="20">
-								<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="Body"/>
-							</reportElement>
+							<reportElement x="0" y="0" width="182" height="20"/>
 							<box>
 								<topPen lineWidth="1.0"/>
 								<bottomPen lineWidth="1.0"/>
@@ -156,15 +143,4 @@
 			</componentElement>
 		</band>
 	</detail>
-	<pageFooter>
-		<band height="1">
-			<textField>
-				<reportElement x="0" y="0" width="100" height="0">
-					<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="End"/>
-				</reportElement>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{field1}]]></textFieldExpression>
-			</textField>
-		</band>
-	</pageFooter>
 </jasperReport>
