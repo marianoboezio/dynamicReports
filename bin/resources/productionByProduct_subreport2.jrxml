@@ -24,8 +24,8 @@
 	<background>
 		<band splitType="Stretch"/>
 	</background>
-	<detail>
-		<band height="20" splitType="Stretch">
+	<title>
+		<band height="20">
 			<textField>
 				<reportElement x="0" y="0" width="170" height="20"/>
 				<box>
@@ -82,5 +82,5 @@
 				<textFieldExpression><![CDATA[$F{Rating}]]></textFieldExpression>
 			</textField>
 		</band>
-	</detail>
+	</title>
 </jasperReport>

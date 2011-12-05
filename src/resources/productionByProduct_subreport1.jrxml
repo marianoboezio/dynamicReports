@@ -27,7 +27,7 @@
 		<band splitType="Stretch"/>
 	</background>
 	<detail>
-		<band height="20" splitType="Stretch">
+		<band height="40" splitType="Stretch">
 			<textField isBlankWhenNull="true">
 				<reportElement x="0" y="0" width="245" height="20" isRemoveLineWhenBlank="true"/>
 				<box>
@@ -72,6 +72,11 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{YTD}]]></textFieldExpression>
 			</textField>
+			<subreport>
+				<reportElement x="10" y="20" width="535" height="20" isRemoveLineWhenBlank="true"/>
+				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("//Product/Salesperson")]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SubReportParam2}]]></subreportExpression>
+			</subreport>
 		</band>
 	</detail>
 </jasperReport>
