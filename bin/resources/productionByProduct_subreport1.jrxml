@@ -25,10 +25,10 @@
 	<background>
 		<band splitType="Stretch"/>
 	</background>
-	<columnHeader>
-		<band height="19">
+	<detail>
+		<band height="20" splitType="Stretch">
 			<textField isBlankWhenNull="true">
-				<reportElement x="0" y="-1" width="245" height="20" isRemoveLineWhenBlank="true"/>
+				<reportElement x="0" y="0" width="245" height="20" isRemoveLineWhenBlank="true"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<bottomPen lineWidth="1.0"/>
@@ -39,7 +39,7 @@
 				<textFieldExpression><![CDATA[$F{Name}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="245" y="-1" width="100" height="20" isRemoveLineWhenBlank="true"/>
+				<reportElement x="245" y="0" width="100" height="20" isRemoveLineWhenBlank="true"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<bottomPen lineWidth="1.0"/>
@@ -50,7 +50,7 @@
 				<textFieldExpression><![CDATA[$F{WTD}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="345" y="-1" width="100" height="20" isRemoveLineWhenBlank="true"/>
+				<reportElement x="345" y="0" width="100" height="20" isRemoveLineWhenBlank="true"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<bottomPen lineWidth="1.0"/>
@@ -61,7 +61,7 @@
 				<textFieldExpression><![CDATA[$F{MTD}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="445" y="-1" width="98" height="20" isRemoveLineWhenBlank="true"/>
+				<reportElement x="445" y="0" width="98" height="20" isRemoveLineWhenBlank="true"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<bottomPen lineWidth="1.0"/>
@@ -70,15 +70,6 @@
 					<font size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{YTD}]]></textFieldExpression>
-			</textField>
-		</band>
-	</columnHeader>
-	<detail>
-		<band height="20" splitType="Stretch">
-			<textField>
-				<reportElement x="19" y="0" width="226" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{SalespersonName}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
