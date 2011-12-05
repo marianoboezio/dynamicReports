@@ -4,9 +4,7 @@
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="SubReportParam" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
-	<parameter name="SubReportParam2" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
 	<parameter name="SubDataSource" class="net.sf.jasperreports.engine.data.JRXmlDataSource" isForPrompting="false"/>
-	<parameter name="SubDataSource2" class="net.sf.jasperreports.engine.data.JRXmlDataSource" isForPrompting="false"/>
 	<queryString language="xPath">
 		<![CDATA[root/ProductionReportProductType/Row]]>
 	</queryString>

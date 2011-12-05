@@ -174,7 +174,6 @@ public class WebSPublish extends HttpServlet {
 	    } else if (type.equals("productionByProduct")){
 	    	JRXmlDataSource xmlDataSource = new JRXmlDataSource(xmlOutput, "root/ProductionReportProductType/Row");
 	    	JRXmlDataSource SubDataSource = new JRXmlDataSource(xmlOutput, "root/ProductionReportProductType/Row/Product");
-	    	JRXmlDataSource SubDataSource2 = new JRXmlDataSource(xmlOutput, "root/ProductionReportProductType/Row/Product/Salesperson");
 			
 			// Complie Template to .jasper
 			ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
@@ -182,13 +181,10 @@ public class WebSPublish extends HttpServlet {
 			
 			// Compilamos el sub reporte
 			JasperReport jasperSubReport = JasperCompileManager.compileReport(classLoader.getResourceAsStream("productionByProduct_subreport1.jrxml"));
-			JasperReport jasperSubReport2 = JasperCompileManager.compileReport(classLoader.getResourceAsStream("productionByProduct_subreport2.jrxml"));
 			
 			Map<String, Object> param = new HashMap<String, Object>();
 			param.put("SubReportParam", jasperSubReport);
-			param.put("SubReportParam2", jasperSubReport2);
 			param.put("SubDataSource", SubDataSource);
-			param.put("SubDataSource2", SubDataSource2);
 			
 			// filling report with data from data source
 			jasperPrint = JasperFillManager.fillReport(jasperReport,param,xmlDataSource);
