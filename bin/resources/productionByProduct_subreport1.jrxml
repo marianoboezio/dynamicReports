@@ -145,7 +145,7 @@
 			</componentElement>
 		</band>
 	</detail>
-	<columnFooter>
+	<pageFooter>
 		<band height="1">
 			<textField>
 				<reportElement x="0" y="0" width="100" height="0">
@@ -155,5 +155,5 @@
 				<textFieldExpression><![CDATA[$F{field1}]]></textFieldExpression>
 			</textField>
 		</band>
-	</columnFooter>
+	</pageFooter>
 </jasperReport>
