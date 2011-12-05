@@ -62,7 +62,7 @@
 				<textFieldExpression><![CDATA[$F{MTD}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="445" y="0" width="100" height="20" isRemoveLineWhenBlank="true"/>
+				<reportElement x="445" y="0" width="98" height="20" isRemoveLineWhenBlank="true"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<bottomPen lineWidth="1.0"/>
