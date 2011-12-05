@@ -7,16 +7,16 @@
 		<![CDATA[root/ProductionReportProductType/Row/Product/Salesperson]]>
 	</queryString>
 	<field name="Name" class="java.lang.String">
-		<fieldDescription><![CDATA[Salesperson/Name]]></fieldDescription>
+		<fieldDescription><![CDATA[Name]]></fieldDescription>
 	</field>
 	<field name="WTD" class="java.lang.String">
-		<fieldDescription><![CDATA[Salesperson/WTD]]></fieldDescription>
+		<fieldDescription><![CDATA[WTD]]></fieldDescription>
 	</field>
 	<field name="MTD" class="java.lang.String">
-		<fieldDescription><![CDATA[Salesperson/MTD]]></fieldDescription>
+		<fieldDescription><![CDATA[MTD]]></fieldDescription>
 	</field>
 	<field name="YTD" class="java.lang.String">
-		<fieldDescription><![CDATA[Salesperson/YTD]]></fieldDescription>
+		<fieldDescription><![CDATA[YTD]]></fieldDescription>
 	</field>
 	<field name="Rating" class="java.lang.String">
 		<fieldDescription><![CDATA[Salesperson/Rating]]></fieldDescription>
