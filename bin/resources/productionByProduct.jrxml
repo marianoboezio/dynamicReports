@@ -182,12 +182,12 @@
 			</textField>
 			<subreport>
 				<reportElement x="21" y="40" width="535" height="20" isRemoveLineWhenBlank="true"/>
-				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{SubDataSource})]]></dataSourceExpression>
+				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{SubDataSource2})]]></dataSourceExpression>
 				<subreportExpression><![CDATA[$P{SubReportParam2}]]></subreportExpression>
 			</subreport>
 			<subreport>
 				<reportElement x="11" y="20" width="545" height="20" isRemoveLineWhenBlank="true"/>
-				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{SubDataSource2})]]></dataSourceExpression>
+				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{SubDataSource})]]></dataSourceExpression>
 				<subreportExpression><![CDATA[$P{SubReportParam}]]></subreportExpression>
 			</subreport>
 		</band>
