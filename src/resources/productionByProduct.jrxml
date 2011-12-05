@@ -185,7 +185,7 @@
 			</subreport>
 			<subreport>
 				<reportElement x="11" y="20" width="545" height="20" isRemoveLineWhenBlank="true"/>
-				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).DataSource("Product")]]></dataSourceExpression>
+				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).DataSource("/root/ProductionReportProductType/Row/Product")]]></dataSourceExpression>
 				<subreportExpression><![CDATA[$P{SubReportParam}]]></subreportExpression>
 			</subreport>
 		</band>
