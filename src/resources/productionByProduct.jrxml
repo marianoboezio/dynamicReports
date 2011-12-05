@@ -184,12 +184,5 @@
 				<subreportExpression><![CDATA[$P{SubReportParam}]]></subreportExpression>
 			</subreport>
 		</band>
-		<band height="20">
-			<subreport>
-				<reportElement x="20" y="0" width="535" height="20" isRemoveLineWhenBlank="true"/>
-				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("//Product/Salesperson")]]></dataSourceExpression>
-				<subreportExpression><![CDATA[$P{SubReportParam2}]]></subreportExpression>
-			</subreport>
-		</band>
 	</detail>
 </jasperReport>
