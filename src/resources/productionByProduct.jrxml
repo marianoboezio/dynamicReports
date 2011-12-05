@@ -5,8 +5,8 @@
 	<property name="ireport.y" value="0"/>
 	<parameter name="SubReportParam" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
 	<parameter name="SubReportParam2" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
-    <parameter name="SubDataSource" class="net.sf.jasperreports.engine.data.JRXmlDataSource" isForPrompting="false"/>
-    <parameter name="SubDataSource2" class="net.sf.jasperreports.engine.data.JRXmlDataSource" isForPrompting="false"/>
+	<parameter name="SubDataSource" class="net.sf.jasperreports.engine.data.JRXmlDataSource" isForPrompting="false"/>
+	<parameter name="SubDataSource2" class="net.sf.jasperreports.engine.data.JRXmlDataSource" isForPrompting="false"/>
 	<queryString language="xPath">
 		<![CDATA[root/ProductionReportProductType/Row]]>
 	</queryString>
@@ -114,7 +114,7 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="60" splitType="Stretch">
+		<band height="40" splitType="Stretch">
 			<textField>
 				<reportElement x="170" y="0" width="90" height="20"/>
 				<box>
