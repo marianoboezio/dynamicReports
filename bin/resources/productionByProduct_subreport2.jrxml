@@ -19,10 +19,10 @@
 		<fieldDescription><![CDATA[YTD]]></fieldDescription>
 	</field>
 	<field name="Rating" class="java.lang.String">
-		<fieldDescription><![CDATA[Salesperson/Rating]]></fieldDescription>
+		<fieldDescription><![CDATA[Rating]]></fieldDescription>
 	</field>
-	<field name="ProductName" class="java.lang.String">
-		<fieldDescription><![CDATA[Product/Name]]></fieldDescription>
+	<field name="Name2" class="java.lang.String">
+		<fieldDescription><![CDATA[/root/ProductionReportProductType/Row/Product/Name]]></fieldDescription>
 	</field>
 	<group name="sureportGroup">
 		<groupExpression><![CDATA[$F{Name}]]></groupExpression>
@@ -88,9 +88,9 @@
 				<textFieldExpression><![CDATA[$F{Rating}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="0" y="0" width="100" height="20"/>
+				<reportElement x="0" y="1" width="100" height="20"/>
 				<textElement/>
-				<textFieldExpression><![CDATA[$F{ProductName}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Name2}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
