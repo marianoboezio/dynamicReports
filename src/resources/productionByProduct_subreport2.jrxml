@@ -7,25 +7,25 @@
 		<![CDATA[root/ProductionReportProductType/Row/Product/Salesperson]]>
 	</queryString>
 	<field name="Name" class="java.lang.String">
-		<fieldDescription><![CDATA[Name]]></fieldDescription>
+		<fieldDescription><![CDATA[Salesperson/Name]]></fieldDescription>
 	</field>
 	<field name="WTD" class="java.lang.String">
-		<fieldDescription><![CDATA[WTD]]></fieldDescription>
+		<fieldDescription><![CDATA[Salesperson/WTD]]></fieldDescription>
 	</field>
 	<field name="MTD" class="java.lang.String">
-		<fieldDescription><![CDATA[MTD]]></fieldDescription>
+		<fieldDescription><![CDATA[Salesperson/MTD]]></fieldDescription>
 	</field>
 	<field name="YTD" class="java.lang.String">
-		<fieldDescription><![CDATA[YTD]]></fieldDescription>
+		<fieldDescription><![CDATA[Salesperson/YTD]]></fieldDescription>
 	</field>
 	<field name="Rating" class="java.lang.String">
-		<fieldDescription><![CDATA[Rating]]></fieldDescription>
+		<fieldDescription><![CDATA[Salesperson/Rating]]></fieldDescription>
 	</field>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
-	<title>
-		<band height="20">
+	<detail>
+		<band height="20" splitType="Stretch">
 			<textField>
 				<reportElement x="0" y="0" width="170" height="20"/>
 				<box>
@@ -82,5 +82,5 @@
 				<textFieldExpression><![CDATA[$F{Rating}]]></textFieldExpression>
 			</textField>
 		</band>
-	</title>
+	</detail>
 </jasperReport>
