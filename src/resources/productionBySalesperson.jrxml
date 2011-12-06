@@ -19,9 +19,6 @@
 	<field name="Salespeople" class="java.lang.String">
 		<fieldDescription><![CDATA[Salespeople]]></fieldDescription>
 	</field>
-	<background>
-		<band splitType="Stretch"/>
-	</background>
 	<title>
 		<band height="45" splitType="Stretch">
 			<image>
