@@ -48,6 +48,13 @@
 				<textElement/>
 				<text><![CDATA[Static text]]></text>
 			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="1">
+					<property name="net.sf.jasperreports.export.xls.row.outline.level.2" value="End"/>
+				</reportElement>
+				<textElement/>
+				<text><![CDATA[Static text]]></text>
+			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
