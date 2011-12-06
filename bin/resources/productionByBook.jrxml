@@ -127,7 +127,9 @@
 				<textFieldExpression><![CDATA[$F{ytd}]]></textFieldExpression>
 			</textField>
 			<subreport>
-				<reportElement x="11" y="20" width="545" height="20" isRemoveLineWhenBlank="true"/>
+				<reportElement x="11" y="20" width="545" height="20" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{ytd} != "0"]]></printWhenExpression>
+				</reportElement>
 				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("//Book")]]></dataSourceExpression>
 				<subreportExpression><![CDATA[$P{SubReportParam}]]></subreportExpression>
 			</subreport>
