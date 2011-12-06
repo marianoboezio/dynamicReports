@@ -59,7 +59,7 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="48" splitType="Stretch">
+		<band height="40" splitType="Stretch">
 			<textField isBlankWhenNull="true">
 				<reportElement x="245" y="0" width="100" height="20" isRemoveLineWhenBlank="true"/>
 				<box>
@@ -163,17 +163,10 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Name}]]></textFieldExpression>
 			</textField>
-			<staticText>
-				<reportElement x="0" y="44" width="100" height="1">
-					<property name="net.sf.jasperreports.export.xls.row.outline.level.2" value="End"/>
-				</reportElement>
-				<textElement/>
-				<text><![CDATA[Static text]]></text>
-			</staticText>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="3">
+		<band height="1">
 			<staticText>
 				<reportElement x="18" y="0" width="100" height="1">
 					<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="End"/>
