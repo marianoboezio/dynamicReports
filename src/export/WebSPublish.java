@@ -63,8 +63,8 @@ public class WebSPublish extends HttpServlet {
 	Integer tokenlength = Integer.valueOf(EncryptedPASSWORDTOKENKEY.substring(EncryptedPASSWORDTOKENKEY.length() - 2));
 	Integer passlength = Integer.valueOf(EncryptedPASSWORDTOKENKEY.substring(EncryptedPASSWORDTOKENKEY.length() - 4,EncryptedPASSWORDTOKENKEY.length() - 2));
 	String key = EncryptedPASSWORDTOKENKEY.substring(passlength + tokenlength , EncryptedPASSWORDTOKENKEY.length() - 4);
-	String EncryptedPASSWORD = EncryptedPASSWORDTOKENKEY.substring(0 , passlength);
-	String EncryptedTOKEN = EncryptedPASSWORDTOKENKEY.substring(passlength , passlength + tokenlength);
+	String EncryptedPASSWORD = EncryptedPASSWORDTOKENKEY.substring(0 , passlength - 1);
+	String EncryptedTOKEN = EncryptedPASSWORDTOKENKEY.substring(passlength , passlength + tokenlength - 1);
 	
 	System.out.println("######################## Encrypted CREDENTIALS ########################");
 	//System.out.println("LENGTH ---->" + length);
