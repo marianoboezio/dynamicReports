@@ -92,7 +92,7 @@ public class WebSPublish extends HttpServlet {
 		String PASSWORD = new String(cipher.doFinal(hexStringToByteArray(EncryptedPASSWORD)));
 		System.out.println("PASSWORD ---->" + PASSWORD);
 		
-		String TOKEN = cipher.doFinal(hexStringToByteArray(EncryptedTOKEN)).toString();
+		String TOKEN = new String(cipher.doFinal(hexStringToByteArray(EncryptedTOKEN)));
 		System.out.println("TOKEN ---->" + TOKEN);
 		
 		ConnectorConfig config = new ConnectorConfig();
