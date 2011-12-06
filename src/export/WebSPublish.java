@@ -2,6 +2,7 @@ package export;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.security.AlgorithmParameters;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
@@ -66,6 +68,7 @@ public class WebSPublish extends HttpServlet {
 	
 	System.out.println("######################## Encrypted CREDENTIALS ########################");
 	//System.out.println("LENGTH ---->" + length);
+	System.out.println("EncryptedPASSWORDTOKENKEY ---->" + EncryptedPASSWORDTOKENKEY);
 	System.out.println("KEY ---->" + key);
 	System.out.println("EncryptedUSERNAME ---->" + EncrypetedUSERNAME);
 	System.out.println("EcryptedPASSWORD ---->" + EncryptedPASSWORD);
@@ -76,11 +79,9 @@ public class WebSPublish extends HttpServlet {
 	
 	
 	try { 		
-			
-		SecureRandom random = new SecureRandom();
 		SecretKeySpec secretkey = new SecretKeySpec(Base64.decode(key), "AES");
 		Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-		cipher.init(Cipher.DECRYPT_MODE, secretkey,random);
+		cipher.init(Cipher.DECRYPT_MODE, secretkey, new IvParameterSpec(Base64.decode(key)));
 		
 		System.out.println("######################## Decrypting CREDENTIALS ########################");			
 		
