@@ -201,7 +201,6 @@
 			<staticText>
 				<reportElement x="18" y="0" width="100" height="1" isRemoveLineWhenBlank="true">
 					<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="End"/>
-					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
 				</reportElement>
 				<textElement/>
 				<text><![CDATA[Static text]]></text>
