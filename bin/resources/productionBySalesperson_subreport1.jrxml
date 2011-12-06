@@ -99,7 +99,7 @@
 				<textFieldExpression><![CDATA[$F{YTD}]]></textFieldExpression>
 			</textField>
 			<componentElement>
-				<reportElement x="63" y="21" width="482" height="20"/>
+				<reportElement x="63" y="21" width="482" height="20" isRemoveLineWhenBlank="true"/>
 				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
 					<datasetRun subDataset="dataset1">
 						<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("//Account/ProductType")]]></dataSourceExpression>
