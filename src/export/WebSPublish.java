@@ -79,20 +79,20 @@ public class WebSPublish extends HttpServlet {
 	
 	
 	try { 		
-		SecretKeySpec secretkey = new SecretKeySpec(Base64.decode(key), "AES");
+		SecretKeySpec secretkey = new SecretKeySpec(hexStringToByteArray(key), "AES");
 		Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-		cipher.init(Cipher.DECRYPT_MODE, secretkey, new IvParameterSpec(Base64.decode(key)));
+		cipher.init(Cipher.DECRYPT_MODE, secretkey, new IvParameterSpec(hexStringToByteArray(key)));
 		
 		System.out.println("######################## Decrypting CREDENTIALS ########################");			
 				
-		byte[] decodedUsername = Base64.decode(EncrypetedUSERNAME);
+		byte[] decodedUsername = hexStringToByteArray(EncrypetedUSERNAME);
 		String USERNAME = new String(cipher.doFinal(decodedUsername));
 		System.out.println("USERNAME ---->" + USERNAME);
 		
-		String PASSWORD = new String(cipher.doFinal(Base64.decode(EncryptedPASSWORD)));
+		String PASSWORD = new String(cipher.doFinal(hexStringToByteArray(EncryptedPASSWORD)));
 		System.out.println("PASSWORD ---->" + PASSWORD);
 		
-		String TOKEN = cipher.doFinal(Base64.decode(EncryptedTOKEN)).toString();
+		String TOKEN = cipher.doFinal(hexStringToByteArray(EncryptedTOKEN)).toString();
 		System.out.println("TOKEN ---->" + TOKEN);
 		
 		ConnectorConfig config = new ConnectorConfig();
