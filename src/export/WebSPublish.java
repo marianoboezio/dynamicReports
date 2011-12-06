@@ -2,6 +2,7 @@ package export;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -42,12 +43,12 @@ public class WebSPublish extends HttpServlet {
             throws ServletException, IOException { 		
 		
 	System.out.println(req.getParameter("user") + "\n\n " + req.getParameter("pass"));
-	String USERNAME = req.getParameter("user");
+	/*String USERNAME = req.getParameter("user");
 	String PASSWORD = req.getParameter("pass");
 	String type = req.getParameter("type");
-	String reportID = req.getParameter("reportID");
+	String reportID = req.getParameter("reportID");*/
 	
-	/*String EncrypetedUSERNAME = req.getParameter("user");
+	String EncrypetedUSERNAME = req.getParameter("user");
 	String EncryptedPASSWORDTOKENKEY = req.getParameter("pass");	
 	String type = req.getParameter("type");
 	String reportID = req.getParameter("reportID");
@@ -55,7 +56,7 @@ public class WebSPublish extends HttpServlet {
 	/*System.out.println("EncryptedUSERNAME ---->" + EncryptedPASSWORDKEY);
 	String[] keypass = EncryptedPASSWORDKEY.split("12345678");
 	String EncryptedPASSWORD = keypass[0];
-	String key = keypass[1];
+	String key = keypass[1];*/
 	
 	Integer tokenlength = Integer.valueOf(EncryptedPASSWORDTOKENKEY.substring(EncryptedPASSWORDTOKENKEY.length() - 2));
 	Integer passlength = Integer.valueOf(EncryptedPASSWORDTOKENKEY.substring(EncryptedPASSWORDTOKENKEY.length() - 4,EncryptedPASSWORDTOKENKEY.length() - 2));
@@ -68,7 +69,7 @@ public class WebSPublish extends HttpServlet {
 	System.out.println("KEY ---->" + key);
 	System.out.println("EncryptedUSERNAME ---->" + EncrypetedUSERNAME);
 	System.out.println("EcryptedPASSWORD ---->" + EncryptedPASSWORD);
-	System.out.println("EncryptedTOKEN ---->" + EncryptedTOKEN);*/
+	System.out.println("EncryptedTOKEN ---->" + EncryptedTOKEN);
 	
 	PartnerConnection connection;
 	ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -76,9 +77,10 @@ public class WebSPublish extends HttpServlet {
 	
 	try { 		
 			
-		/*SecretKeySpec secretkey = new SecretKeySpec(Base64.decode(key), "AES");
+		SecureRandom random = new SecureRandom();
+		SecretKeySpec secretkey = new SecretKeySpec(Base64.decode(key), "AES");
 		Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-		cipher.init(Cipher.DECRYPT_MODE, secretkey);
+		cipher.init(Cipher.DECRYPT_MODE, secretkey,random);
 		
 		System.out.println("######################## Decrypting CREDENTIALS ########################");			
 		
@@ -90,7 +92,7 @@ public class WebSPublish extends HttpServlet {
 		System.out.println("USERNAME ---->" + USERNAME);
 		
 		String PASSWORD = new String(cipher.doFinal(Base64.decode(EncryptedPASSWORD)));
-		System.out.println("PASSWORD ---->" + PASSWORD);*/
+		System.out.println("PASSWORD ---->" + PASSWORD);
 				
 		ConnectorConfig config = new ConnectorConfig();
 	    config.setUsername(USERNAME);
