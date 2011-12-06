@@ -36,9 +36,6 @@
 	<field name="YTD" class="java.lang.String">
 		<fieldDescription><![CDATA[YTD]]></fieldDescription>
 	</field>
-	<background>
-		<band splitType="Stretch"/>
-	</background>
 	<columnHeader>
 		<band height="1">
 			<staticText>
@@ -167,6 +164,7 @@
 			<staticText>
 				<reportElement x="0" y="20" width="100" height="1" isRemoveLineWhenBlank="true">
 					<property name="net.sf.jasperreports.export.xls.row.outline.level.2" value="End"/>
+					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
 				</reportElement>
 				<textElement/>
 				<text><![CDATA[Static text]]></text>
