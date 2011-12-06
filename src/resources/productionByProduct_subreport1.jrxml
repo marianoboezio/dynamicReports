@@ -51,6 +51,14 @@
 		<band height="1">
 			<staticText>
 				<reportElement x="18" y="0" width="100" height="1" isRemoveLineWhenBlank="true">
+					<property name="net.sf.jasperreports.export.xls.row.outline.level.2" value="End"/>
+					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
+				</reportElement>
+				<textElement/>
+				<text><![CDATA[Static text]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="0" width="100" height="1" isRemoveLineWhenBlank="true">
 					<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="End"/>
 					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
 				</reportElement>
@@ -61,6 +69,21 @@
 	</columnHeader>
 	<detail>
 		<band height="41" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="245" height="20" isRemoveLineWhenBlank="true">
+					<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="Body"/>
+					<property name="net.sf.jasperreports.export.xls.row.outline.level.2" value="End"/>
+					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Name}]]></textFieldExpression>
+			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="245" y="0" width="100" height="20" isRemoveLineWhenBlank="true">
 					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
@@ -101,7 +124,9 @@
 				<textFieldExpression><![CDATA[$F{YTD}]]></textFieldExpression>
 			</textField>
 			<componentElement>
-				<reportElement x="61" y="21" width="482" height="20"/>
+				<reportElement x="61" y="21" width="482" height="20">
+					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
+				</reportElement>
 				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
 					<datasetRun subDataset="dataset1">
 						<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("//Product/Salesperson")]]></dataSourceExpression>
@@ -163,21 +188,6 @@
 					</jr:listContents>
 				</jr:list>
 			</componentElement>
-			<textField isBlankWhenNull="true">
-				<reportElement x="0" y="0" width="245" height="20" isRemoveLineWhenBlank="true">
-					<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="Body"/>
-					<property name="net.sf.jasperreports.export.xls.row.outline.level.2" value="End"/>
-					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
-				</reportElement>
-				<box>
-					<topPen lineWidth="1.0"/>
-					<bottomPen lineWidth="1.0"/>
-				</box>
-				<textElement>
-					<font size="9"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{Name}]]></textFieldExpression>
-			</textField>
 			<staticText>
 				<reportElement x="0" y="20" width="100" height="1" isRemoveLineWhenBlank="true">
 					<property name="net.sf.jasperreports.export.xls.row.outline.level.2" value="End"/>
