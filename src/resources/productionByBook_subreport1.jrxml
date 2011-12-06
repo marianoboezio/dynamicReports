@@ -19,10 +19,24 @@
 	<field name="aytd" class="java.lang.String">
 		<fieldDescription><![CDATA[YTD]]></fieldDescription>
 	</field>
+	<field name="field1" class="java.lang.String"/>
+	<columnHeader>
+		<band height="1">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="1">
+					<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="End"/>
+				</reportElement>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{field1}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
 	<detail>
 		<band height="20" splitType="Stretch">
 			<textField>
-				<reportElement x="0" y="0" width="245" height="20"/>
+				<reportElement x="0" y="0" width="245" height="20">
+					<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="Body"/>
+				</reportElement>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<bottomPen lineWidth="1.0"/>
@@ -49,7 +63,7 @@
 				<textFieldExpression><![CDATA[$F{amtd}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="445" y="0" width="100" height="20"/>
+				<reportElement x="445" y="0" width="98" height="20"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<bottomPen lineWidth="1.0"/>
@@ -59,4 +73,15 @@
 			</textField>
 		</band>
 	</detail>
+	<columnFooter>
+		<band height="1">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="1">
+					<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="End"/>
+				</reportElement>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{field1}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
 </jasperReport>
