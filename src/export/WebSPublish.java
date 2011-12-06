@@ -84,17 +84,17 @@ public class WebSPublish extends HttpServlet {
 		cipher.init(Cipher.DECRYPT_MODE, secretkey, new IvParameterSpec(Base64.decode(key)));
 		
 		System.out.println("######################## Decrypting CREDENTIALS ########################");			
-		
-		String TOKEN = cipher.doFinal(Base64.decode(EncryptedTOKEN)).toString();
-		System.out.println("TOKEN ---->" + TOKEN);
-		
+				
 		byte[] decodedUsername = Base64.decode(EncrypetedUSERNAME);
 		String USERNAME = new String(cipher.doFinal(decodedUsername));
 		System.out.println("USERNAME ---->" + USERNAME);
 		
 		String PASSWORD = new String(cipher.doFinal(Base64.decode(EncryptedPASSWORD)));
 		System.out.println("PASSWORD ---->" + PASSWORD);
-				
+		
+		String TOKEN = cipher.doFinal(Base64.decode(EncryptedTOKEN)).toString();
+		System.out.println("TOKEN ---->" + TOKEN);
+		
 		ConnectorConfig config = new ConnectorConfig();
 	    config.setUsername(USERNAME);
 	    config.setPassword(PASSWORD);
