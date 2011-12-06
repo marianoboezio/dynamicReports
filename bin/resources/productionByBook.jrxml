@@ -81,8 +81,10 @@
 	</columnHeader>
 	<detail>
 		<band height="40" splitType="Stretch">
-			<textField>
-				<reportElement x="203" y="0" width="119" height="20"/>
+			<textField isBlankWhenNull="true">
+				<reportElement x="203" y="0" width="119" height="20" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{ytd} != "0"]]></printWhenExpression>
+				</reportElement>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -94,8 +96,10 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{wtd}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="322" y="0" width="120" height="20"/>
+			<textField isBlankWhenNull="true">
+				<reportElement x="322" y="0" width="120" height="20" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{ytd} != "0"]]></printWhenExpression>
+				</reportElement>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -107,8 +111,10 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{mtd}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="442" y="0" width="113" height="20"/>
+			<textField isBlankWhenNull="true">
+				<reportElement x="442" y="0" width="113" height="20" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{ytd} != "0"]]></printWhenExpression>
+				</reportElement>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -121,12 +127,14 @@
 				<textFieldExpression><![CDATA[$F{ytd}]]></textFieldExpression>
 			</textField>
 			<subreport>
-				<reportElement x="11" y="20" width="545" height="20"/>
+				<reportElement x="11" y="20" width="545" height="20" isRemoveLineWhenBlank="true"/>
 				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("//Book")]]></dataSourceExpression>
 				<subreportExpression><![CDATA[$P{SubReportParam}]]></subreportExpression>
 			</subreport>
-			<textField>
-				<reportElement x="0" y="0" width="203" height="20"/>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="203" height="20" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{ytd} != "0"]]></printWhenExpression>
+				</reportElement>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
