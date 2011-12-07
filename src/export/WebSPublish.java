@@ -114,12 +114,12 @@ public class WebSPublish extends HttpServlet {
 	    	}	    	
 		}
 	    
-	    xml += "</root>";	 	   
-	    System.out.println("XML --------------------------------------->" + xml); 
+	    xml += "</root>";	    
 	    
 	    System.out.println("######################## XML ########################");
 	    Document xmlOutput = Util.xmlFormat(xml.replaceAll("&", " "));
 	    
+	    System.out.println("XML --------------------------------------->" + xmlOutput.toString()); 
 	    /* JasperPrint is the object contains
 		report after result filling process */
 		JasperPrint jasperPrint = null;
