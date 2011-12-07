@@ -47,18 +47,32 @@
 	<background>
 		<band splitType="Stretch"/>
 	</background>
-	<detail>
-		<band height="41" splitType="Stretch">
+	<columnHeader>
+		<band height="1">
 			<staticText>
-				<reportElement x="0" y="21" width="100" height="1" isRemoveLineWhenBlank="true">
+				<reportElement x="18" y="0" width="100" height="1" isRemoveLineWhenBlank="true">
 					<property name="net.sf.jasperreports.export.xls.row.outline.level.2" value="End"/>
 					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
 				</reportElement>
 				<textElement/>
 				<text><![CDATA[Static text]]></text>
 			</staticText>
+			<staticText>
+				<reportElement x="10" y="0" width="100" height="1" isRemoveLineWhenBlank="true">
+					<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="End"/>
+					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
+				</reportElement>
+				<textElement/>
+				<text><![CDATA[Static text]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="41" splitType="Stretch">
 			<textField isBlankWhenNull="true">
 				<reportElement x="0" y="0" width="245" height="20" isRemoveLineWhenBlank="true">
+					<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="Body"/>
+					<property name="net.sf.jasperreports.export.xls.row.outline.level.2" value="End"/>
 					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
 				</reportElement>
 				<box>
@@ -174,14 +188,29 @@
 					</jr:listContents>
 				</jr:list>
 			</componentElement>
+			<staticText>
+				<reportElement x="0" y="20" width="100" height="1" isRemoveLineWhenBlank="true">
+					<property name="net.sf.jasperreports.export.xls.row.outline.level.2" value="End"/>
+					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
+				</reportElement>
+				<textElement/>
+				<text><![CDATA[Static text]]></text>
+			</staticText>
 		</band>
 	</detail>
 	<columnFooter>
 		<band height="1">
 			<staticText>
-				<reportElement x="0" y="0" width="100" height="1" isRemoveLineWhenBlank="true">
+				<reportElement x="18" y="0" width="100" height="1" isRemoveLineWhenBlank="true">
 					<property name="net.sf.jasperreports.export.xls.row.outline.level.2" value="End"/>
 					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
+				</reportElement>
+				<textElement/>
+				<text><![CDATA[Static text]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="18" y="0" width="100" height="1" isRemoveLineWhenBlank="true">
+					<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="End"/>
 				</reportElement>
 				<textElement/>
 				<text><![CDATA[Static text]]></text>
