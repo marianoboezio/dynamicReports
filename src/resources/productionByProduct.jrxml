@@ -23,6 +23,7 @@
 	<field name="Salespersons" class="java.lang.String">
 		<fieldDescription><![CDATA[Salespersons]]></fieldDescription>
 	</field>
+	<field name="field1" class="java.lang.String"/>
 	<group name="subreportsGroup">
 		<groupExpression><![CDATA[$F{Acount}]]></groupExpression>
 	</group>
@@ -160,6 +161,7 @@
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="0" y="0" width="170" height="20" isRemoveLineWhenBlank="true">
+					<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="End"/>
 					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
 				</reportElement>
 				<box>
@@ -189,10 +191,24 @@
 				<textFieldExpression><![CDATA[$F{Salespersons}]]></textFieldExpression>
 			</textField>
 			<subreport>
-				<reportElement x="11" y="20" width="545" height="20" isRemoveLineWhenBlank="true"/>
+				<reportElement x="11" y="20" width="545" height="20" isRemoveLineWhenBlank="true">
+					<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="Body"/>
+				</reportElement>
 				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("//Product")]]></dataSourceExpression>
 				<subreportExpression><![CDATA[$P{SubReportParam}]]></subreportExpression>
 			</subreport>
 		</band>
 	</detail>
+	<columnFooter>
+		<band height="1">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="1">
+					<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="End"/>
+					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
+				</reportElement>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{field1}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
 </jasperReport>
