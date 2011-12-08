@@ -50,16 +50,13 @@ public class WebSPublish extends HttpServlet {
 	String type = req.getParameter("type");
 	String reportID = req.getParameter("reportID");*/
 	
+	// Get the parameters
 	String EncrypetedUSERNAME = req.getParameter("user");
 	String EncryptedPASSWORDTOKENKEY = req.getParameter("pass");	
 	String type = req.getParameter("type");
 	String reportID = req.getParameter("reportID");
 	
-	/*System.out.println("EncryptedUSERNAME ---->" + EncryptedPASSWORDKEY);
-	String[] keypass = EncryptedPASSWORDKEY.split("12345678");
-	String EncryptedPASSWORD = keypass[0];
-	String key = keypass[1];*/
-	
+	// Get Token, Password and cryptoKey
 	Integer tokenlength = Integer.valueOf(EncryptedPASSWORDTOKENKEY.substring(EncryptedPASSWORDTOKENKEY.length() - 2));
 	Integer passlength = Integer.valueOf(EncryptedPASSWORDTOKENKEY.substring(EncryptedPASSWORDTOKENKEY.length() - 4,EncryptedPASSWORDTOKENKEY.length() - 2));
 	String key = EncryptedPASSWORDTOKENKEY.substring(passlength + tokenlength , EncryptedPASSWORDTOKENKEY.length() - 4);
@@ -67,7 +64,6 @@ public class WebSPublish extends HttpServlet {
 	String EncryptedTOKEN = EncryptedPASSWORDTOKENKEY.substring(passlength , passlength + tokenlength);
 	
 	System.out.println("######################## Encrypted CREDENTIALS ########################");
-	//System.out.println("LENGTH ---->" + length);
 	System.out.println("EncryptedPASSWORDTOKENKEY ---->" + EncryptedPASSWORDTOKENKEY);
 	System.out.println("KEY ---->" + key);
 	System.out.println("EncryptedUSERNAME ---->" + EncrypetedUSERNAME);
@@ -79,20 +75,20 @@ public class WebSPublish extends HttpServlet {
 	
 	
 	try { 		
-		SecretKeySpec secretkey = new SecretKeySpec(hexStringToByteArray(key), "AES");
+		SecretKeySpec secretkey = new SecretKeySpec(Util.hexStringToByteArray(key), "AES");
 		Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-		cipher.init(Cipher.DECRYPT_MODE, secretkey, new IvParameterSpec(hexStringToByteArray(key)));
+		cipher.init(Cipher.DECRYPT_MODE, secretkey, new IvParameterSpec(Util.hexStringToByteArray(key)));
 		
 		System.out.println("######################## Decrypting CREDENTIALS ########################");			
 				
-		byte[] decodedUsername = hexStringToByteArray(EncrypetedUSERNAME);
+		byte[] decodedUsername = Util.hexStringToByteArray(EncrypetedUSERNAME);
 		String USERNAME = new String(cipher.doFinal(decodedUsername));
 		System.out.println("USERNAME ---->" + USERNAME);
 		
-		String PASSWORD = new String(cipher.doFinal(hexStringToByteArray(EncryptedPASSWORD)));
+		String PASSWORD = new String(cipher.doFinal(Util.hexStringToByteArray(EncryptedPASSWORD)));
 		System.out.println("PASSWORD ---->" + PASSWORD);
 		
-		String TOKEN = new String(cipher.doFinal(hexStringToByteArray(EncryptedTOKEN)));
+		String TOKEN = new String(cipher.doFinal(Util.hexStringToByteArray(EncryptedTOKEN)));
 		System.out.println("TOKEN ---->" + TOKEN);
 		
 		ConnectorConfig config = new ConnectorConfig();
@@ -119,7 +115,7 @@ public class WebSPublish extends HttpServlet {
 	    System.out.println("######################## XML ########################");
 	    Document xmlOutput = Util.xmlFormat(xml.replaceAll("&", " "));
 	    
-	    System.out.println("XML --------------------------------------->" + xmlOutput.toString()); 
+	    System.out.println("XML --------------------------------------->" + xmlOutput); 
 	    /* JasperPrint is the object contains
 		report after result filling process */
 		JasperPrint jasperPrint = null;
@@ -232,6 +228,7 @@ public class WebSPublish extends HttpServlet {
 		/*String xml = "<root><User>Travis Brooks 85.19 % Coverage Conflict</User><conflicts><conflict><acount> Ag Workers Ins Grp </acount><ccoverage> Y </ccoverage>" +
 					"<eemployee> O Hennesey, Edward </eemployee><productt> US-HG </productt><productionytd> $197025.91 </productionytd><prospectiveEmpR></prospectiveEmpR><exitingEmpR></exitingEmpR>"+			
 					"</conflict></conflicts></root>";*/		
+		System.out.println("PARAMETERssssssss HERE ---------------> " + req.getReader());
 		
 		try {
 			String xml = req.getParameter("xml");
@@ -293,13 +290,5 @@ public class WebSPublish extends HttpServlet {
         server.join(); 		
 	}
 	
-	public static byte[] hexStringToByteArray(String s) {
-	    int len = s.length();
-	    byte[] data = new byte[len / 2];
-	    for (int i = 0; i < len; i += 2) {
-	        data[i / 2] = (byte) ((Character.digit(s.charAt(i), 16) << 4)
-	                             + Character.digit(s.charAt(i+1), 16));
-	    }
-	    return data;
-	}
+	
 }

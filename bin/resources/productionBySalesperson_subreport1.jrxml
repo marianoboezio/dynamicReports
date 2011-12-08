@@ -68,7 +68,7 @@
 					<bottomPen lineWidth="1.0"/>
 				</box>
 				<textElement>
-					<font size="8"/>
+					<font size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Name}]]></textFieldExpression>
 			</textField>
@@ -81,7 +81,7 @@
 					<bottomPen lineWidth="1.0"/>
 				</box>
 				<textElement>
-					<font size="8"/>
+					<font size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{WTD}]]></textFieldExpression>
 			</textField>
@@ -94,7 +94,7 @@
 					<bottomPen lineWidth="1.0"/>
 				</box>
 				<textElement>
-					<font size="8"/>
+					<font size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{MTD}]]></textFieldExpression>
 			</textField>
@@ -107,7 +107,7 @@
 					<bottomPen lineWidth="1.0"/>
 				</box>
 				<textElement>
-					<font size="8"/>
+					<font size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{YTD}]]></textFieldExpression>
 			</textField>
@@ -130,7 +130,7 @@
 								<bottomPen lineWidth="1.0"/>
 							</box>
 							<textElement>
-								<font size="8"/>
+								<font size="9"/>
 							</textElement>
 							<textFieldExpression><![CDATA[$F{Name2}]]></textFieldExpression>
 						</textField>
@@ -143,7 +143,7 @@
 								<bottomPen lineWidth="1.0"/>
 							</box>
 							<textElement>
-								<font size="8"/>
+								<font size="9"/>
 							</textElement>
 							<textFieldExpression><![CDATA[$F{WTD2}]]></textFieldExpression>
 						</textField>
@@ -156,7 +156,7 @@
 								<bottomPen lineWidth="1.0"/>
 							</box>
 							<textElement>
-								<font size="8"/>
+								<font size="9"/>
 							</textElement>
 							<textFieldExpression><![CDATA[$F{MTD2}]]></textFieldExpression>
 						</textField>
@@ -169,7 +169,7 @@
 								<bottomPen lineWidth="1.0"/>
 							</box>
 							<textElement>
-								<font size="8"/>
+								<font size="9"/>
 							</textElement>
 							<textFieldExpression><![CDATA[$F{YTD2}]]></textFieldExpression>
 						</textField>
