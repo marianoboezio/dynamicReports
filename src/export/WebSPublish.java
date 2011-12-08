@@ -228,7 +228,7 @@ public class WebSPublish extends HttpServlet {
 		/*String xml = "<root><User>Travis Brooks 85.19 % Coverage Conflict</User><conflicts><conflict><acount> Ag Workers Ins Grp </acount><ccoverage> Y </ccoverage>" +
 					"<eemployee> O Hennesey, Edward </eemployee><productt> US-HG </productt><productionytd> $197025.91 </productionytd><prospectiveEmpR></prospectiveEmpR><exitingEmpR></exitingEmpR>"+			
 					"</conflict></conflicts></root>";*/		
-		System.out.println("PARAMETERssssssss HERE ---------------> " + req.getParameterValues("user"));
+		System.out.println("PARAMETERssssssss HERE ---------------> " + req.getParameterValues("user").toString());
 		
 		try {
 			String xml = req.getParameter("xml");
