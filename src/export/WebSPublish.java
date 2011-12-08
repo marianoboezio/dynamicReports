@@ -225,54 +225,146 @@ public class WebSPublish extends HttpServlet {
 	@Override	
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		/*String xml = "<root><User>Travis Brooks 85.19 % Coverage Conflict</User><conflicts><conflict><acount> Ag Workers Ins Grp </acount><ccoverage> Y </ccoverage>" +
-					"<eemployee> O Hennesey, Edward </eemployee><productt> US-HG </productt><productionytd> $197025.91 </productionytd><prospectiveEmpR></prospectiveEmpR><exitingEmpR></exitingEmpR>"+			
-					"</conflict></conflicts></root>";*/		
-		System.out.println("PARAMETERssssssss HERE ---------------> " + req.getParameterValues("user").toString());
+		System.out.println(req.getParameter("user") + "\n\n " + req.getParameter("pass"));
+		String USERNAME = req.getParameter("user");
+		String PASSWORD = req.getParameter("pass");
+		String type = req.getParameter("type");
+		String reportID = req.getParameter("reportID");		
 		
-		try {
-			String xml = req.getParameter("xml");
-			
-			System.out.println("\n\n\n" + req.getRequestURL() + "\n" + req.toString() + "\n\n\n");
-			System.out.println("\n\n\n" + req.getPathInfo() + "\n" + req.toString() + "\n\n\n");
-			System.out.println("\n\n\n" + req.getHeader("xml") + "\n" + req.toString() + "\n\n\n");
-			
-			System.out.println("PARAMETER HERE ---------------> " + xml);
-			Document xmlOutput = Util.xmlFormat(xml);			
-			
-			// Create Data source
-			JRXmlDataSource xmlDataSource = new JRXmlDataSource(xmlOutput, "root/content");	 
-			
-			// Complie Template to .jasper
-			ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-			System.out.println(classLoader.getResourceAsStream("production.jrxml"));
-			JasperReport jasperReport = JasperCompileManager.compileReport(classLoader.getResourceAsStream("production.jrxml"));
-
-			/* JasperPrint is the object contains
+		PartnerConnection connection;
+		ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+		
+		
+		try {			
+			ConnectorConfig config = new ConnectorConfig();
+		    config.setUsername(USERNAME);
+		    config.setPassword(PASSWORD);
+		    
+		    
+		    connection = Connector.newConnection(config);   
+		    QueryResult queryResults =  connection.query("SELECT o.Row_HTML__c, o.Object_Export_Excel__c FROM Object_Row__c o WHERE o.Object_Export_Excel__c = '" + reportID + "' ORDER BY o.name");	
+		    
+		    System.out.println("######################## START ########################");
+		    
+		    String xml = "<root>";	
+		    for (SObject s : queryResults.getRecords()) { 
+		    	
+		    	System.out.println("######################## Looping ########################");
+		    	if(s.getField("Row_HTML__c") != null){
+		    		xml += s.getField("Row_HTML__c").toString();	
+		    	}	    	
+			}
+		    
+		    xml += "</root>";	    
+		    
+		    System.out.println("######################## XML ########################");
+		    Document xmlOutput = Util.xmlFormat(xml.replaceAll("&", " "));
+		    
+		    System.out.println("XML --------------------------------------->" + xmlOutput); 
+		    /* JasperPrint is the object contains
 			report after result filling process */
-			JasperPrint jasperPrint;	 	
+			JasperPrint jasperPrint = null;
+		    
+		    if (type.equals("NonPerformer")) {
+			    // Create Data source
+				JRXmlDataSource xmlDataSource = new JRXmlDataSource(xmlOutput, "root/NonPerformingAccounts/Row");	
+				
+				// Complie Template to .jasper
+				ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+				JasperReport jasperReport = JasperCompileManager.compileReport(classLoader.getResourceAsStream("NonPerformingAccounts.jrxml"));
+				
+				// Compilamos el sub reporte
+				JasperReport jasperSubReport = JasperCompileManager.compileReport(classLoader.getResourceAsStream("NonPerformingAccounts_subreport1.jrxml"));				 	
+				
+				Map<String, Object> param = new HashMap<String, Object>();
+				param.put("SubReportParam", jasperSubReport);
+				
+				// filling report with data from data source
+				jasperPrint = JasperFillManager.fillReport(jasperReport,param,xmlDataSource);
+		    } else if (type.equals("productionBySalesperson")){
+		    	JRXmlDataSource xmlDataSource = new JRXmlDataSource(xmlOutput, "root/ProductionReportSalespeople/Row");	
+				
+				// Complie Template to .jasper
+				ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+				JasperReport jasperReport = JasperCompileManager.compileReport(classLoader.getResourceAsStream("productionBySalesperson.jrxml"));
+				
+				// Compilamos el sub reporte
+				JasperReport jasperSubReport = JasperCompileManager.compileReport(classLoader.getResourceAsStream("productionBySalesperson_subreport1.jrxml"));
+				JasperReport jasperSubReport2 = JasperCompileManager.compileReport(classLoader.getResourceAsStream("productionBySalesperson_subreport2.jrxml"));
+				
+				Map<String, Object> param = new HashMap<String, Object>();
+				param.put("SubReportParam", jasperSubReport);
+				param.put("SubReportParam2", jasperSubReport2);
+				
+				// filling report with data from data source
+				jasperPrint = JasperFillManager.fillReport(jasperReport,param,xmlDataSource);
+		    	
+		    } else if (type.equals("productionByBook")){
+		    	JRXmlDataSource xmlDataSource = new JRXmlDataSource(xmlOutput, "root/ProductionReportBook/Row");	
+		    	System.out.println("###################Book########################");
+				// Complie Template to .jasper
+				ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+				JasperReport jasperReport = JasperCompileManager.compileReport(classLoader.getResourceAsStream("productionByBook.jrxml"));
+				
+				// Compilamos el sub reporte
+				JasperReport jasperSubReport = JasperCompileManager.compileReport(classLoader.getResourceAsStream("productionByBook_subreport1.jrxml"));
+				
+				Map<String, Object> param = new HashMap<String, Object>();
+				param.put("SubReportParam", jasperSubReport);
+				
+				// filling report with data from data source
+				jasperPrint = JasperFillManager.fillReport(jasperReport,param,xmlDataSource);
+		    	
+		    } else if (type.equals("productionByProduct")){
+		    	JRXmlDataSource xmlDataSource = new JRXmlDataSource(xmlOutput, "root/ProductionReportProductType/Row");
+		    	JRXmlDataSource SubDataSource = new JRXmlDataSource(xmlOutput, "root/ProductionReportProductType/Row/Product");
+				
+				// Complie Template to .jasper
+				ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+				JasperReport jasperReport = JasperCompileManager.compileReport(classLoader.getResourceAsStream("productionByProduct.jrxml"));
+				
+				// Compilamos el sub reporte
+				JasperReport jasperSubReport = JasperCompileManager.compileReport(classLoader.getResourceAsStream("productionByProduct_subreport1.jrxml"));
+				
+				Map<String, Object> param = new HashMap<String, Object>();
+				param.put("SubReportParam", jasperSubReport);
+				param.put("SubDataSource", SubDataSource);
+				
+				// filling report with data from data source
+				jasperPrint = JasperFillManager.fillReport(jasperReport,param,xmlDataSource);
+		    	
+		    } else if (type.equals("coverage")){
+		    	JRXmlDataSource xmlDataSource = new JRXmlDataSource(xmlOutput, "root/conflicts/conflict");	
+				
+				// Complie Template to .jasper
+				ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+				JasperReport jasperReport = JasperCompileManager.compileReport(classLoader.getResourceAsStream("coverage.jrxml"));
+							
+				// filling report with data from data source
+				jasperPrint = JasperFillManager.fillReport(jasperReport,null,xmlDataSource);
+		    	
+		    }			
 			
-			// filling report with data from data source
-			jasperPrint = JasperFillManager.fillReport(jasperReport,null,xmlDataSource);
-			
-			ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-			
-			resp.setContentType("application/vnd.ms-excel");
+			//resp.setContentType("application/vnd.ms-excel");
+			resp.setHeader("content-type","application/vnd.ms-excel#report.xls");
+			resp.setContentType("application/x-msdownload");
 			resp.setHeader("Content-Disposition",
-					 "attachment; filename=report.xls");
+					 "attachment; filename=report.xls"); 
+			resp.setDateHeader ("Expires", 0);
 			
 			// exports to xls file
 			JRXlsExporter exporterXls = new JRXlsExporter ();
 			exporterXls.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
-			exporterXls.setParameter(JRExporterParameter.OUTPUT_STREAM,  byteArrayOutputStream);
-			exporterXls.exportReport();			
+			exporterXls.setParameter(JRExporterParameter.OUTPUT_STREAM, byteArrayOutputStream); 
+			exporterXls.exportReport();		
 			
-			resp.getOutputStream().write(Base64.encodeBytes(byteArrayOutputStream.toByteArray()).getBytes());			
-
-		} catch (Exception e) {
+			System.out.println(Base64.encodeBytes(byteArrayOutputStream.toByteArray()).getBytes());		
+			resp.getOutputStream().write(Base64.encodeBytes(byteArrayOutputStream.toByteArray()).getBytes());
+			System.out.println("######################## Finish ########################");
 			
-			e.printStackTrace();
-		}	
+			} catch (Exception e) {			
+				e.printStackTrace();			
+		}		
 		
 	}	
 	
