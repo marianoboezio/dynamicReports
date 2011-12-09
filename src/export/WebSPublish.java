@@ -45,13 +45,13 @@ public class WebSPublish extends HttpServlet {
             throws ServletException, IOException { 		
 		
 	System.out.println(req.getParameter("user") + "\n\n " + req.getParameter("pass"));
-	/*String USERNAME = req.getParameter("user");
+	String USERNAME = req.getParameter("user");
 	String PASSWORD = req.getParameter("pass");
 	String type = req.getParameter("type");
-	String reportID = req.getParameter("reportID");*/
+	String reportID = req.getParameter("reportID");
 	
 	// Get the parameters
-	String EncrypetedUSERNAME = req.getParameter("user");
+	/*String EncrypetedUSERNAME = req.getParameter("user");
 	String EncryptedPASSWORDTOKENKEY = req.getParameter("pass");	
 	String type = req.getParameter("type");
 	String reportID = req.getParameter("reportID");
@@ -68,14 +68,14 @@ public class WebSPublish extends HttpServlet {
 	System.out.println("KEY ---->" + key);
 	System.out.println("EncryptedUSERNAME ---->" + EncrypetedUSERNAME);
 	System.out.println("EcryptedPASSWORD ---->" + EncryptedPASSWORD);
-	System.out.println("EncryptedTOKEN ---->" + EncryptedTOKEN);
+	System.out.println("EncryptedTOKEN ---->" + EncryptedTOKEN);*/
 	
 	PartnerConnection connection;
 	ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
 	
 	
 	try { 		
-		SecretKeySpec secretkey = new SecretKeySpec(Util.hexStringToByteArray(key), "AES");
+		/*SecretKeySpec secretkey = new SecretKeySpec(Util.hexStringToByteArray(key), "AES");
 		Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
 		cipher.init(Cipher.DECRYPT_MODE, secretkey, new IvParameterSpec(Util.hexStringToByteArray(key)));
 		
@@ -89,12 +89,12 @@ public class WebSPublish extends HttpServlet {
 		System.out.println("PASSWORD ---->" + PASSWORD);
 		
 		String TOKEN = new String(cipher.doFinal(Util.hexStringToByteArray(EncryptedTOKEN)));
-		System.out.println("TOKEN ---->" + TOKEN);
+		System.out.println("TOKEN ---->" + TOKEN);*/
 		
 		ConnectorConfig config = new ConnectorConfig();
 	    config.setUsername(USERNAME);
-	    //config.setPassword(PASSWORD);
-	    config.setPassword(PASSWORD + TOKEN);
+	    config.setPassword(PASSWORD);
+	    //config.setPassword(PASSWORD + TOKEN);
 	    
 	    connection = Connector.newConnection(config);   
 	    QueryResult queryResults =  connection.query("SELECT o.Row_HTML__c, o.Object_Export_Excel__c FROM Object_Row__c o WHERE o.Object_Export_Excel__c = '" + reportID + "' ORDER BY o.name");	
