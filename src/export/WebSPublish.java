@@ -250,7 +250,8 @@ public class WebSPublish extends HttpServlet {
 		    String xml = "<root>";	
 		    for (SObject s : queryResults.getRecords()) { 
 		    	if(s.getField("Row_HTML__c") != null){
-		    		xml += s.getField("Row_HTML__c").toString();	
+		    		xml += s.getField("Row_HTML__c").toString();
+		    		resp.getOutputStream().write(1);
 		    	}	    	
 			}
 		    
@@ -355,11 +356,11 @@ public class WebSPublish extends HttpServlet {
 			// exports to xls file
 			JRXlsExporter exporterXls = new JRXlsExporter ();
 			exporterXls.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
-			exporterXls.setParameter(JRExporterParameter.OUTPUT_STREAM, byteArrayOutputStream.toByteArray());//byteArrayOutputStream); 
+			exporterXls.setParameter(JRExporterParameter.OUTPUT_STREAM, resp.getOutputStream());//byteArrayOutputStream); 
 			exporterXls.exportReport();		
 			
 			//System.out.println(Base64.encodeBytes(byteArrayOutputStream.toByteArray()).getBytes());		
-			resp.getOutputStream().write(byteArrayOutputStream.toByteArray());
+			//resp.getOutputStream().write(byteArrayOutputStream.toByteArray());
 			System.out.println("######################## Finish ########################");
 			
 			} catch (Exception e) {			
