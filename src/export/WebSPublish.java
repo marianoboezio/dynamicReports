@@ -113,11 +113,7 @@ public class WebSPublish extends HttpServlet {
 	    xml += "</root>";	    
 	    
 	    System.out.println("######################## XML ########################");
-	    resp.setHeader("content-type","application/vnd.ms-excel#report.xls");
-		resp.setContentType("application/x-msdownload");
-		resp.setHeader("Content-Disposition",
-				 "attachment; filename=report.xls"); 
-		resp.setDateHeader ("Expires", 0);
+	    
 	    Document xmlOutput = Util.xmlFormat(xml.replaceAll("&", " "));
 	    
 	    System.out.println("XML --------------------------------------->" + xmlOutput); 
@@ -205,7 +201,12 @@ public class WebSPublish extends HttpServlet {
 	    	
 	    }			
 		
-		//resp.setContentType("application/vnd.ms-excel");		
+		//resp.setContentType("application/vnd.ms-excel");
+	    resp.setHeader("content-type","application/vnd.ms-excel#report.xls");
+		resp.setContentType("application/x-msdownload");
+		resp.setHeader("Content-Disposition",
+				 "attachment; filename=report.xls"); 
+		resp.setDateHeader ("Expires", 0);
 		
 		// exports to xls file
 		JRXlsExporter exporterXls = new JRXlsExporter ();
@@ -248,13 +249,14 @@ public class WebSPublish extends HttpServlet {
 		    
 		    String xml = "<root>";	
 		    for (SObject s : queryResults.getRecords()) { 
-		    	
-		    	System.out.println("######################## Looping ########################");
 		    	if(s.getField("Row_HTML__c") != null){
 		    		xml += s.getField("Row_HTML__c").toString();	
 		    	}	    	
 			}
 		    
+
+	    	
+	    	System.out.println("######################## Finish Looping ########################");
 		    xml += "</root>";	    
 		    
 		    Document xmlOutput = Util.xmlFormat(xml.replaceAll("&", " "));
