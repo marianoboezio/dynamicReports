@@ -244,8 +244,7 @@ public class WebSPublish extends HttpServlet {
 		    
 		    connection = Connector.newConnection(config);   
 		    QueryResult queryResults =  connection.query("SELECT o.Row_HTML__c, o.Object_Export_Excel__c FROM Object_Row__c o WHERE o.Object_Export_Excel__c = '" + reportID + "' ORDER BY o.name");	
-		    
-		    resp.sendError(200);
+		    		    
 		    System.out.println("######################## START ########################");
 		    
 		    String xml = "<root>";	
@@ -254,8 +253,7 @@ public class WebSPublish extends HttpServlet {
 		    		xml += s.getField("Row_HTML__c").toString();
 		    	}	    	
 			}
-		    
-		    resp.sendError(200);
+		    		    
 	    	System.out.println("######################## Finish Looping ########################");
 		    xml += "</root>";	    
 		    
@@ -330,7 +328,6 @@ public class WebSPublish extends HttpServlet {
 				param.put("SubReportParam", jasperSubReport);
 				param.put("SubDataSource", SubDataSource);
 				
-				resp.sendError(200);
 				// filling report with data from data source
 				jasperPrint = JasperFillManager.fillReport(jasperReport,param,xmlDataSource);
 		    	
