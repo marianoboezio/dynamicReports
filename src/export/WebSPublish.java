@@ -113,6 +113,11 @@ public class WebSPublish extends HttpServlet {
 	    xml += "</root>";	    
 	    
 	    System.out.println("######################## XML ########################");
+	    resp.setHeader("content-type","application/vnd.ms-excel#report.xls");
+		resp.setContentType("application/x-msdownload");
+		resp.setHeader("Content-Disposition",
+				 "attachment; filename=report.xls"); 
+		resp.setDateHeader ("Expires", 0);
 	    Document xmlOutput = Util.xmlFormat(xml.replaceAll("&", " "));
 	    
 	    System.out.println("XML --------------------------------------->" + xmlOutput); 
@@ -200,12 +205,7 @@ public class WebSPublish extends HttpServlet {
 	    	
 	    }			
 		
-		//resp.setContentType("application/vnd.ms-excel");
-		resp.setHeader("content-type","application/vnd.ms-excel#report.xls");
-		resp.setContentType("application/x-msdownload");
-		resp.setHeader("Content-Disposition",
-				 "attachment; filename=report.xls"); 
-		resp.setDateHeader ("Expires", 0);
+		//resp.setContentType("application/vnd.ms-excel");		
 		
 		// exports to xls file
 		JRXlsExporter exporterXls = new JRXlsExporter ();
@@ -257,10 +257,8 @@ public class WebSPublish extends HttpServlet {
 		    
 		    xml += "</root>";	    
 		    
-		    System.out.println("######################## XML ########################");
 		    Document xmlOutput = Util.xmlFormat(xml.replaceAll("&", " "));
 		    
-		    System.out.println("XML --------------------------------------->" + xmlOutput); 
 		    /* JasperPrint is the object contains
 			report after result filling process */
 			JasperPrint jasperPrint = null;
@@ -358,7 +356,7 @@ public class WebSPublish extends HttpServlet {
 			exporterXls.setParameter(JRExporterParameter.OUTPUT_STREAM, resp.getOutputStream());//byteArrayOutputStream); 
 			exporterXls.exportReport();		
 			
-			System.out.println(Base64.encodeBytes(byteArrayOutputStream.toByteArray()).getBytes());		
+			//System.out.println(Base64.encodeBytes(byteArrayOutputStream.toByteArray()).getBytes());		
 			//resp.getOutputStream().write(Base64.encodeBytes(byteArrayOutputStream.toByteArray()).getBytes());
 			System.out.println("######################## Finish ########################");
 			
@@ -377,7 +375,7 @@ public class WebSPublish extends HttpServlet {
         server.setHandler(context);
         
         context.addServlet(new ServletHolder(new WebSPublish()),"/toxls");
-
+        
         server.start();
         server.join(); 		
 	}
