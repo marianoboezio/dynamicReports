@@ -251,12 +251,9 @@ public class WebSPublish extends HttpServlet {
 		    for (SObject s : queryResults.getRecords()) { 
 		    	if(s.getField("Row_HTML__c") != null){
 		    		xml += s.getField("Row_HTML__c").toString();
-		    		resp.getOutputStream().write(1);
 		    	}	    	
 			}
 		    
-
-	    	
 	    	System.out.println("######################## Finish Looping ########################");
 		    xml += "</root>";	    
 		    
