@@ -354,11 +354,11 @@ public class WebSPublish extends HttpServlet {
 			
 			//resp.setContentType("application/vnd.ms-excel");
 			resp.setHeader("content-type","application/vnd.ms-excel#report.xls");
-			resp.setContentType("application/x-msdownload");
+			//resp.setContentType("application/x-msdownload");
+			resp.setContentType("application/vnd.ms-excel#report.xls");
 			resp.setHeader("Content-Disposition",
 					 "attachment; filename=report.xls"); 
 			resp.setDateHeader ("Expires", 0);	
-			OutputStream out = resp.getOutputStream();
 					
 			
 
