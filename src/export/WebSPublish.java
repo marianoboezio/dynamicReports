@@ -372,6 +372,8 @@ public class WebSPublish extends HttpServlet {
 		
 		ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
         context.setContextPath("/");
+        System.out.println("Max inactive interval ------------------------------------->" + context.getSessionHandler().getSessionManager().getMaxInactiveInterval());
+        context.getSessionHandler().getSessionManager().setMaxInactiveInterval(300);
         server.setHandler(context);
         
         context.addServlet(new ServletHolder(new WebSPublish()),"/toxls");
