@@ -234,6 +234,7 @@ public class WebSPublish extends HttpServlet {
 		
 		PartnerConnection connection;
 		ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+		byte[] emptyArray = new byte[0];
 		
 		
 		try {			
@@ -329,8 +330,10 @@ public class WebSPublish extends HttpServlet {
 				param.put("SubDataSource", SubDataSource);
 				
 				System.out.println("################### Product ########################");
-				resp.getOutputStream().write(0);
+				
+				resp.getOutputStream().write(emptyArray);				
 				resp.getOutputStream().flush();
+				
 				
 				// filling report with data from data source
 				jasperPrint = JasperFillManager.fillReport(jasperReport,param,xmlDataSource);
@@ -362,12 +365,12 @@ public class WebSPublish extends HttpServlet {
 			// exports to xls file
 			JRXlsExporter exporterXls = new JRXlsExporter ();
 			exporterXls.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
-			exporterXls.setParameter(JRExporterParameter.OUTPUT_STREAM, byteArrayOutputStream);//resp.getOutputStream());byteArrayOutputStream); 
+			exporterXls.setParameter(JRExporterParameter.OUTPUT_STREAM, resp.getOutputStream());//byteArrayOutputStream); 
 			resp.getOutputStream().flush();
 			exporterXls.exportReport();		
 			
 			//System.out.println(Base64.encodeBytes(byteArrayOutputStream.toByteArray()).getBytes());		
-			resp.getOutputStream().write(byteArrayOutputStream.toByteArray());
+			//resp.getOutputStream().write(byteArrayOutputStream.toByteArray());
 			System.out.println("######################## Finish ########################");
 			
 			} catch (Exception e) {			
