@@ -331,8 +331,9 @@ public class WebSPublish extends HttpServlet {
 				
 				System.out.println("################### Product ########################");
 				
-				resp.getOutputStream().write(emptyArray);				
+				resp.getOutputStream().write(0);				
 				resp.getOutputStream().flush();
+				resp.reset();
 				
 				
 				// filling report with data from data source
