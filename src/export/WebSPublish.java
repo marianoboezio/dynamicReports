@@ -237,7 +237,6 @@ public class WebSPublish extends HttpServlet {
 		PartnerConnection connection;
 		ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
 		byte[] emptyArray = new byte[0];
-		OutputStream out = byteArrayOutputStream;
 		
 		try {			
 			ConnectorConfig config = new ConnectorConfig();
@@ -333,8 +332,8 @@ public class WebSPublish extends HttpServlet {
 				
 				System.out.println("################### Product ########################");			 
 				
-				out.write(1);				
-				out.flush();				
+				resp.getOutputStream().write(1);				
+				resp.getOutputStream().flush();				
 				
 				// filling report with data from data source
 				jasperPrint = JasperFillManager.fillReport(jasperReport,param,xmlDataSource);
@@ -360,7 +359,7 @@ public class WebSPublish extends HttpServlet {
 			resp.setHeader("Content-Disposition",
 					 "attachment; filename=report.xls"); 
 			resp.setDateHeader ("Expires", 0);	
-			out = null; 
+			resp.getOutputStream().write(byteArrayOutputStream.toByteArray());
 
 			System.out.println("#################### Export #######################");
 			// exports to xls file
