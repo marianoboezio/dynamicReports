@@ -332,7 +332,8 @@ public class WebSPublish extends HttpServlet {
 				
 				System.out.println("################### Product ########################");			 
 				
-				resp.getOutputStream().write(1);				
+				resp.getOutputStream().write(1);	
+				resp.reset();
 				resp.getOutputStream().flush();				
 				
 				// filling report with data from data source
@@ -360,8 +361,8 @@ public class WebSPublish extends HttpServlet {
 					 "attachment; filename=report.xls"); 
 			resp.setDateHeader ("Expires", 0);	
 			OutputStream out = resp.getOutputStream();
+					
 			
-			out = byteArrayOutputStream;
 
 			System.out.println("#################### Export #######################");
 			// exports to xls file
