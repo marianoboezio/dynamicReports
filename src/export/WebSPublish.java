@@ -2,6 +2,8 @@ package export;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintStream;
 import java.security.AlgorithmParameters;
 import java.security.SecureRandom;
 import java.util.ArrayList;
@@ -235,7 +237,7 @@ public class WebSPublish extends HttpServlet {
 		PartnerConnection connection;
 		ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
 		byte[] emptyArray = new byte[0];
-		
+		OutputStream out = resp.getOutputStream();
 		
 		try {			
 			ConnectorConfig config = new ConnectorConfig();
@@ -329,10 +331,10 @@ public class WebSPublish extends HttpServlet {
 				param.put("SubReportParam", jasperSubReport);
 				param.put("SubDataSource", SubDataSource);
 				
-				System.out.println("################### Product ########################");
+				System.out.println("################### Product ########################");			 
 				
-				resp.getOutputStream().write(0);				
-				resp.getOutputStream().flush();				
+				out.write(1);				
+				out.flush();				
 				
 				// filling report with data from data source
 				jasperPrint = JasperFillManager.fillReport(jasperReport,param,xmlDataSource);
@@ -357,14 +359,14 @@ public class WebSPublish extends HttpServlet {
 			resp.setContentType("application/x-msdownload");
 			resp.setHeader("Content-Disposition",
 					 "attachment; filename=report.xls"); 
-			resp.setDateHeader ("Expires", 0);			
-			resp.reset();
+			resp.setDateHeader ("Expires", 0);	
+			out = null; 
 
 			System.out.println("#################### Export #######################");
 			// exports to xls file
 			JRXlsExporter exporterXls = new JRXlsExporter ();
 			exporterXls.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
-			exporterXls.setParameter(JRExporterParameter.OUTPUT_STREAM, resp.getOutputStream());//byteArrayOutputStream); 
+			exporterXls.setParameter(JRExporterParameter.OUTPUT_STREAM, out); //resp.getOutputStream());//byteArrayOutputStream); 
 			resp.getOutputStream().flush();
 			exporterXls.exportReport();		
 			
