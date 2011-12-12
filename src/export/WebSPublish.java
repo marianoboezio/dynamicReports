@@ -328,8 +328,18 @@ public class WebSPublish extends HttpServlet {
 				param.put("SubReportParam", jasperSubReport);
 				param.put("SubDataSource", SubDataSource);
 				
+				System.out.println("###################Product########################");
+				resp.getOutputStream().write(1);
+				resp.getOutputStream().flush();
+				
 				// filling report with data from data source
 				jasperPrint = JasperFillManager.fillReport(jasperReport,param,xmlDataSource);
+				
+
+				resp.getOutputStream().write(1);
+				resp.getOutputStream().flush();
+				
+				System.out.println("####################Filled#######################");
 		    	
 		    } else if (type.equals("coverage")){
 		    	JRXmlDataSource xmlDataSource = new JRXmlDataSource(xmlOutput, "root/conflicts/conflict");	
@@ -352,7 +362,7 @@ public class WebSPublish extends HttpServlet {
 			resp.getOutputStream().write(1);
 			resp.getOutputStream().flush();
 
-			
+			System.out.println("####################Export#######################");
 			// exports to xls file
 			JRXlsExporter exporterXls = new JRXlsExporter ();
 			exporterXls.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
