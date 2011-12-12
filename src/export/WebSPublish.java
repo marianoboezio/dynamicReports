@@ -332,9 +332,8 @@ public class WebSPublish extends HttpServlet {
 				
 				System.out.println("################### Product ########################");			 
 				
-				resp.getOutputStream().write(1);
-				resp.flushBuffer();				
-				resp.reset();
+				resp.setHeader("content-type","application/vnd.ms-excel#report.xls");
+				resp.flushBuffer();	
 				// filling report with data from data source
 				jasperPrint = JasperFillManager.fillReport(jasperReport,param,xmlDataSource);
 				
