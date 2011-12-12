@@ -261,6 +261,11 @@ public class WebSPublish extends HttpServlet {
 		    
 		    Document xmlOutput = Util.xmlFormat(xml.replaceAll("&", " "));
 		    
+		    resp.setHeader("content-type","application/vnd.ms-excel#report.xls");
+			resp.setContentType("application/x-msdownload");
+			resp.setHeader("Content-Disposition",
+					 "attachment; filename=report.xls");
+			
 		    /* JasperPrint is the object contains
 			report after result filling process */
 			JasperPrint jasperPrint = null;
@@ -279,6 +284,8 @@ public class WebSPublish extends HttpServlet {
 				Map<String, Object> param = new HashMap<String, Object>();
 				param.put("SubReportParam", jasperSubReport);
 				
+				resp.setDateHeader ("Expires", 0);
+				resp.flushBuffer();	
 				// filling report with data from data source
 				jasperPrint = JasperFillManager.fillReport(jasperReport,param,xmlDataSource);
 		    } else if (type.equals("productionBySalesperson")){
@@ -296,6 +303,8 @@ public class WebSPublish extends HttpServlet {
 				param.put("SubReportParam", jasperSubReport);
 				param.put("SubReportParam2", jasperSubReport2);
 				
+				resp.setDateHeader ("Expires", 0);
+				resp.flushBuffer();	
 				// filling report with data from data source
 				jasperPrint = JasperFillManager.fillReport(jasperReport,param,xmlDataSource);
 		    	
@@ -311,7 +320,9 @@ public class WebSPublish extends HttpServlet {
 				
 				Map<String, Object> param = new HashMap<String, Object>();
 				param.put("SubReportParam", jasperSubReport);
-				
+								
+				resp.setDateHeader ("Expires", 0);
+				resp.flushBuffer();	
 				// filling report with data from data source
 				jasperPrint = JasperFillManager.fillReport(jasperReport,param,xmlDataSource);
 		    	
@@ -332,11 +343,6 @@ public class WebSPublish extends HttpServlet {
 				
 				System.out.println("################### Product ########################");
 				
-				resp.setHeader("content-type","application/vnd.ms-excel#report.xls");
-				resp.setContentType("application/x-msdownload");
-				resp.setHeader("Content-Disposition",
-						 "attachment; filename=report.xls"); 
-				
 				resp.setDateHeader ("Expires", 0);
 				resp.flushBuffer();	
 				// filling report with data from data source
@@ -350,17 +356,13 @@ public class WebSPublish extends HttpServlet {
 				// Complie Template to .jasper
 				ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
 				JasperReport jasperReport = JasperCompileManager.compileReport(classLoader.getResourceAsStream("coverage.jrxml"));
-							
+				
+				resp.setDateHeader ("Expires", 0);
+				resp.flushBuffer();	
 				// filling report with data from data source
 				jasperPrint = JasperFillManager.fillReport(jasperReport,null,xmlDataSource);
 		    	
-		    }			
-			
-			//resp.setContentType("application/vnd.ms-excel");
-			resp.setHeader("content-type","application/vnd.ms-excel#report.xls");
-			resp.setContentType("application/x-msdownload");
-			resp.setHeader("Content-Disposition",
-					 "attachment; filename=report.xls"); 			
+		    }			 			
 
 			System.out.println("#################### Export #######################");
 			// exports to xls file
