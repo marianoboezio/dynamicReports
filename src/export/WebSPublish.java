@@ -359,7 +359,9 @@ public class WebSPublish extends HttpServlet {
 			resp.setHeader("Content-Disposition",
 					 "attachment; filename=report.xls"); 
 			resp.setDateHeader ("Expires", 0);	
-			resp.getOutputStream().write(byteArrayOutputStream.toByteArray());
+			OutputStream out = resp.getOutputStream();
+			
+			out = byteArrayOutputStream;
 
 			System.out.println("#################### Export #######################");
 			// exports to xls file
