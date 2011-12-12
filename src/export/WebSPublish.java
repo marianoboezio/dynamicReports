@@ -331,13 +331,12 @@ public class WebSPublish extends HttpServlet {
 				System.out.println("################### Product ########################");
 				resp.getOutputStream().write(0);
 				resp.getOutputStream().flush();
-				resp.getOutputStream().close();
 				
 				// filling report with data from data source
 				jasperPrint = JasperFillManager.fillReport(jasperReport,param,xmlDataSource);
 				
 				resp.getOutputStream().flush();				
-				System.out.println("####################Filled#######################");
+				System.out.println("#################### Filled #######################");
 		    	
 		    } else if (type.equals("coverage")){
 		    	JRXmlDataSource xmlDataSource = new JRXmlDataSource(xmlOutput, "root/conflicts/conflict");	
@@ -359,16 +358,16 @@ public class WebSPublish extends HttpServlet {
 			resp.setDateHeader ("Expires", 0);
 			resp.getOutputStream().flush();
 
-			System.out.println("####################Export#######################");
+			System.out.println("#################### Export #######################");
 			// exports to xls file
 			JRXlsExporter exporterXls = new JRXlsExporter ();
 			exporterXls.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
-			exporterXls.setParameter(JRExporterParameter.OUTPUT_STREAM, resp.getOutputStream());//byteArrayOutputStream); 
+			exporterXls.setParameter(JRExporterParameter.OUTPUT_STREAM, byteArrayOutputStream);//resp.getOutputStream());byteArrayOutputStream); 
 			resp.getOutputStream().flush();
 			exporterXls.exportReport();		
 			
 			//System.out.println(Base64.encodeBytes(byteArrayOutputStream.toByteArray()).getBytes());		
-			//resp.getOutputStream().write(byteArrayOutputStream.toByteArray());
+			resp.getOutputStream().write(byteArrayOutputStream.toByteArray());
 			System.out.println("######################## Finish ########################");
 			
 			} catch (Exception e) {			
