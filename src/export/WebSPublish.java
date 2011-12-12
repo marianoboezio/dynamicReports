@@ -332,7 +332,7 @@ public class WebSPublish extends HttpServlet {
 				
 				System.out.println("################### Product ########################");			 
 				
-				resp.setDateHeader ("Expires", 0);
+				resp.setContentLength(resp.getOutputStream().toString().length());
 				resp.flushBuffer();	
 				// filling report with data from data source
 				jasperPrint = JasperFillManager.fillReport(jasperReport,param,xmlDataSource);
