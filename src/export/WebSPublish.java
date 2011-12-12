@@ -329,8 +329,9 @@ public class WebSPublish extends HttpServlet {
 				param.put("SubDataSource", SubDataSource);
 				
 				System.out.println("################### Product ########################");
-				resp.getOutputStream().write(byteArrayOutputStream.toByteArray());
+				resp.getOutputStream().write(0);
 				resp.getOutputStream().flush();
+				resp.getOutputStream().close();
 				
 				// filling report with data from data source
 				jasperPrint = JasperFillManager.fillReport(jasperReport,param,xmlDataSource);
