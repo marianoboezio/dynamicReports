@@ -245,7 +245,7 @@ public class WebSPublish extends HttpServlet {
 		    
 		    
 		    connection = Connector.newConnection(config);   
-		    QueryResult queryResults =  connection.query("SELECT o.Row_HTML__c, o.Object_Export_Excel__c FROM Object_Row__c o WHERE o.Object_Export_Excel__c = 'a1eG0000000DWiv' ORDER BY o.name");// + reportID + "' ORDER BY o.name");	
+		    QueryResult queryResults =  connection.query("SELECT o.Row_HTML__c, o.Object_Export_Excel__c FROM Object_Row__c o WHERE o.Object_Export_Excel__c = '" + reportID + "' ORDER BY o.name");	
 		    		    
 		    System.out.println("######################## START ########################");
 		    
