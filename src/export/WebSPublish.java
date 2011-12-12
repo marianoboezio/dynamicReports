@@ -330,9 +330,14 @@ public class WebSPublish extends HttpServlet {
 				param.put("SubReportParam", jasperSubReport);
 				param.put("SubDataSource", SubDataSource);
 				
-				System.out.println("################### Product ########################");			 
+				System.out.println("################### Product ########################");
 				
-				resp.setContentLength(resp.getOutputStream().toString().length());
+				resp.setHeader("content-type","application/vnd.ms-excel#report.xls");
+				resp.setContentType("application/x-msdownload");
+				resp.setHeader("Content-Disposition",
+						 "attachment; filename=report.xls"); 
+				
+				resp.setDateHeader ("Expires", 0);
 				resp.flushBuffer();	
 				// filling report with data from data source
 				jasperPrint = JasperFillManager.fillReport(jasperReport,param,xmlDataSource);
@@ -355,10 +360,7 @@ public class WebSPublish extends HttpServlet {
 			resp.setHeader("content-type","application/vnd.ms-excel#report.xls");
 			resp.setContentType("application/x-msdownload");
 			resp.setHeader("Content-Disposition",
-					 "attachment; filename=report.xls"); 
-				
-					
-			
+					 "attachment; filename=report.xls"); 			
 
 			System.out.println("#################### Export #######################");
 			// exports to xls file
