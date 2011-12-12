@@ -243,7 +243,7 @@ public class WebSPublish extends HttpServlet {
 		    
 		    
 		    connection = Connector.newConnection(config);   
-		    QueryResult queryResults =  connection.query("SELECT o.Row_HTML__c, o.Object_Export_Excel__c FROM Object_Row__c o WHERE o.Object_Export_Excel__c = '" + reportID + "' ORDER BY o.name");	
+		    QueryResult queryResults =  connection.query("SELECT o.Row_HTML__c, o.Object_Export_Excel__c FROM Object_Row__c o WHERE o.Object_Export_Excel__c = 'a1eG0000000DWiv' ORDER BY o.name");// + reportID + "' ORDER BY o.name");	
 		    		    
 		    System.out.println("######################## START ########################");
 		    
@@ -329,16 +329,12 @@ public class WebSPublish extends HttpServlet {
 				param.put("SubDataSource", SubDataSource);
 				
 				System.out.println("###################Product########################");
-				resp.getOutputStream().write(1);
 				resp.getOutputStream().flush();
 				
 				// filling report with data from data source
 				jasperPrint = JasperFillManager.fillReport(jasperReport,param,xmlDataSource);
 				
-
-				resp.getOutputStream().write(1);
-				resp.getOutputStream().flush();
-				
+				resp.getOutputStream().flush();				
 				System.out.println("####################Filled#######################");
 		    	
 		    } else if (type.equals("coverage")){
@@ -359,7 +355,6 @@ public class WebSPublish extends HttpServlet {
 			resp.setHeader("Content-Disposition",
 					 "attachment; filename=report.xls"); 
 			resp.setDateHeader ("Expires", 0);
-			resp.getOutputStream().write(1);
 			resp.getOutputStream().flush();
 
 			System.out.println("####################Export#######################");
@@ -367,7 +362,6 @@ public class WebSPublish extends HttpServlet {
 			JRXlsExporter exporterXls = new JRXlsExporter ();
 			exporterXls.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
 			exporterXls.setParameter(JRExporterParameter.OUTPUT_STREAM, resp.getOutputStream());//byteArrayOutputStream); 
-			resp.getOutputStream().write(0);
 			resp.getOutputStream().flush();
 			exporterXls.exportReport();		
 			
