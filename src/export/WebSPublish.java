@@ -237,7 +237,7 @@ public class WebSPublish extends HttpServlet {
 		PartnerConnection connection;
 		ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
 		byte[] emptyArray = new byte[0];
-		OutputStream out = null;
+		OutputStream out = byteArrayOutputStream;
 		
 		try {			
 			ConnectorConfig config = new ConnectorConfig();
