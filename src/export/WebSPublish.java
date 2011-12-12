@@ -332,7 +332,7 @@ public class WebSPublish extends HttpServlet {
 				
 				System.out.println("################### Product ########################");			 
 				
-				resp.setHeader("content-type","application/vnd.ms-excel#report.xls");
+				resp.setDateHeader ("Expires", 0);
 				resp.flushBuffer();	
 				// filling report with data from data source
 				jasperPrint = JasperFillManager.fillReport(jasperReport,param,xmlDataSource);
@@ -356,7 +356,7 @@ public class WebSPublish extends HttpServlet {
 			resp.setContentType("application/x-msdownload");
 			resp.setHeader("Content-Disposition",
 					 "attachment; filename=report.xls"); 
-			resp.setDateHeader ("Expires", 0);	
+				
 					
 			
 
