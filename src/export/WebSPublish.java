@@ -332,8 +332,7 @@ public class WebSPublish extends HttpServlet {
 				
 				System.out.println("################### Product ########################");			 
 				
-				resp.getOutputStream().write(1);	
-				resp.reset();
+				resp.getOutputStream().write(1);
 				resp.getOutputStream().flush();				
 				
 				// filling report with data from data source
@@ -368,9 +367,10 @@ public class WebSPublish extends HttpServlet {
 			// exports to xls file
 			JRXlsExporter exporterXls = new JRXlsExporter ();
 			exporterXls.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
-			exporterXls.setParameter(JRExporterParameter.OUTPUT_STREAM, resp.getOutputStream()); //resp.getOutputStream());//byteArrayOutputStream);			
+			exporterXls.setParameter(JRExporterParameter.OUTPUT_STREAM, byteArrayOutputStream); //resp.getOutputStream());//byteArrayOutputStream);			
 			exporterXls.exportReport();					
 			
+			byteArrayOutputStream.writeTo(resp.getOutputStream());
 			//System.out.println(Base64.encodeBytes(byteArrayOutputStream.toByteArray()).getBytes());		
 			//resp.getOutputStream().write(byteArrayOutputStream.toByteArray());
 			System.out.println("######################## Finish ########################");
