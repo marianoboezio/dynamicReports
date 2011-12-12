@@ -337,7 +337,6 @@ public class WebSPublish extends HttpServlet {
 				// filling report with data from data source
 				jasperPrint = JasperFillManager.fillReport(jasperReport,param,xmlDataSource);
 				
-				resp.getOutputStream().flush();				
 				System.out.println("#################### Filled #######################");
 		    	
 		    } else if (type.equals("coverage")){
@@ -354,8 +353,7 @@ public class WebSPublish extends HttpServlet {
 			
 			//resp.setContentType("application/vnd.ms-excel");
 			resp.setHeader("content-type","application/vnd.ms-excel#report.xls");
-			//resp.setContentType("application/x-msdownload");
-			resp.setContentType("application/vnd.ms-excel#report.xls");
+			resp.setContentType("application/x-msdownload");
 			resp.setHeader("Content-Disposition",
 					 "attachment; filename=report.xls"); 
 			resp.setDateHeader ("Expires", 0);	
