@@ -3,6 +3,7 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
+	<property name="net.sf.jasperreports.export.xls.row.outline.level.2" value="End"/>
 	<subDataset name="subData">
 		<queryString language="XPath">
 			<![CDATA[root/ProductionReportProductType/Row/Product/Salesperson]]>
@@ -191,14 +192,6 @@
 			</componentElement>
 			<staticText>
 				<reportElement x="0" y="20" width="100" height="1" isRemoveLineWhenBlank="true">
-					<property name="net.sf.jasperreports.export.xls.row.outline.level.2" value="End"/>
-					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
-				</reportElement>
-				<textElement/>
-				<text><![CDATA[Static text]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="0" y="0" width="100" height="1" isRemoveLineWhenBlank="true">
 					<property name="net.sf.jasperreports.export.xls.row.outline.level.2" value="End"/>
 					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
 				</reportElement>
