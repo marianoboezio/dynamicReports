@@ -114,9 +114,7 @@
 	<detail>
 		<band height="40" splitType="Stretch">
 			<textField isBlankWhenNull="true">
-				<reportElement stretchType="RelativeToTallestObject" x="170" y="0" width="90" height="20" isRemoveLineWhenBlank="true">
-					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
-				</reportElement>
+				<reportElement x="170" y="0" width="90" height="20" isRemoveLineWhenBlank="true"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -129,7 +127,7 @@
 				<textFieldExpression><![CDATA[$F{WTD}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement stretchType="RelativeToTallestObject" x="260" y="0" width="90" height="20" isRemoveLineWhenBlank="true"/>
+				<reportElement x="260" y="0" width="90" height="20" isRemoveLineWhenBlank="true"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -142,7 +140,7 @@
 				<textFieldExpression><![CDATA[$F{MTD}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement stretchType="RelativeToTallestObject" x="350" y="0" width="90" height="20" isRemoveLineWhenBlank="true"/>
+				<reportElement x="350" y="0" width="90" height="20" isRemoveLineWhenBlank="true"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -155,7 +153,7 @@
 				<textFieldExpression><![CDATA[$F{YTD}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement stretchType="RelativeToTallestObject" x="0" y="0" width="170" height="20" isRemoveLineWhenBlank="true"/>
+				<reportElement x="0" y="0" width="170" height="20" isRemoveLineWhenBlank="true"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -168,7 +166,7 @@
 				<textFieldExpression><![CDATA[$F{Acount}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement stretchType="RelativeToTallestObject" x="440" y="0" width="115" height="20" isRemoveLineWhenBlank="true"/>
+				<reportElement x="440" y="0" width="115" height="20" isRemoveLineWhenBlank="true"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
