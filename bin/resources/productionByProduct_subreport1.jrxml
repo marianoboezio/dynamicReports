@@ -70,14 +70,6 @@
 	<detail>
 		<band height="41" splitType="Stretch">
 			<staticText>
-				<reportElement mode="Opaque" x="0" y="10" width="100" height="1" isRemoveLineWhenBlank="true">
-					<property name="net.sf.jasperreports.export.xls.row.outline.level.2" value="End"/>
-					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
-				</reportElement>
-				<textElement textAlignment="Right"/>
-				<text><![CDATA[]]></text>
-			</staticText>
-			<staticText>
 				<reportElement mode="Opaque" x="0" y="20" width="100" height="1" isRemoveLineWhenBlank="true">
 					<property name="net.sf.jasperreports.export.xls.row.outline.level.2" value="End"/>
 					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
