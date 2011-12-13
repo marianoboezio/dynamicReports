@@ -74,7 +74,7 @@
 					<property name="net.sf.jasperreports.export.xls.row.outline.level.2" value="End"/>
 					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
 				</reportElement>
-				<textElement/>
+				<textElement textAlignment="Right"/>
 				<text><![CDATA[]]></text>
 			</staticText>
 			<textField isBlankWhenNull="true">
