@@ -69,7 +69,7 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="43" splitType="Stretch">
+		<band height="41" splitType="Stretch">
 			<textField isBlankWhenNull="true">
 				<reportElement x="0" y="0" width="245" height="20" isRemoveLineWhenBlank="true">
 					<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="Body"/>
@@ -124,17 +124,24 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{YTD}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="0" y="21" width="100" height="1" isRemoveLineWhenBlank="true">
+					<property name="net.sf.jasperreports.export.xls.row.outline.level.2" value="End"/>
+				</reportElement>
+				<textElement/>
+				<text><![CDATA[Static text]]></text>
+			</staticText>
 			<componentElement>
-				<reportElement x="61" y="21" width="482" height="22">
+				<reportElement x="61" y="21" width="482" height="20">
 					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
 				</reportElement>
 				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
 					<datasetRun subDataset="dataset1">
 						<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("//Product/Salesperson")]]></dataSourceExpression>
 					</datasetRun>
-					<jr:listContents height="22" width="482">
+					<jr:listContents height="20" width="482">
 						<textField isBlankWhenNull="true">
-							<reportElement x="0" y="1" width="182" height="20" isRemoveLineWhenBlank="true">
+							<reportElement x="0" y="0" width="182" height="20" isRemoveLineWhenBlank="true">
 								<property name="net.sf.jasperreports.export.xls.row.outline.level.2" value="Body"/>
 								<printWhenExpression><![CDATA[$F{YTD2} != "0"]]></printWhenExpression>
 							</reportElement>
@@ -148,7 +155,7 @@
 							<textFieldExpression><![CDATA[$F{Name2}]]></textFieldExpression>
 						</textField>
 						<textField isBlankWhenNull="true">
-							<reportElement x="182" y="1" width="100" height="20" isRemoveLineWhenBlank="true">
+							<reportElement x="182" y="0" width="100" height="20" isRemoveLineWhenBlank="true">
 								<printWhenExpression><![CDATA[$F{YTD2} != "0"]]></printWhenExpression>
 							</reportElement>
 							<box>
@@ -161,7 +168,7 @@
 							<textFieldExpression><![CDATA[$F{WTD2}]]></textFieldExpression>
 						</textField>
 						<textField isBlankWhenNull="true">
-							<reportElement x="282" y="1" width="100" height="20" isRemoveLineWhenBlank="true">
+							<reportElement x="282" y="0" width="100" height="20" isRemoveLineWhenBlank="true">
 								<printWhenExpression><![CDATA[$F{YTD2} != "0"]]></printWhenExpression>
 							</reportElement>
 							<box>
@@ -174,7 +181,7 @@
 							<textFieldExpression><![CDATA[$F{MTD2}]]></textFieldExpression>
 						</textField>
 						<textField isBlankWhenNull="true">
-							<reportElement x="382" y="1" width="100" height="20" isRemoveLineWhenBlank="true">
+							<reportElement x="382" y="0" width="100" height="20" isRemoveLineWhenBlank="true">
 								<printWhenExpression><![CDATA[$F{YTD2} != "0"]]></printWhenExpression>
 							</reportElement>
 							<box>
@@ -186,20 +193,6 @@
 							</textElement>
 							<textFieldExpression><![CDATA[$F{YTD2}]]></textFieldExpression>
 						</textField>
-						<staticText>
-							<reportElement x="0" y="0" width="100" height="1" isRemoveLineWhenBlank="true">
-								<property name="net.sf.jasperreports.export.xls.row.outline.level.2" value="End"/>
-							</reportElement>
-							<textElement/>
-							<text><![CDATA[Static text]]></text>
-						</staticText>
-						<staticText>
-							<reportElement x="0" y="21" width="100" height="1" isRemoveLineWhenBlank="true">
-								<property name="net.sf.jasperreports.export.xls.row.outline.level.2" value="End"/>
-							</reportElement>
-							<textElement/>
-							<text><![CDATA[Static text]]></text>
-						</staticText>
 					</jr:listContents>
 				</jr:list>
 			</componentElement>
