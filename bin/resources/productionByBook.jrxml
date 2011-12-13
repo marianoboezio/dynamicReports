@@ -19,6 +19,14 @@
 	<field name="ytd" class="java.lang.String">
 		<fieldDescription><![CDATA[YTD]]></fieldDescription>
 	</field>
+	<title>
+		<band height="50">
+			<image>
+				<reportElement x="-8" y="0" width="174" height="35"/>
+				<imageExpression><![CDATA["codestreet_logo.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
 	<columnHeader>
 		<band height="20" splitType="Stretch">
 			<staticText>
@@ -82,9 +90,7 @@
 	<detail>
 		<band height="40" splitType="Stretch">
 			<textField isBlankWhenNull="true">
-				<reportElement x="203" y="0" width="119" height="20" isRemoveLineWhenBlank="true">
-					<printWhenExpression><![CDATA[$F{ytd} != "0"]]></printWhenExpression>
-				</reportElement>
+				<reportElement x="203" y="0" width="119" height="20" isRemoveLineWhenBlank="true"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -97,9 +103,7 @@
 				<textFieldExpression><![CDATA[$F{wtd}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="322" y="0" width="120" height="20" isRemoveLineWhenBlank="true">
-					<printWhenExpression><![CDATA[$F{ytd} != "0"]]></printWhenExpression>
-				</reportElement>
+				<reportElement x="322" y="0" width="120" height="20" isRemoveLineWhenBlank="true"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -112,9 +116,7 @@
 				<textFieldExpression><![CDATA[$F{mtd}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="442" y="0" width="113" height="20" isRemoveLineWhenBlank="true">
-					<printWhenExpression><![CDATA[$F{ytd} != "0"]]></printWhenExpression>
-				</reportElement>
+				<reportElement x="442" y="0" width="113" height="20" isRemoveLineWhenBlank="true"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -134,9 +136,7 @@
 				<subreportExpression><![CDATA[$P{SubReportParam}]]></subreportExpression>
 			</subreport>
 			<textField isBlankWhenNull="true">
-				<reportElement x="0" y="0" width="203" height="20" isRemoveLineWhenBlank="true">
-					<printWhenExpression><![CDATA[$F{ytd} != "0"]]></printWhenExpression>
-				</reportElement>
+				<reportElement x="0" y="0" width="203" height="20" isRemoveLineWhenBlank="true"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
