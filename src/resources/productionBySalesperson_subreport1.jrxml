@@ -39,7 +39,7 @@
 	<columnHeader>
 		<band height="1">
 			<staticText>
-				<reportElement x="0" y="0" width="100" height="1" isRemoveLineWhenBlank="true">
+				<reportElement x="10" y="0" width="100" height="1" isRemoveLineWhenBlank="true">
 					<property name="net.sf.jasperreports.export.xls.row.outline.level.2" value="End"/>
 					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
 				</reportElement>
@@ -47,8 +47,9 @@
 				<text><![CDATA[Static text]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="28" y="0" width="100" height="1" isRemoveLineWhenBlank="true">
+				<reportElement x="18" y="0" width="100" height="1" isRemoveLineWhenBlank="true">
 					<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="End"/>
+					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
 				</reportElement>
 				<textElement/>
 				<text><![CDATA[Static text]]></text>
@@ -56,7 +57,7 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="42" splitType="Stretch">
+		<band height="41" splitType="Stretch">
 			<textField isBlankWhenNull="true">
 				<reportElement x="0" y="1" width="245" height="20" isRemoveLineWhenBlank="true">
 					<property name="net.sf.jasperreports.export.xls.row.outline.level.2" value="End"/>
@@ -80,7 +81,7 @@
 					<topPen lineWidth="1.0"/>
 					<bottomPen lineWidth="1.0"/>
 				</box>
-				<textElement>
+				<textElement textAlignment="Right">
 					<font size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{WTD}]]></textFieldExpression>
@@ -93,7 +94,7 @@
 					<topPen lineWidth="1.0"/>
 					<bottomPen lineWidth="1.0"/>
 				</box>
-				<textElement>
+				<textElement textAlignment="Right">
 					<font size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{MTD}]]></textFieldExpression>
@@ -106,13 +107,13 @@
 					<topPen lineWidth="1.0"/>
 					<bottomPen lineWidth="1.0"/>
 				</box>
-				<textElement>
+				<textElement textAlignment="Right">
 					<font size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{YTD}]]></textFieldExpression>
 			</textField>
 			<componentElement>
-				<reportElement x="63" y="22" width="482" height="20" isRemoveLineWhenBlank="true">
+				<reportElement x="63" y="21" width="482" height="20" isRemoveLineWhenBlank="true">
 					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
 				</reportElement>
 				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
@@ -142,7 +143,7 @@
 								<topPen lineWidth="1.0"/>
 								<bottomPen lineWidth="1.0"/>
 							</box>
-							<textElement>
+							<textElement textAlignment="Right">
 								<font size="9"/>
 							</textElement>
 							<textFieldExpression><![CDATA[$F{WTD2}]]></textFieldExpression>
@@ -155,7 +156,7 @@
 								<topPen lineWidth="1.0"/>
 								<bottomPen lineWidth="1.0"/>
 							</box>
-							<textElement>
+							<textElement textAlignment="Right">
 								<font size="9"/>
 							</textElement>
 							<textFieldExpression><![CDATA[$F{MTD2}]]></textFieldExpression>
@@ -168,7 +169,7 @@
 								<topPen lineWidth="1.0"/>
 								<bottomPen lineWidth="1.0"/>
 							</box>
-							<textElement>
+							<textElement textAlignment="Right">
 								<font size="9"/>
 							</textElement>
 							<textFieldExpression><![CDATA[$F{YTD2}]]></textFieldExpression>
