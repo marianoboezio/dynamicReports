@@ -72,6 +72,7 @@
 			<textField isBlankWhenNull="true">
 				<reportElement x="0" y="0" width="245" height="20" isRemoveLineWhenBlank="true">
 					<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="Body"/>
+					<property name="net.sf.jasperreports.export.xls.row.outline.level.2" value="End"/>
 					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
 				</reportElement>
 				<box>
