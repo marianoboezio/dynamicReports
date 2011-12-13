@@ -113,7 +113,7 @@
 				<textFieldExpression><![CDATA[$F{YTD}]]></textFieldExpression>
 			</textField>
 			<componentElement>
-				<reportElement x="63" y="21" width="482" height="20" isRemoveLineWhenBlank="true">
+				<reportElement x="63" y="21" width="482" height="20">
 					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
 				</reportElement>
 				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
