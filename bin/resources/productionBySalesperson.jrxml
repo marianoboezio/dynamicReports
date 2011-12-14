@@ -90,9 +90,7 @@
 	<detail>
 		<band height="40" splitType="Stretch">
 			<textField isBlankWhenNull="true">
-				<reportElement x="0" y="0" width="203" height="20" isRemoveLineWhenBlank="true">
-					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
-				</reportElement>
+				<reportElement x="0" y="0" width="203" height="20" isRemoveLineWhenBlank="true"/>
 				<box>
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -104,9 +102,7 @@
 				<textFieldExpression><![CDATA[$F{Salespeople}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="203" y="0" width="119" height="20" isRemoveLineWhenBlank="true">
-					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
-				</reportElement>
+				<reportElement x="203" y="0" width="119" height="20" isRemoveLineWhenBlank="true"/>
 				<box>
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -118,9 +114,7 @@
 				<textFieldExpression><![CDATA[$F{WTD}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="322" y="0" width="120" height="20" isRemoveLineWhenBlank="true">
-					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
-				</reportElement>
+				<reportElement x="322" y="0" width="120" height="20" isRemoveLineWhenBlank="true"/>
 				<box>
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -132,9 +126,7 @@
 				<textFieldExpression><![CDATA[$F{MTD}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="442" y="0" width="113" height="20" isRemoveLineWhenBlank="true">
-					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
-				</reportElement>
+				<reportElement x="442" y="0" width="113" height="20" isRemoveLineWhenBlank="true"/>
 				<box>
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
