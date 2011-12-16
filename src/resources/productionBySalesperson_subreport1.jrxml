@@ -66,13 +66,13 @@
 				<text><![CDATA[]]></text>
 			</staticText>
 			<textField isBlankWhenNull="true">
-				<reportElement x="0" y="1" width="245" height="20" isRemoveLineWhenBlank="true">
+				<reportElement x="0" y="0" width="245" height="20" isRemoveLineWhenBlank="true">
 					<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="Body"/>
 					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
 				</reportElement>
 				<box>
 					<topPen lineWidth="1.0"/>
-					<bottomPen lineWidth="1.0"/>
+					<bottomPen lineWidth="0.75"/>
 				</box>
 				<textElement>
 					<font size="9"/>
@@ -80,12 +80,12 @@
 				<textFieldExpression><![CDATA[$F{Name}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="245" y="1" width="100" height="20" isRemoveLineWhenBlank="true">
+				<reportElement x="245" y="0" width="100" height="20" isRemoveLineWhenBlank="true">
 					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
 				</reportElement>
 				<box>
 					<topPen lineWidth="1.0"/>
-					<bottomPen lineWidth="1.0"/>
+					<bottomPen lineWidth="0.75"/>
 				</box>
 				<textElement>
 					<font size="9"/>
@@ -93,12 +93,12 @@
 				<textFieldExpression><![CDATA[$F{WTD}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="345" y="1" width="100" height="20" isRemoveLineWhenBlank="true">
+				<reportElement x="345" y="0" width="100" height="20" isRemoveLineWhenBlank="true">
 					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
 				</reportElement>
 				<box>
 					<topPen lineWidth="1.0"/>
-					<bottomPen lineWidth="1.0"/>
+					<bottomPen lineWidth="0.75"/>
 				</box>
 				<textElement>
 					<font size="9"/>
@@ -106,12 +106,12 @@
 				<textFieldExpression><![CDATA[$F{MTD}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="445" y="1" width="100" height="20" isRemoveLineWhenBlank="true">
+				<reportElement x="445" y="0" width="100" height="20" isRemoveLineWhenBlank="true">
 					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
 				</reportElement>
 				<box>
 					<topPen lineWidth="1.0"/>
-					<bottomPen lineWidth="1.0"/>
+					<bottomPen lineWidth="0.75"/>
 				</box>
 				<textElement>
 					<font size="9"/>
@@ -135,8 +135,8 @@
 								<printWhenExpression><![CDATA[$F{YTD2} != "0"]]></printWhenExpression>
 							</reportElement>
 							<box>
-								<topPen lineWidth="1.0"/>
-								<bottomPen lineWidth="1.0"/>
+								<topPen lineWidth="0.75"/>
+								<bottomPen lineWidth="0.75"/>
 							</box>
 							<textElement>
 								<font size="9"/>
@@ -148,8 +148,8 @@
 								<printWhenExpression><![CDATA[$F{YTD2} != "0"]]></printWhenExpression>
 							</reportElement>
 							<box>
-								<topPen lineWidth="1.0"/>
-								<bottomPen lineWidth="1.0"/>
+								<topPen lineWidth="0.75"/>
+								<bottomPen lineWidth="0.75"/>
 							</box>
 							<textElement>
 								<font size="9"/>
@@ -161,8 +161,8 @@
 								<printWhenExpression><![CDATA[$F{YTD2} != "0"]]></printWhenExpression>
 							</reportElement>
 							<box>
-								<topPen lineWidth="1.0"/>
-								<bottomPen lineWidth="1.0"/>
+								<topPen lineWidth="0.75"/>
+								<bottomPen lineWidth="0.75"/>
 							</box>
 							<textElement>
 								<font size="9"/>
@@ -174,8 +174,8 @@
 								<printWhenExpression><![CDATA[$F{YTD2} != "0"]]></printWhenExpression>
 							</reportElement>
 							<box>
-								<topPen lineWidth="1.0"/>
-								<bottomPen lineWidth="1.0"/>
+								<topPen lineWidth="0.75"/>
+								<bottomPen lineWidth="0.75"/>
 							</box>
 							<textElement>
 								<font size="9"/>
