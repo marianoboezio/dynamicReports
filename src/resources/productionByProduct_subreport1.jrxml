@@ -50,14 +50,6 @@
 	<columnHeader>
 		<band height="1">
 			<staticText>
-				<reportElement x="10" y="0" width="100" height="1" isRemoveLineWhenBlank="true">
-					<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="End"/>
-					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
-				</reportElement>
-				<textElement/>
-				<text><![CDATA[Static text]]></text>
-			</staticText>
-			<staticText>
 				<reportElement x="18" y="0" width="100" height="1" isRemoveLineWhenBlank="true">
 					<property name="net.sf.jasperreports.export.xls.row.outline.level.2" value="End"/>
 					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
@@ -79,7 +71,6 @@
 			</staticText>
 			<textField isBlankWhenNull="true">
 				<reportElement x="0" y="0" width="245" height="20" isRemoveLineWhenBlank="true">
-					<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="Body"/>
 					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
 				</reportElement>
 				<box>
@@ -220,9 +211,7 @@
 				<text><![CDATA[Static text]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="18" y="0" width="100" height="1" isRemoveLineWhenBlank="true">
-					<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="End"/>
-				</reportElement>
+				<reportElement x="18" y="0" width="100" height="1" isRemoveLineWhenBlank="true"/>
 				<textElement/>
 				<text><![CDATA[Static text]]></text>
 			</staticText>
