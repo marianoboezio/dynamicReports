@@ -40,9 +40,7 @@
 	<columnHeader>
 		<band height="20" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="0" width="170" height="20">
-					<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="End"/>
-				</reportElement>
+				<reportElement x="0" y="0" width="170" height="20"/>
 				<box>
 					<pen lineWidth="1.5"/>
 					<topPen lineWidth="1.5"/>
@@ -114,7 +112,7 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="40" splitType="Stretch">
+		<band height="20" splitType="Stretch">
 			<textField isBlankWhenNull="true">
 				<reportElement x="170" y="0" width="90" height="20" isRemoveLineWhenBlank="true"/>
 				<box>
@@ -155,7 +153,9 @@
 				<textFieldExpression><![CDATA[$F{YTD}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="0" y="0" width="170" height="20" isRemoveLineWhenBlank="true"/>
+				<reportElement x="0" y="0" width="170" height="20" isRemoveLineWhenBlank="true">
+					<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="End"/>
+				</reportElement>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -180,8 +180,10 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Salespersons}]]></textFieldExpression>
 			</textField>
+		</band>
+		<band height="20">
 			<subreport>
-				<reportElement x="11" y="20" width="545" height="20" isRemoveLineWhenBlank="true">
+				<reportElement x="10" y="0" width="545" height="20" isRemoveLineWhenBlank="true">
 					<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="Body"/>
 					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
 				</reportElement>
