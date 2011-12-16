@@ -200,13 +200,6 @@
 		</band>
 		<band height="1">
 			<staticText>
-				<reportElement x="28" y="0" width="100" height="1" isRemoveLineWhenBlank="true">
-					<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="End"/>
-				</reportElement>
-				<textElement/>
-				<text><![CDATA[Static text]]></text>
-			</staticText>
-			<staticText>
 				<reportElement mode="Opaque" x="0" y="0" width="100" height="1" isRemoveLineWhenBlank="true">
 					<property name="net.sf.jasperreports.export.xls.row.outline.level.2" value="End"/>
 					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
