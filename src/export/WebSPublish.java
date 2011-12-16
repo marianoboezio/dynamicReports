@@ -259,7 +259,7 @@ public class WebSPublish extends HttpServlet {
 	    	System.out.println("######################## Finish Looping ########################");
 		    xml += "</root>";	    
 		    
-		    Document xmlOutput = Util.xmlFormat(xml.replaceAll("&", " "));
+		    Document xmlOutput = Util.xmlFormat(xml);
 		    
 		    resp.setHeader("content-type","application/vnd.ms-excel#report.xls");
 			resp.setContentType("application/x-msdownload");
