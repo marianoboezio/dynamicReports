@@ -112,14 +112,46 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="40" splitType="Stretch">
-			<subreport>
-				<reportElement stretchType="RelativeToTallestObject" x="10" y="20" width="545" height="20" isRemoveLineWhenBlank="true">
-					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
-				</reportElement>
-				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("//Product")]]></dataSourceExpression>
-				<subreportExpression><![CDATA[$P{SubReportParam}]]></subreportExpression>
-			</subreport>
+		<band height="20" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" x="170" y="0" width="90" height="20" isRemoveLineWhenBlank="true"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{WTD}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" x="260" y="0" width="90" height="20" isRemoveLineWhenBlank="true"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{MTD}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" x="350" y="0" width="90" height="20" isRemoveLineWhenBlank="true"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{YTD}]]></textFieldExpression>
+			</textField>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
 				<reportElement stretchType="RelativeToTallestObject" x="0" y="0" width="170" height="20" isRemoveLineWhenBlank="true"/>
 				<box>
@@ -133,6 +165,28 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Acount}]]></textFieldExpression>
 			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" x="440" y="0" width="115" height="20" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" isPrintWhenDetailOverflows="true"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Salespersons}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="20">
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="10" y="0" width="545" height="20" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
+				</reportElement>
+				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("//Product")]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SubReportParam}]]></subreportExpression>
+			</subreport>
 		</band>
 	</detail>
 </jasperReport>
