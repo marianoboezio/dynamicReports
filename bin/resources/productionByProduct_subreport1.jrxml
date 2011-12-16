@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="production_subreport1" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="subData">
+		<queryString language="XPath">
+			<![CDATA[root/ProductionReportProductType/Row/Product/Salesperson]]>
+		</queryString>
+	</subDataset>
+	<subDataset name="dataset1">
+		<queryString language="xPath">
+			<![CDATA[root/ProductionReportProductType/Row/Product/Salesperson]]>
+		</queryString>
+		<field name="MTD2" class="java.lang.String">
+			<fieldDescription><![CDATA[MTD]]></fieldDescription>
+		</field>
+		<field name="Rating" class="java.lang.String">
+			<fieldDescription><![CDATA[Rating]]></fieldDescription>
+		</field>
+		<field name="YTD2" class="java.lang.String">
+			<fieldDescription><![CDATA[YTD]]></fieldDescription>
+		</field>
+		<field name="WTD2" class="java.lang.String">
+			<fieldDescription><![CDATA[WTD]]></fieldDescription>
+		</field>
+		<field name="Name2" class="java.lang.String">
+			<fieldDescription><![CDATA[Name]]></fieldDescription>
+		</field>
+	</subDataset>
+	<queryString language="xPath">
+		<![CDATA[root/ProductionReportProductType/Row/Product]]>
+	</queryString>
+	<field name="Name" class="java.lang.String">
+		<fieldDescription><![CDATA[Name]]></fieldDescription>
+	</field>
+	<field name="WTD" class="java.lang.String">
+		<fieldDescription><![CDATA[WTD]]></fieldDescription>
+	</field>
+	<field name="MTD" class="java.lang.String">
+		<fieldDescription><![CDATA[MTD]]></fieldDescription>
+	</field>
+	<field name="YTD" class="java.lang.String">
+		<fieldDescription><![CDATA[YTD]]></fieldDescription>
+	</field>
+	<field name="field1" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="1">
+			<staticText>
+				<reportElement x="18" y="0" width="100" height="1" isRemoveLineWhenBlank="true">
+					<property name="net.sf.jasperreports.export.xls.row.outline.level.2" value="End"/>
+					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
+				</reportElement>
+				<textElement/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="1" isRemoveLineWhenBlank="true">
+					<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="End"/>
+					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
+				</reportElement>
+				<textElement/>
+				<text><![CDATA[]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="20" width="100" height="1" isRemoveLineWhenBlank="true">
+					<property name="net.sf.jasperreports.export.xls.row.outline.level.2" value="End"/>
+					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="245" height="20" isRemoveLineWhenBlank="true">
+					<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="Body"/>
+					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Name}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="245" y="0" width="100" height="20" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{WTD}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="345" y="0" width="100" height="20" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{MTD}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="445" y="0" width="98" height="20" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{YTD}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="20">
+			<componentElement>
+				<reportElement x="63" y="0" width="482" height="20" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
+				</reportElement>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="dataset1">
+						<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("//Product/Salesperson")]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="20" width="482">
+						<textField isBlankWhenNull="true">
+							<reportElement x="0" y="0" width="182" height="20" isRemoveLineWhenBlank="true">
+								<property name="net.sf.jasperreports.export.xls.row.outline.level.2" value="Body"/>
+								<printWhenExpression><![CDATA[$F{YTD2} != "0"]]></printWhenExpression>
+							</reportElement>
+							<box>
+								<topPen lineWidth="1.0"/>
+								<bottomPen lineWidth="1.0"/>
+							</box>
+							<textElement>
+								<font size="9"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{Name2}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="182" y="0" width="100" height="20" isRemoveLineWhenBlank="true">
+								<printWhenExpression><![CDATA[$F{YTD2} != "0"]]></printWhenExpression>
+							</reportElement>
+							<box>
+								<topPen lineWidth="1.0"/>
+								<bottomPen lineWidth="1.0"/>
+							</box>
+							<textElement textAlignment="Right">
+								<font size="9"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{WTD2}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="282" y="0" width="100" height="20" isRemoveLineWhenBlank="true">
+								<printWhenExpression><![CDATA[$F{YTD2} != "0"]]></printWhenExpression>
+							</reportElement>
+							<box>
+								<topPen lineWidth="1.0"/>
+								<bottomPen lineWidth="1.0"/>
+							</box>
+							<textElement textAlignment="Right">
+								<font size="9"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{MTD2}]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="382" y="0" width="100" height="20" isRemoveLineWhenBlank="true">
+								<printWhenExpression><![CDATA[$F{YTD2} != "0"]]></printWhenExpression>
+							</reportElement>
+							<box>
+								<topPen lineWidth="1.0"/>
+								<bottomPen lineWidth="1.0"/>
+							</box>
+							<textElement textAlignment="Right">
+								<font size="9"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{YTD2}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+		<band height="1">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="100" height="1" isRemoveLineWhenBlank="true">
+					<property name="net.sf.jasperreports.export.xls.row.outline.level.2" value="End"/>
+					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="1">
+			<staticText>
+				<reportElement x="18" y="0" width="100" height="1" isRemoveLineWhenBlank="true">
+					<property name="net.sf.jasperreports.export.xls.row.outline.level.2" value="End"/>
+					<printWhenExpression><![CDATA[$F{YTD} != "0"]]></printWhenExpression>
+				</reportElement>
+				<textElement/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="18" y="0" width="100" height="1" isRemoveLineWhenBlank="true">
+					<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="End"/>
+				</reportElement>
+				<textElement/>
+				<text><![CDATA[]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+</jasperReport>
