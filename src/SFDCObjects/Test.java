@@ -18,6 +18,7 @@ public class Test {
 		}
 		ret = ret.substring(0, ret.length() -1);
 		System.out.println(ret);
+		System.out.println(ret);
 	}
 	
 
